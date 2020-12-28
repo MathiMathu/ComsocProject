@@ -19,4 +19,7 @@ Route::get('/', function () {
 Route::get('/event', function () {
     return view('event');
 });
+Route::get('/register_now_form', function () {
+    return view('register_now_form');
+});
 
