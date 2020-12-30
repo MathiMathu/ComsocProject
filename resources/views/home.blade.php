@@ -125,7 +125,34 @@
                     </li>
                    
                     <li class="nav-item">
-                        <a href="#" class="btn" aria-pressed="true" style="color:#ffffff;">LogIn</a>
+                    @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="btn" aria-pressed="true" style="color:#ffffff;">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+                            
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" aria-pressed="true"  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                     <b>
+                                        {{ __('Logout') }}
+                                        </b>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                     </li>
                 </ul>
             </div><!--collapse navibar-collapse-->
