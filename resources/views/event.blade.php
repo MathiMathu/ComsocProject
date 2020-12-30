@@ -308,7 +308,7 @@
 
 
                             <div class="text-center register-now">
-                                <a href="#" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
+                                <a href="register_now_form" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
                             </div>
                         </div>
                         <div class="dat-and-time ">
@@ -333,7 +333,7 @@
                             </h6>
 
                             <div class="text-center register-now">
-                                <a href="#" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
+                                <a href="register_now_form" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
                             </div>
                         </div>
                         <div class="dat-and-time">
@@ -356,7 +356,7 @@
                             </h6>
 
                             <div class="text-center register-now">
-                                <a href="#" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
+                                <a href="register_now_form" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
                             </div>
                         </div>
                         <div class="dat-and-time ">
@@ -379,7 +379,7 @@
                             </h6>
 
                             <div class="text-center register-now">
-                                <a href="#" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
+                                <a href="register_now_form" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
                             </div>
                         </div>
                         <div class="dat-and-time ">
@@ -401,7 +401,7 @@
                                 quas repellat rerum sunt quidem consequuntur officiis sit, maxime illo rem eius, quis adipisci voluptatum id accusamus!
                             </h6>
                             <div class="text-center register-now">
-                                <a href="#" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
+                                <a href="register_now_form" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
                             </div>
                         </div>
                         <div class="dat-and-time mt-10">
