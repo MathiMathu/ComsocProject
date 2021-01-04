@@ -30,6 +30,9 @@ Route::get('/event', function () {
 Route::get('/register_now_form', function () {
     return view('register_now_form');
 });
+Route::get('/cspark', function () {
+    return view('cspark');
+});
 
 // Route::get('/login', function () {
 //     return view('login');
