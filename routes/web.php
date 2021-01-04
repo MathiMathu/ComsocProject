@@ -31,6 +31,14 @@ Route::get('/register_now_form', function () {
     return view('register_now_form');
 });
 
+Route::get('/Seminar', function () {
+    return view('seminar');
+});
+
+Route::get('/seminarregistration', function () {
+    return view('seminarRegistration');
+});
+
 // Route::get('/login', function () {
 //     return view('login');
 // });
