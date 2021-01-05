@@ -30,7 +30,13 @@ Route::get('/event', function () {
 Route::get('/register_now_form', function () {
     return view('register_now_form');
 });
+Route::get('/financial_support', function () {
+    return view('financial_support');
+});
 
+Route::get('/finnancial_apply_now', function () {
+    return view('finnancial_apply_now');
+});
 // Route::get('/login', function () {
 //     return view('login');
 // });
