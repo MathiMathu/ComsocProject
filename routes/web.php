@@ -49,5 +49,9 @@ Route::get('/seminarregistration', function () {
 //     return view('foget');
 // });
 
+Route::get('/ourTeam', function () {
+    return view('members');
+});
+
 
 ?>
