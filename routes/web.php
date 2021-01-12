@@ -53,5 +53,7 @@ Route::get('/ourTeam', function () {
     return view('members');
 });
 
-
+Route::get('/uploadArticle', function () {
+    return view('articleForm');
+})
 ?>
