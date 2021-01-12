@@ -3,15 +3,15 @@
    #FONT
    ========================================================================== */
 .font-robo {
-  font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+    font-family: "Raleway", sans-serif;
 }
 
 .font-poppins {
-  font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
+    font-family: "Raleway", sans-serif;
 }
 
 .font-opensans {
-  font-family: "Open Sans", "Arial", "Helvetica Neue", sans-serif;
+    font-family: "Raleway", sans-serif;
 }
 
 /* ==========================================================================
@@ -191,7 +191,7 @@ button {
 }
 
 body {
-  font-family: "Open Sans", "Arial", "Helvetica Neue", sans-serif;
+    font-family: "Raleway", sans-serif;
   font-weight: 400;
   font-size: 14px;
 }
@@ -227,21 +227,17 @@ h6 {
 /* ==========================================================================
    #BACKGROUND
    ========================================================================== */
-.bg-blue {
-  background: #2c6ed5;
-}
-
-.bg-red {
-  background: #fa4251;
-}
 
 .bg-dark {
-  background: #1a1a1a;
-}
 
-.bg-light {
-  background: wheat;
+    background:linear-gradient(315deg,#2a1185,#458ddf);
 }
+ @media (min-width: 1024px) {
+    .bg-dark{
+      background-attachment: fixed;
+    }
+  }
+
 
 .bg-gra-01 {
   background: -webkit-gradient(linear, left bottom, left top, from(#fbc2eb), to(#a18cd1));
@@ -431,7 +427,7 @@ input[type="date" i] {
 
 .table-condensed td, .table-condensed th {
   font-size: 14px;
-  font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
 }
 
@@ -481,7 +477,11 @@ textarea {
   box-shadow: none;
   width: 100%;
   font-size: 14px;
-  font-family: inherit;
+  font-family: "Raleway", sans-serif;
+
+}
+.form-row .name{
+    color:rgb(4, 2, 37)
 }
 
 textarea {
@@ -647,7 +647,9 @@ textarea {
 .card-6 .card-heading {
   background: transparent;
 }
-
+.card-6 .card-heading h2{
+    font-family: "Raleway", sans-serif;
+}
 .card-6 .card-body {
   background: #fff;
   position: relative;
@@ -695,3 +697,4 @@ textarea {
     padding: 50px 30px;
   }
 }
+
