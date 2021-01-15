@@ -13,6 +13,13 @@
 .font-opensans {
     font-family: "Raleway", sans-serif;
 }
+.alert{
+    font-family: "Raleway", sans-serif;
+    font-size: 15px;
+    background:linear-gradient(315deg,#e90707,#d6ca18);
+    color:white;
+    display:block;
+}
 
 /* ==========================================================================
    #GRID
@@ -61,7 +68,7 @@
   }
 }
 
-.form-row {
+.form-row-top  {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -79,7 +86,7 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
-.form-row .name {
+.form-row-top  .name {
   width: 188px;
   color: #333;
   font-size: 15px;
@@ -87,23 +94,23 @@
   margin-top: 11px;
 }
 
-.form-row .value {
+.form-row-top  .value {
   width: -webkit-calc(100% - 188px);
   width: -moz-calc(100% - 188px);
   width: calc(100% - 188px);
 }
 
 @media (max-width: 767px) {
-  .form-row {
+  .form-row-top  {
     display: block;
     padding: 24px 30px;
   }
-  .form-row .name,
-  .form-row .value {
+  .form-row-top .name,
+  .form-row-top  .value {
     display: block;
     width: 100%;
   }
-  .form-row .name {
+  .form-row-top  .name {
     margin-top: 0;
     margin-bottom: 12px;
   }
@@ -321,27 +328,27 @@ h6 {
 /* ==========================================================================
    #WRAPPER
    ========================================================================== */
-.wrapper {
+.wrapper-top{
   margin: 0 auto;
 }
 
-.wrapper--w960 {
+.wrapper--w960-top {
   max-width: 960px;
 }
 
-.wrapper--w900 {
+.wrapper--w900-top {
   max-width: 900px;
 }
 
-.wrapper--w790 {
+.wrapper--w790-top{
   max-width: 790px;
 }
 
-.wrapper--w780 {
+.wrapper--w780-top {
   max-width: 780px;
 }
 
-.wrapper--w680 {
+.wrapper--w680-top {
   max-width: 680px;
 }
 
@@ -480,7 +487,7 @@ textarea {
   font-family: "Raleway", sans-serif;
 
 }
-.form-row .name{
+.form-row-top .name{
     color:rgb(4, 2, 37)
 }
 
@@ -633,24 +640,24 @@ textarea {
 /* ==========================================================================
    #CARD
    ========================================================================== */
-.card {
+.card-top {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   background: #fff;
 }
 
-.card-6 {
+.card-6-top{
   background: transparent;
 }
 
-.card-6 .card-heading {
+.card-6-top .card-heading-top {
   background: transparent;
 }
-.card-6 .card-heading h2{
+.card-6-top .card-heading-top h2{
     font-family: "Raleway", sans-serif;
 }
-.card-6 .card-body {
+.card-6-top .card-body-top {
   background: #fff;
   position: relative;
   border: 1px solid #e5e5e5;
@@ -665,7 +672,7 @@ textarea {
   border-top-right-radius: 3px;
 }
 
-.card-6 .card-body:before {
+.card-6-top .card-body-top:before {
   bottom: 100%;
   left: 75px;
   border: solid transparent;
@@ -679,7 +686,7 @@ textarea {
   border-width: 10px;
 }
 
-.card-6 .card-footer {
+.card-6-top .card-footer-top {
   background: #fff;
   border: 1px solid #e5e5e5;
   border-top: none;
@@ -693,7 +700,7 @@ textarea {
 }
 
 @media (max-width: 767px) {
-  .card-6 .card-footer {
+  .card-6-top .card-footer-top {
     padding: 50px 30px;
   }
 }

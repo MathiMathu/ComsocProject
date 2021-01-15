@@ -55,5 +55,7 @@ Route::get('/ourTeam', function () {
 
 Route::get('/uploadArticle', function () {
     return view('articleForm');
-})
+});
+Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
+
 ?>
