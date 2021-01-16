@@ -1,9 +1,12 @@
+<?php
+use Carbon\Carbon;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
+    <title>Event page</title>
     <link rel = "stylesheet" type = "text/css" href = "css/bootstrap.min.css">
 	<link rel = "stylesheet" type = "text/css" href = "css/footer.css">
     <!--link style navibar and slider-->
@@ -234,12 +237,38 @@
                             <a class="dropdown-item" href="#" style="color:#ffffff;">Gallery</a>
                             <a class="dropdown-item" href="#" style="color:#ffffff;">Financial support</a>
                             <a class="dropdown-item" href="#" style="color:#ffffff;">About Us</a>
-
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="btn" aria-pressed="true" style="color:#ffffff;">LogIn</a>
+                    @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="btn" aria-pressed="true" style="color:#ffffff;">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+                            
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" aria-pressed="true"  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                     <b>
+                                        {{ __('Logout') }}
+                                        </b>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                     </li>
                 </ul>
             </div><!--collapse navibar-collapse-->
@@ -290,38 +319,82 @@
                 <div class="col-md-12">
                     <h2 class="term-upcoming-event mt-5 mb-5"><span>Up Coming Event</span></h2>
                 </div>
-            </div>
-            <div class="row ">
-                <div class="col-md-12 this-mont-event no-gutters">
+                @foreach ($events as $event)
+                    <?php
+                    $date1 = Carbon::now()->toDateString();
+                    $date2 = $event->date;
+                    $toDate = Carbon::createMidnightDate($date2)->addDay();
+                    $fromDate = Carbon::createMidnightDate($date1);
+                    $diffDays = $fromDate->diffInDays($toDate);
+                    ?>
+                  @if($toDate > $fromDate) 
+               
+                </div>
+                   @if (empty($event->guest))
+               <div class="row ">
+               <div class="col-md-12 this-mont-event no-gutters">
 
-                    <!--strt event1---->
-                    <div class="row mt-3 event-description-details">
+                    <!--strt events without guest name---->
+                   
+                     <div class="row mt-3 event-description-details">
                         <div class="col-md-3 event-img">
-                            <img src="img/event/event1.png" alt="" class="">
+                            <img src="{{asset('/storage/images/'.$event->image_name)}}" alt="" class="">
                         </div>
+                        
                         <div class="col-md-9 event-description ">
-                            <h3 class="event-title text-center">UOJ coders</h3>
-                            <h6 class="event-description mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid at alias
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores enim laudantium quisquam assumenda
-                                quas repellat rerum sunt quidem consequuntur officiis sit, maxime illo rem eius, quis adipisci voluptatum id accusamus!
+                            <h3 class="event-title  text-center mt-2">{{ $event->event_name}}</h3>
+                            <h6 class="event-description mt-4">{{ $event->event_name}} will be held on  {{ $event->date}} from {{ date('h:i a',strtotime($event->start_time))}} to  {{ date('h:i a',strtotime($event->end_time))}} at  {{ $event->venue}}
+                                .It is organized by computer society of university of Jaffna.We warmly welcomes all of you.
                             </h6>
-
-
+                            
+                            
                             <div class="text-center register-now">
                                 <a href="register_now_form" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
                             </div>
+                            
                         </div>
                         <div class="dat-and-time ">
-                            <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">2020/01/02</span></i>
-                            <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">11.30am</span></i>
+                            <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">{{ $event->date}}</span></i>
+                            <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">{{ date('h:i a',strtotime($event->start_time))}}</span></i>
                         </div>
+                   @else
+                    <!--strt events with guest name---->
+              <div class="row ">
+                <div class="col-md-12 this-mont-event no-gutters">
+                 <div class="row mt-3 event-description-details">
+                  <div class="col-md-3 event-img">
+                      <img src="{{asset('/storage/images/'.$event->image_name)}}" alt="" class="">
+                  </div>
+                  
+                  <div class="col-md-9 event-description ">
+                 
+                      <h3 class="event-title  text-center mt-2">{{ $event->event_name}}</h3>
+                      <h6 class="event-description mt-4">{{ $event->event_name}} will be held on  {{ $event->date}} from {{ date('h:i a',strtotime($event->start_time))}} to  {{ date('h:i a',strtotime($event->end_time))}} at  {{ $event->venue}}
+                          .It is organized by computer society of university of Jaffna. The chief guest for the event is {{ $event->guest}}. We warmly welcomes all of you.
+                      </h6>
+                      
+                      
+                      <div class="text-center register-now">
+                          <a href="register_now_form" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
+                      </div>
+                      
+                  </div>
+                  <div class="dat-and-time ">
+                      <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">{{ $event->date}}</span></i>
+                      <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">{{ date('h:i a',strtotime($event->start_time))}}</span></i>
+                  </div>
+
+                  @endif 
+               @endif 
+              
+            @endforeach
                     </div>
                     <!--End event1---->
                     <br>
 
-                    <br>
+                    <br> 
                     <!--strt event3---->
-                    <div class="row mt-3 event-description-details">
+                    <!-- <div class="row mt-3 event-description-details">
                         <div class="col-md-3 event-img">
                             <img src="img/event/event3.jpg" alt="" class="img-fluid ">
                         </div>
@@ -341,10 +414,10 @@
                             <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">10.00am</span></i>
                         </div>
                     </div>
-                    <!--End event3---->
-                    <br>
+                  End event3-->
+                    <!-- <br> -->
                     <!--strt event4---->
-                    <div class="row mt-3 event-description-details">
+                    <!-- <div class="row mt-3 event-description-details">
                         <div class="col-md-3 event-img">
                             <img src="img/event/event4.jpg" alt="" class="img-fluid ">
                         </div>
@@ -363,11 +436,11 @@
                             <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">2020/01/02</span></i>
                             <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">10.00am</span></i>
                         </div>
-                    </div>
+                    </div> -->
                     <!--End event4---->
-                    <br>
+                    <!-- <br> -->
                     <!--strt event5---->
-                    <div class="row mt-3 event-description-details">
+                    <!-- <div class="row mt-3 event-description-details">
                         <div class="col-md-3 event-img">
                             <img src="img/event/event5.jpg" alt="" class="img-fluid">
                         </div>
@@ -385,12 +458,12 @@
                         <div class="dat-and-time ">
                             <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">2020/01/02</span></i>
                             <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">10.00am</span></i>
-                        </div>
-                    </div>
+                        </div> -->
+                    <!-- </div> -->
                     <!--End event5---->
-                    <br>
+                    <!-- <br> -->
                     <!--strt event6---->
-                    <div class="row mt-3 event-description-details">
+                    <!-- <div class="row mt-3 event-description-details">
                         <div class="col-md-3 event-img">
                             <img src="img/event/event6.jpg" alt="" class="img-fluid">
                         </div>
@@ -408,14 +481,14 @@
                             <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">2020/01/02</span></i>
                             <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">10.00am</span></i>
                         </div>
-                    </div>
-                    <!--End event6---->
+                    </div> -->
+                    <!--End of all upcoming event--->
                     <br>
                 </div>
             </div>
         </div>
 
-        <!--End Event Calnder and upcoming event--->
+        
     </section>
 
 

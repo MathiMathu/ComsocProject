@@ -1,3 +1,9 @@
+<?php
+use Illuminate\Support\Facades\DB; 
+use App\Models\Event;
+use App\Models\Register;
+use Carbon\Carbon;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,6 +39,7 @@
             <h2>Register for improve your coding skills</h2>
             <div id="demo">
                 <script>
+                     
                     // Set the date we're counting down to
                     var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
 
@@ -77,6 +84,7 @@
                     }
                     }, 1000);
                 </script>
+               
             </div>
         </div>
     </header>
@@ -117,22 +125,74 @@
 
                 <div class="row  justify-content-center">
                     <div class="col-lg-10">
-                        <form action=""  class="register-now-form">
-                            <div class="form-row">
-                                <div class="col-md-6 form-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"  />
-                                    <div class="validate"></div>
-                                </div>
-                                <div class="col-md-6 form-group">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"  />
-                                    <div class="validate"></div>
-                                </div>
+                    <form  class="register-now-form" action="{{ route('store') }}" method="POST">
+                        @csrf
+                     
+                    <div class="form-group row">
+                    <label for="event_name"> <h6 class="text-left">Select the Event Name you are registering</h6></label><p>
+                    
+                       <select class="text-center" name="event_name" required autocomplete="event_name"> 
+                            @foreach ($events as $event)
+                            <?php
+                             $date1 = Carbon::now()->toDateString();
+                             $date2 = $event->date;
+                             $toDate = Carbon::createMidnightDate($date2)->addDay();
+                             $fromDate = Carbon::createMidnightDate($date1);
+                             $diffDays = $fromDate->diffInDays($toDate);
+                            ?>
+                               @if($toDate > $fromDate) 
+                            <option value="{{ $event->event_name}}">{{ $event->event_name }}</option>
+                            @endif
+                            @endforeach
+                        </select>
+                        @error('event_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+
+                           <div class="form-group row">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Enter name" required autocomplete="name" autofocus>
+                        
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"  />
-                                 <div class="validate"></div>
+
+                            <div class="form-group row">
+                                 <input id="regNo" type="text" class="form-control @error('regNo') is-invalid @enderror" name="regNo" value="{{ old('regNo') }}" placeholder="Enter Registration number Eg: 2017/CSC/001"  required autocomplete="regNo">
+        
+                                @error('regNo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                            <div class="form-group">
+                           
+                            <div class="form-group row">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Enter email"  required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        
+                            <div class="form-group row">
+                                <input id="yos" type="yos" class="form-control @error('yos') is-invalid @enderror" name="yos" value="{{ old('yos') }}" placeholder="Enter Year Of Study"  required autocomplete="yos">
+
+                                @error('yos')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group row">
                                 <textarea class="form-control" name="message" rows="5"  placeholder="Message"></textarea>
                                  <div class="validate"></div>
                             </div>

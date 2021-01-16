@@ -102,7 +102,7 @@
                         <a class="nav-link" href="#" style="color:#ffffff;">Kananiyam</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Event</a>
+                        <a class="nav-link" href="{{ route('events.index') }}" style="color:#ffffff;">Event</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color:#ffffff;">Discussion</a>
