@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CsparkController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +44,6 @@ Route::get('/cspark', function () {
 // Route::get('/foget', function () {
 //     return view('foget');
 // });
-
+Route::post("saveCspark",[CsparkController::class, "storeCspark"]);
 
 ?>

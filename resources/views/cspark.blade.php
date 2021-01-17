@@ -46,22 +46,25 @@
                             incidunt architecto aut autem ut magni suscipit dolores accusamus!</h6></p>
                     </div>
                 </div>
+
+                
                 <div class="row text-center">
                         <div class="col-md-12 col-md-offset-1 form-cspark text-center">
                             <div class="booking-form text-center">
-                                <form>
-
+                                
+                                <form method="post" action="saveCspark">
+                                @csrf
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <span class="form-label">Registration Number</span>
-                                                <input class="form-control" type="text" placeholder="Eg : 2017/CSC/00" required>
+                                                <input class="form-control" type="text" name="registration_number" placeholder="Eg : 2017/CSC/00" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <span class="form-label">Reason For Booking</span>
-                                                <input class="form-control" type="text" placeholder="Eg : Birthday Party, Welcome Party,.." required>
+                                                <input type="text" class="form-control" name="reason" placeholder="Eg : Birthday Party, Welcome Party,.." required>
                                             </div>
                                         </div>
                                     </div>
@@ -69,13 +72,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <span class="form-label">Booking Date</span>
-                                                <input class="form-control" type="date" required>
+                                                <input class="form-control" type="date" name="date" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <span class="form-label">Booking time</span>
-                                                <input class="form-control" type="time" required>
+                                                <input class="form-control" type="time" name="time" required>
                                             </div>
                                         </div>
                                     </div>
@@ -84,7 +87,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <span class="form-label">Duration</span>
-                                                <select class="form-control" required>
+                                                <select class="form-control"  name="duration" required>
                                                     <option>One Hour</option>
                                                     <option>Two Hours</option>
                                                     <option>Three Hours</option>
