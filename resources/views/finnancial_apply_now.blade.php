@@ -16,7 +16,8 @@
 			<h1>Financial Support Application Form</h1>
 			<div class="main-agileinfo">
 				<div class="agileits-top ">
-					<form action="#" method="post">
+					<form method="post" action="saveFinancialsupport">
+					@csrf
 						<input class="text" type="text" name="RegistrationNo" placeholder="Enter Registration No" required=""><br>
 						<input class="text" type="text" name="Name" placeholder=" Enter Name" required=""><br>
 						<input class="text" type="text" name="MonthlyIncome" placeholder="Enter Monthly Income" required=""><br>

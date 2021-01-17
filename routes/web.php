@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\FinancialsupportController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +40,9 @@ Route::get('/financial_support', function () {
 Route::get('/finnancial_apply_now', function () {
     return view('finnancial_apply_now');
 });
+
+
+Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFinancialsupport"]);
 // Route::get('/login', function () {
 //     return view('login');
 // });
