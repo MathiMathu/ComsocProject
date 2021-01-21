@@ -13,14 +13,14 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-   
+
 
     public function index()
     {
         // $events = Event::latest()->paginate(5);
-        
+
         $events = Event::all();
-  
+
         return view('events.event',compact('events'));
         //return view('demo');
     }
@@ -34,6 +34,7 @@ class EventController extends Controller
     {
         return view('create_event');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -66,10 +67,10 @@ class EventController extends Controller
         $request->image_name->storeAs('images',$filename,'public');
         //Event::find(1)->update(['avatar'=> $filename]);
         //$event->avatar = $filename;
-               
-            
-                
-          
+
+
+
+
 
         $event->save();
         return redirect()->route('events.index');

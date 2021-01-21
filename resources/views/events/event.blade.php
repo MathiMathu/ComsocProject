@@ -247,7 +247,7 @@ use Carbon\Carbon;
                                     <a href="{{ route('login') }}" class="btn" aria-pressed="true" style="color:#ffffff;">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -327,31 +327,31 @@ use Carbon\Carbon;
                     $fromDate = Carbon::createMidnightDate($date1);
                     $diffDays = $fromDate->diffInDays($toDate);
                     ?>
-                  @if($toDate > $fromDate) 
-               
+                  @if($toDate > $fromDate)
+
                 </div>
                    @if (empty($event->guest))
                <div class="row ">
                <div class="col-md-12 this-mont-event no-gutters">
 
                     <!--strt events without guest name---->
-                   
+
                      <div class="row mt-3 event-description-details">
                         <div class="col-md-3 event-img">
                             <img src="{{asset('/storage/images/'.$event->image_name)}}" alt="" class="">
                         </div>
-                        
+
                         <div class="col-md-9 event-description ">
                             <h3 class="event-title  text-center mt-2">{{ $event->event_name}}</h3>
                             <h6 class="event-description mt-4">{{ $event->event_name}} will be held on  {{ $event->date}} from {{ date('h:i a',strtotime($event->start_time))}} to  {{ date('h:i a',strtotime($event->end_time))}} at  {{ $event->venue}}
                                 .It is organized by computer society of university of Jaffna.We warmly welcomes all of you.
                             </h6>
-                            
-                            
+
+
                             <div class="text-center register-now">
-                                <a href="register_now_form" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
+                                <a href="{{ URL('register_now_form/'.$event->id)}}" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
                             </div>
-                            
+
                         </div>
                         <div class="dat-and-time ">
                             <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">{{ $event->date}}</span></i>
@@ -365,34 +365,34 @@ use Carbon\Carbon;
                   <div class="col-md-3 event-img">
                       <img src="{{asset('/storage/images/'.$event->image_name)}}" alt="" class="">
                   </div>
-                  
+
                   <div class="col-md-9 event-description ">
-                 
+
                       <h3 class="event-title  text-center mt-2">{{ $event->event_name}}</h3>
                       <h6 class="event-description mt-4">{{ $event->event_name}} will be held on  {{ $event->date}} from {{ date('h:i a',strtotime($event->start_time))}} to  {{ date('h:i a',strtotime($event->end_time))}} at  {{ $event->venue}}
                           .It is organized by computer society of university of Jaffna. The chief guest for the event is {{ $event->guest}}. We warmly welcomes all of you.
                       </h6>
-                      
-                      
+
+
                       <div class="text-center register-now">
-                          <a href="register_now_form" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
+                          <a href="{{ URL('register_now_form/'.$event->id)}}" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
                       </div>
-                      
+
                   </div>
                   <div class="dat-and-time ">
                       <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">{{ $event->date}}</span></i>
                       <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">{{ date('h:i a',strtotime($event->start_time))}}</span></i>
                   </div>
 
-                  @endif 
-               @endif 
-              
+                  @endif
+               @endif
+
             @endforeach
                     </div>
                     <!--End event1---->
                     <br>
 
-                    <br> 
+                    <br>
                     <!--strt event3---->
                     <!-- <div class="row mt-3 event-description-details">
                         <div class="col-md-3 event-img">
@@ -488,7 +488,7 @@ use Carbon\Carbon;
             </div>
         </div>
 
-        
+
     </section>
 
 
