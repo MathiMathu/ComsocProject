@@ -37,7 +37,7 @@ Route::get('/d', function () {
 
 
 Route::get('/create_event', [App\Http\Controllers\EventController::class, 'create'])->name('create_event');
-Route::get('/register_now_form',[App\Http\Controllers\EventRegisterController::class, 'create'])->name('create');
+Route::get('/register_now_form/{id}',[App\Http\Controllers\EventRegisterController::class, 'getDisplay'])->name('getDisplay');
 
 Route::post('/register_now_form',[App\Http\Controllers\EventRegisterController::class, 'store'])->name('store');
 
