@@ -55,5 +55,9 @@ Route::get('/ourTeam', function () {
 
 Route::get('/uploadArticle', function () {
     return view('articleForm');
+});
+
+Route::get('/kananiyam', function () {
+    return view('kananiyam');
 })
 ?>
