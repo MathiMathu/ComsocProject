@@ -25,7 +25,7 @@ class Register extends Model
      */
     
    protected $fillable = [
-    // 'event_id',
+   'event_name',
     'name',
     'regNo',
     'email',

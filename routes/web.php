@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRegisterController;
+use App\Http\Controllers\ViewRegisteredStudentController;
+use App\Http\Controllers\ViewEventController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,6 +52,10 @@ Route::get('/seminarregistration', function () {
     return view('seminarRegistration');
 });
 
+
+Route::get('/view_registered_students',[App\Http\Controllers\ViewRegisteredStudentController::class, 'index'])->name('index');
+Route::get('/sort_registered_students',[App\Http\Controllers\ViewRegisteredStudentController::class, 'compute'])->name('compute');
+Route::get('/view_uploaded_event',[App\Http\Controllers\ViewEventController::class, 'index'])->name('index');
 // Route::get('/login', function () {
 //     return view('login');
 // });
