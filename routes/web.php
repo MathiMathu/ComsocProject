@@ -2,8 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
+use App\Http\Controllers\FinancialsupportController;
+
+
+
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRegisterController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,7 +54,16 @@ Route::get('/Seminar', function () {
 Route::get('/seminarregistration', function () {
     return view('seminarRegistration');
 });
+Route::get('/financial_support', function () {
+    return view('financial_support');
+});
 
+Route::get('/finnancial_apply_now', function () {
+    return view('finnancial_apply_now');
+});
+
+
+Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFinancialsupport"]);
 // Route::get('/login', function () {
 //     return view('login');
 // });
