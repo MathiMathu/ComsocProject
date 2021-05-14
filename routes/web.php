@@ -2,8 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
 use App\Http\Controllers\FinancialsupportController;
 
+
+
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventRegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +30,29 @@ Route::get('/foget', function () {
 });
 Auth::routes();
 
+
+Route::resource('events', EventController::class);
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/event', function () {
-    return view('event');
+Route::get('/d', function () {
+         return view('demo');
+    });
+
+
+
+Route::get('/create_event', [App\Http\Controllers\EventController::class, 'create'])->name('create_event');
+Route::get('/register_now_form/{id}',[App\Http\Controllers\EventRegisterController::class, 'getDisplay'])->name('getDisplay');
+
+Route::post('/register_now_form',[App\Http\Controllers\EventRegisterController::class, 'store'])->name('store');
+
+Route::get('/Seminar', function () {
+    return view('seminar');
 });
-Route::get('/register_now_form', function () {
-    return view('register_now_form');
+
+Route::get('/seminarregistration', function () {
+    return view('seminarRegistration');
 });
 Route::get('/financial_support', function () {
     return view('financial_support');
@@ -52,6 +73,15 @@ Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFin
 // Route::get('/foget', function () {
 //     return view('foget');
 // });
+
+Route::get('/ourTeam', function () {
+    return view('members');
+});
+
+Route::get('/uploadArticle', function () {
+    return view('articleForm');
+});
+Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
 
 
 ?>
