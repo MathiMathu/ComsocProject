@@ -3,12 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
+use App\Http\Controllers\CsparkController;
+
+
 use App\Http\Controllers\FinancialsupportController;
 
 
 
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRegisterController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +65,9 @@ Route::get('/financial_support', function () {
 Route::get('/finnancial_apply_now', function () {
     return view('finnancial_apply_now');
 });
+Route::get('/cspark', function () {
+    return view('cspark');
+});
 
 
 Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFinancialsupport"]);
@@ -74,6 +81,9 @@ Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFin
 //     return view('foget');
 // });
 
+Route::post("saveCspark",[CsparkController::class, "storeCspark"]);
+
+
 Route::get('/ourTeam', function () {
     return view('members');
 });
@@ -82,6 +92,7 @@ Route::get('/uploadArticle', function () {
     return view('articleForm');
 });
 Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
+
 
 
 ?>
