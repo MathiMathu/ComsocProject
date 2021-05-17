@@ -91,7 +91,7 @@ use Carbon\Carbon;
                     }
                     }, 1000);
                 </script>
-                @endforeach
+                
             </div>
         </div>
     </header>
@@ -134,20 +134,8 @@ use Carbon\Carbon;
                     <div class="col-lg-10">
                     <form  class="register-now-form" action="{{ route('store') }}" method="POST">
                         @csrf
-
-                    <div class="form-group row">
-                    <label for="event_name"> <h6 class="text-left">Select the Event Name you are registering</h6></label><p>
-
-                       <select class="text-center" name="event_name" required autocomplete="event_name">
-
-                        </select>
-                        @error('event_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                    </div>
-
+                  <input type="hidden" id="event_name" name="event_name" value="{{$event->event_name}}">
+                  @endforeach 
                            <div class="form-group row">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Enter name" required autocomplete="name" autofocus>
 

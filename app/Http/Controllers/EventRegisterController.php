@@ -9,6 +9,8 @@ use App\Models\Event;
 
 class EventRegisterController extends Controller
 {
+    
+    
     public function create()
     {
         $events = Event::all();
@@ -16,9 +18,9 @@ class EventRegisterController extends Controller
     }
     public function getDisplay($id){
         //$users = DB::select('select * from users where active = ?', [1]);
-        $users = DB::select('select date from events where id=?',[$id]);
+        $users = DB::select('select date,event_name from events where id=?',[$id]);
         //$users =Event::find($id);
-
+ 
        return view('register_now_form', ['users' => $users]);
      //return view('register_now_form',compact('users'));
 
@@ -26,7 +28,7 @@ class EventRegisterController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'event_name' => ['required', 'string', 'max:255'],
+            'event_name' => ['string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'regNo' => ['required', 'string','min:11','max:12', 'regex:/[A-Z]/'],
             'email' => ['required', 'string', 'email', 'max:255'],

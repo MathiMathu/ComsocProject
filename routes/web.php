@@ -13,6 +13,9 @@ use App\Http\Controllers\FinancialsupportController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRegisterController;
 
+use App\Http\Controllers\ViewRegisteredStudentController;
+use App\Http\Controllers\ViewEventController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +79,13 @@ Route::get('/photo_album', function () {
 });
 
 
+
+Route::get('/view_registered_students',[App\Http\Controllers\ViewRegisteredStudentController::class, 'index'])->name('index');
+Route::get('/sort_registered_students',[App\Http\Controllers\ViewRegisteredStudentController::class, 'compute'])->name('compute');
+Route::get('/view_uploaded_event',[App\Http\Controllers\ViewEventController::class, 'index'])->name('index');
+
 Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFinancialsupport"]);
+
 // Route::get('/login', function () {
 //     return view('login');
 // });
