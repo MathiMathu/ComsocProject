@@ -5,13 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-
-class article extends Model
+class galleries extends Model
 {
     use HasFactory;
-
-class Article extends Model
-{
-    use HasFactory;
-
+    public $table= "galleries";
 }
