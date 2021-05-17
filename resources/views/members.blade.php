@@ -38,42 +38,50 @@
       <div>
           <div class="col-md-4">
               <div class="form-group age-selection">
+              <form method="POST" action="{{ route('compute1') }}">
+                 @csrf
                   <span class="form-label" style="color : #1100ff;"> <h5>Year</h5> </span>
-                  <select class="form-control">
-                      <option> <h6>2015</h6> </option>
-                      <option> <h6>2016</h6> </option>
-                      <option> <h6>2017</h6> </option>
-                      <option> <h6>2018</h6> </option>
-                      <option> <h6>2019</h6> </option>
-                      <option> <h6>2020</h6> </option>
+                  <select class="form-control" name="year">
+                     {{ $last = date('Y')-10 }}
+                     {{ $now = date('Y')}}
+                      @for($i=$now;$i>$last;$i--)
+                      <option value="" disabled selected></option>     
+                      <option value="{{$i}}"> <h6>{{$i}}</h6> </option>
+                      @endfor
                   </select>
                   <span class="select-arrow"></span>
+                  <button type="submit" class="btn btn-primary">Enter</button>
+                </form>  
               </div>
               <br>
-          </div>
+          </div> 
       </div>
       <br>
       <div class="row member-detail">
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+        @if (collect($students)->isEmpty()) 
+          <h2 class="ml-5 ml-sm-5 mb-5"> No Team For this Year Has Been Selected</h2><br> 
+        @else  
+        @foreach ($students as $student)
+        <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" >
                   <div class="mainflip flip-0">
                       <div class="frontside">
                           <div class="card">
                               <div class="card-body text-center">
-                                  <p><img class=" img-fluid" src="img/member1.jpg" alt="card image"></p>
-                                  <h4 class="card-title">Mr.Sanoos</h4><br>
-                                  <h5>President</h5>
+                                  <p><img class=" img-fluid" src="{{asset('/storage/images/'.$student->image_name)}}" alt="card image"></p>
+                                  <h4 class="card-title">{{ $student->name}}</h4><br>
+                                  <h5>{{ $student->role}}</h5>
                               </div>
                           </div>
                       </div>
                       <div class="backside">
                           <div class="card">
                               <div class="card-body text-center mt-4">
-                                  <h4 class="card-title">Mr.Sanoos</h4>
+                                  <h4 class="card-title">{{ $student->name}}</h4>
                                   <br>
                                   <br>
-                                  <p class="card-text">Final year Student, Department of Computer Science, University of Jaffna.</p>
+                                  <p class="card-text">{{ $student->yearofstudy}}, Department of Computer Science, University of Jaffna.</p>
                                   <br>
 
                                   <ul class="list-inline">
@@ -104,9 +112,11 @@
                   </div>
               </div>
           </div>
+          @endforeach
+          @endif
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -153,10 +163,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -205,10 +215,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -257,10 +267,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -309,10 +319,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -361,10 +371,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -412,10 +422,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -464,10 +474,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -516,10 +526,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -568,10 +578,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -620,10 +630,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -675,7 +685,7 @@
           </div>
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -724,10 +734,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> --> 
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -776,10 +786,10 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
-          <div class="col-xs-12 col-sm-6 col-md-4">
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
                   <div class="mainflip">
                       <div class="frontside">
@@ -828,7 +838,7 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
           <!-- ./Team member -->
       </div>
       <br>
