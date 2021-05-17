@@ -91,7 +91,14 @@ Route::get('/ourTeam', function () {
 Route::get('/uploadArticle', function () {
     return view('articleForm');
 });
+
+
+Route::get('/kananiyam', function () {
+    return view('kananiyam');
+})
+
 Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
+
 
 
 
