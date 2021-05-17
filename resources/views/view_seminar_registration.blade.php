@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>View Registered Students</title>
+<title>View Seminar Registered Students</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -235,7 +236,7 @@ $(document).ready(function(){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-4">
-                        <h2>Registered Students <b>Details</b></h2>
+                        <h2>Seminar Registerd <b>Students </b></h2>
                     </div>
                     <div class="col-sm-8">						
                         <a href="#" class="btn btn-primary"><i class="material-icons">&#xE863;</i> <span>Refresh List</span></a>
@@ -245,45 +246,56 @@ $(document).ready(function(){
             </div>
             <div class="table-filter">
                 <div class="row">
-                    <div class="col-sm-3">
-                    </div>
-                    <div class="col-sm-9">
+                  
                         
-                        <form action="{{route('compute')}}" method = "GET"> 
+                        <form action="{{route('compute7')}}" method = "GET">
+                        @csrf 
                         <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>    
                         <div class="filter-group">
-                            <label>Event ID</label>
-                            <input class="form-control" type="text" name="e_id" required=""><br>							
+                            <label>Enter Date</label>
+                            <input class="form-control" type="date" name="Date"><br>							
                         </div>
                         <div class="filter-group">
-                            <label>Event Closing Date</label>
-                            <input class="form-control" type="date" name="date" required=""><br>							
+                            <label>Enter Place</label>
+                            <input class="form-control" type="text" name="Place"><br>							
                         </div>
+                        <div class="filter-group">
+                            <label>Enter Language</label>
+                            <input class="form-control" type="text" name="Language" ><br>							
+                        </div> 
                         <span class="filter-icon"><i class="fa fa-filter"></i></span>
+                        <div class="filter-group">							
+                        </div>
+                        <div class="filter-group">							
+                        </div>
+                        <div class="filter-group">							
+                        </div>
                         </form>
                     </div>
-                </div>
+                
             </div>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Event Name</th>
+                    <th>RegistrationNo</th>
                         <th>Name</th>
-                        <th>Registration_Number</th>
-                        <th>email</th>
-                        <th>YOS</th>
+                        <th>Email</th>
+                        <th>Place</th>
+                        <th>Language</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($registers as $register)
+                @foreach ($seminars as $seminar)
                     <tr>
-                        <td>{{ $register->event_name }}</td>
-                        <td>{{ $register->name }}</td>
-                        <td>{{ $register->regNo }}</td>
-                        <td>{{ $register->email }}</td>
-                        <td>{{ $register->yos }}</td>    
+                        <td>{{ $seminar->RegistrationNo }}</td>
+                        <td>{{ $seminar->Name }}</td>
+                        <td>{{ $seminar->Email }}</td>
+                        <td>{{ $seminar->Place }}</td>
+                        <td>{{ $seminar->Language }}</td> 
+                        <td>{{ $seminar->Date }}</td>    
                     </tr>
-                @endforeach    
+               @endforeach 
                 </tbody>
             </table>
         </div>
@@ -292,6 +304,9 @@ $(document).ready(function(){
 </body>
 </html>
 
+
+ 
+ 
 
  
  

@@ -15,6 +15,8 @@ use App\Http\Controllers\EventRegisterController;
 
 use App\Http\Controllers\ViewRegisteredStudentController;
 use App\Http\Controllers\ViewEventController;
+use App\Http\Controllers\SeminarController;
+use App\Http\Controllers\MemberController;
 
 
 /*
@@ -54,6 +56,7 @@ Route::get('/register_now_form/{id}',[App\Http\Controllers\EventRegisterControll
 
 Route::post('/register_now_form',[App\Http\Controllers\EventRegisterController::class, 'store'])->name('store');
 
+
 Route::get('/Seminar', function () {
     return view('seminar');
 });
@@ -61,6 +64,13 @@ Route::get('/Seminar', function () {
 Route::get('/seminarregistration', function () {
     return view('seminarRegistration');
 });
+
+Route::get('/Seminar', [App\Http\Controllers\SeminarController::class, 'index'])->name('Seminar');
+Route::get('/seminarregistration',[App\Http\Controllers\SeminarController::class, 'create'])->name('seminarregistration');
+Route::post('/store5',[App\Http\Controllers\SeminarController::class,'store5'])->name('store5');
+Route::get('/view_seminar_registration',[App\Http\Controllers\SeminarController::class, 'index1'])->name('index1');
+Route::get('/sort_seminar_registration',[App\Http\Controllers\SeminarController::class, 'compute7'])->name('compute7');
+
 Route::get('/financial_support', function () {
     return view('financial_support');
 });
@@ -80,11 +90,17 @@ Route::get('/photo_album', function () {
 
 
 
+
 Route::get('/view_registered_students',[App\Http\Controllers\ViewRegisteredStudentController::class, 'index'])->name('index');
 Route::get('/sort_registered_students',[App\Http\Controllers\ViewRegisteredStudentController::class, 'compute'])->name('compute');
 Route::get('/view_uploaded_event',[App\Http\Controllers\ViewEventController::class, 'index'])->name('index');
 
+Route::get('/delete/{id}',[ViewEventController::class,'destroy'])->name('delete');
+Route::get('/edit/{id}',[ViewEventController::class,'edit'])->name('edit');
+Route::patch('/update/{id}',[ViewEventController::class,'update'])->name('update');
+
 Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFinancialsupport"]);
+
 
 // Route::get('/login', function () {
 //     return view('login');
@@ -96,6 +112,20 @@ Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFin
 //     return view('foget');
 // });
 
+
+// Route::get('/ourTeam', function () {
+//     return view('members');
+// });
+
+Route::get('/add_member', [App\Http\Controllers\MemberController::class, 'create'])->name('add_member');
+Route::get('/members',[App\Http\Controllers\MemberController::class, 'index'])->name('index');
+Route::post('/add_member',[App\Http\Controllers\MemberController::class, 'store2'])->name('store2');
+Route::post('/members',[App\Http\Controllers\MemberController::class, 'compute1'])->name('compute1');
+Route::get('/view_members',[App\Http\Controllers\MemberController::class, 'index1'])->name('index1');
+Route::get('/delete2/{id}',[MemberController::class,'destroy2'])->name('delete2');
+Route::get('/edit2/{id}',[MemberController::class,'edit2'])->name('edit2');
+Route::patch('/update2/{id}',[MemberController::class,'update2'])->name('update2');
+
 Route::post("saveCspark",[CsparkController::class, "storeCspark"]);
 
 
@@ -103,14 +133,17 @@ Route::get('/ourTeam', function () {
     return view('members');
 });
 
+
 Route::get('/uploadArticle', function () {
     return view('articleForm');
 });
 
 
+
 Route::get('/kananiyam', function () {
     return view('kananiyam');
 })
+
 
 Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
 

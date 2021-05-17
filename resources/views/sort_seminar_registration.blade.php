@@ -192,17 +192,23 @@ $(document).ready(function(){
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
+                    <th>RegistrationNo</th>
                         <th>Name</th>
-                        <th>Registration_Number</th>
-                        <th>email</th>
+                        <th>Email</th>
+                        <th>Place</th>
+                        <th>Language</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($students as $student)
+                @foreach ($users as $user)
                       <tr>
-                         <td>{{ $student->name }}</td>
-                         <td>{{ $student->regNo }}</td>
-                         <td>{{ $student->email }}</td>
+                          <td>{{ $user->RegistrationNo }}</td>
+                          <td>{{ $user->Name }}</td>
+                          <td>{{ $user->Email }}</td>
+                          <td>{{ $user->Place }}</td>
+                          <td>{{ $user->Language }}</td>
+                          <td>{{ $user->Date }}</td>
                       </tr>          
                      @endforeach
                 </tbody>

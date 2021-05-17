@@ -108,7 +108,7 @@
                         <a class="nav-link" href="#" style="color:#ffffff;">Discussion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Seminar</a>
+                        <a class="nav-link" href="/Seminar" style="color:#ffffff;">Seminar</a>
                     </li>
                     <li class="nav-item nav-item1">
                         <a class="nav-link" href="#" style="color:#ffffff;">Park</a>

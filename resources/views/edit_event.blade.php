@@ -31,68 +31,14 @@ use Carbon\Carbon;
 
 
 </head>
-
 <body>
 
   <!-- ------- Header ---------->
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex flex-column align-items-center">
-            <h1>Register Available</h1>
-            <h2>Register for improve your coding skills</h2>
-            <div id="demo">
-                @foreach ($users as $event)
-
-
-                <script>
-
-
-                    // Set the date we're counting down to
-                    var countDownDate = new Date("{{$event->date}}").getTime();
-                   // var countDownDate = new Date("{{$event->date}}").getTime();
-
-                    // Update the count down every 1 second
-                    var x = setInterval(function() {
-
-                    // Get today's date and time
-                    var now = new Date().getTime();
-
-                    // Find the distance between now and the count down date
-                    var distance = countDownDate - now;
-
-                    // Time calculations for days, hours, minutes and seconds
-                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                    if(days<10)
-                    {
-                        days="0"+days;
-                    }
-                    if(hours<10){
-                            hours="0"+hours;
-                        }
-
-                    if(minutes<10){
-                        minutes="0"+minutes;
-                        }
-
-                    if(seconds<10){
-                        seconds="0"+seconds;
-                    }
-                    // Display the result in the element with id="demo"
-                    document.getElementById("demo").innerHTML = days + ":" + hours + ":"
-                    + minutes + ":" + seconds + "";
-
-                    // If the count down is finished, write some text
-                    if (distance < 0) {
-                        clearInterval(x);
-                        document.getElementById("demo").innerHTML = "EXPIRED";
-                    }
-                    }, 1000);
-                </script>
-                
-            </div>
+            <h1>Upload Event</h1>
+            <h2>Competitons improve one's coding skills</h2>
+            <div class="row px-1 justify-content-center mt-4 mb-5 border-line logo-image"> <img src="img/logo.jpeg" class="img-fluid"> </div>
         </div>
     </header>
   <!-- -------End Header ---------->
@@ -103,7 +49,7 @@ use Carbon\Carbon;
             <div class="container">
 
                 <div class="register-title">
-                    <h2>Register Now</h2>
+                    <h2>Upload Event</h2>
                 </div>
 
                 <div class="row justify-content-center">
@@ -132,14 +78,43 @@ use Carbon\Carbon;
 
                 <div class="row  justify-content-center">
                     <div class="col-lg-10">
-                    <form  class="register-now-form" action="{{ route('store') }}" method="POST">
-                        @csrf
-                  <input type="hidden" id="event_name" name="event_name" value="{{$event->event_name}}">
-                  @endforeach 
-                           <div class="form-group row">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Enter name" required autocomplete="name" autofocus>
+                    <form  action="{{ route('update', ['id' => $event->id]) }}" method="POST" enctype="multipart/form-data" >
+                    @method('PATCH') 
+                    @csrf
+                    
+                        <div class="form-group row">
+                            <label for="event_name"> <h6 class="mb-0 text-sm">Event Name</h6></label>
+                                <input id="event_name" type="text" class="form-control @error('event_name') is-invalid @enderror" name="event_name" value="{{$event->event_name}}"  placeholder="Enter name" required autocomplete="event_name" autofocus>
+                        
+                                @error('event_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                       
+                            <div class="form-group row">
+                            <label for="image_name"><h6 class="mb-1 text-sm">Image</h6></label>
+                             <input id="image_name" type="file" class="form-control @error('image_name') is-invalid @enderror" name="image_name" value="{{$event->image_name}}" placeholder="Enter image">
+                            </div>
+                            
+                            <div class="form-group row">
+                            <label for="date"><h6 class="mb-0 text-sm">Date</h6></label>
 
-                                @error('name')
+                                <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ $event->date }}" placeholder="Enter Date"  required autocomplete="date">
+        
+                                @error('date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            
+                            <div class="form-group row">
+                            <label for="start_time"><h6 class="mb-0 text-sm">Start Time</h6></label>
+                                <input id="start_time" type="time" class="form-control @error('start_time') is-invalid @enderror" name="start_time" value="{{ $event->start_time }}" placeholder="Enter email"  required autocomplete="start_time">
+
+                                @error('start_time')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -147,52 +122,46 @@ use Carbon\Carbon;
                             </div>
 
                             <div class="form-group row">
-                                 <input id="regNo" type="text" class="form-control @error('regNo') is-invalid @enderror" name="regNo" value="{{ old('regNo') }}" placeholder="Enter Registration number Eg: 2017/CSC/001"  required autocomplete="regNo">
+                            <label for="end_time"><h6 class="mb-0 text-sm">End Time</h6></label>
+                                <input id="end_time" type="time" class="form-control @error('end_time') is-invalid @enderror" name="end_time" value="{{ $event->end_time }}" placeholder="Enter email"  required autocomplete="end_time">
 
-                                @error('regNo')
+                                @error('end_time')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            
+                            <div class="form-group row">
+                            <label for="guest"> <h6 class="mb-0 text-sm">Guest</h6></label>
+                                <input id="guest" type="text" class="form-control @error('guest') is-invalid @enderror" name="guest" value="{{ $event->guest }}" placeholder="Enter name">
+                            </div>
+
+                            <div class="form-group row">
+                            <label for="venue"> <h6 class="mb-0 text-sm">Venue</h6></label>
+                                <textarea id="venue" type="text" class="form-control @error('venue') is-invalid @enderror" name="venue" rows="5"  placeholder="Enter name" required autocomplete="venue" autofocus>{{{ $event->venue }}}</textarea>
+                        
+                                @error('venue')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
 
-                            <div class="form-group row">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Enter email"  required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group row">
-                                <input id="yos" type="text" class="form-control @error('yos') is-invalid @enderror" name="yos" value="{{ old('yos') }}" placeholder="Enter Year Of Study"  required autocomplete="yos">
-
-                                @error('yos')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group row">
-                                <textarea class="form-control" name="message" rows="5"  placeholder="Message"></textarea>
-                                 <div class="validate"></div>
-                            </div>
+                           
                             <div class="mb-3">
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                                <div class="sent-message">Your event has been uploaded. Thank you!</div>
                             </div>
-                             <div class="text-center"><button type="submit">Register</button></div>
+                             <div class="btn btn-secondary btn-lg"><button type="submit" class="btn btn-dark"><b>Update</b></button></div>
                         </form>
                     </div>
                 </div>
             </div>
         </section><!-- End Contact Us Section -->
     </main><!-- End #main -->
-    <script  src="{{ asset('js/countdown.js') }}"></script>
+    <script src="js/countdown.js"></script>
 </body>
 </html>
 <!---------

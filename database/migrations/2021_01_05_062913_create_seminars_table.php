@@ -17,9 +17,10 @@ class CreateSeminarsTable extends Migration
             $table->increments('id');
             $table->string('RegistrationNo');
             $table->string('Name');
+            $table->string('Email');
             $table->string('Place');
-            $table->string('Date');
             $table->string('Language');
+            $table->date('Date');
             $table->timestamps();
         });
     }
