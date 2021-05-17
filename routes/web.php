@@ -68,6 +68,12 @@ Route::get('/finnancial_apply_now', function () {
 Route::get('/cspark', function () {
     return view('cspark');
 });
+Route::get('/gallery', function () {
+    return view('gallery');
+});
+Route::get('/photo_album', function () {
+    return view('photo_album');
+});
 
 
 Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFinancialsupport"]);
