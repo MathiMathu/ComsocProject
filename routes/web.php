@@ -2,12 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+
+use App\Http\Controllers\CsparkController;
+
+
+use App\Http\Controllers\FinancialsupportController;
+
+
+
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRegisterController;
+
 use App\Http\Controllers\ViewRegisteredStudentController;
 use App\Http\Controllers\ViewEventController;
 use App\Http\Controllers\SeminarController;
 use App\Http\Controllers\MemberController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,18 +64,44 @@ Route::get('/Seminar', function () {
 Route::get('/seminarregistration', function () {
     return view('seminarRegistration');
 });
+
 Route::get('/Seminar', [App\Http\Controllers\SeminarController::class, 'index'])->name('Seminar');
 Route::get('/seminarregistration',[App\Http\Controllers\SeminarController::class, 'create'])->name('seminarregistration');
 Route::post('/store5',[App\Http\Controllers\SeminarController::class,'store5'])->name('store5');
 Route::get('/view_seminar_registration',[App\Http\Controllers\SeminarController::class, 'index1'])->name('index1');
 Route::get('/sort_seminar_registration',[App\Http\Controllers\SeminarController::class, 'compute7'])->name('compute7');
 
+Route::get('/financial_support', function () {
+    return view('financial_support');
+});
+
+Route::get('/finnancial_apply_now', function () {
+    return view('finnancial_apply_now');
+});
+Route::get('/cspark', function () {
+    return view('cspark');
+});
+Route::get('/gallery', function () {
+    return view('gallery');
+});
+Route::get('/photo_album', function () {
+    return view('photo_album');
+});
+
+
+
+
 Route::get('/view_registered_students',[App\Http\Controllers\ViewRegisteredStudentController::class, 'index'])->name('index');
 Route::get('/sort_registered_students',[App\Http\Controllers\ViewRegisteredStudentController::class, 'compute'])->name('compute');
 Route::get('/view_uploaded_event',[App\Http\Controllers\ViewEventController::class, 'index'])->name('index');
+
 Route::get('/delete/{id}',[ViewEventController::class,'destroy'])->name('delete');
 Route::get('/edit/{id}',[ViewEventController::class,'edit'])->name('edit');
 Route::patch('/update/{id}',[ViewEventController::class,'update'])->name('update');
+
+Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFinancialsupport"]);
+
+
 // Route::get('/login', function () {
 //     return view('login');
 // });
@@ -75,6 +111,7 @@ Route::patch('/update/{id}',[ViewEventController::class,'update'])->name('update
 // Route::get('/foget', function () {
 //     return view('foget');
 // });
+
 
 // Route::get('/ourTeam', function () {
 //     return view('members');
@@ -89,11 +126,28 @@ Route::get('/delete2/{id}',[MemberController::class,'destroy2'])->name('delete2'
 Route::get('/edit2/{id}',[MemberController::class,'edit2'])->name('edit2');
 Route::patch('/update2/{id}',[MemberController::class,'update2'])->name('update2');
 
+Route::post("saveCspark",[CsparkController::class, "storeCspark"]);
+
+
+Route::get('/ourTeam', function () {
+    return view('members');
+});
+
+
 Route::get('/uploadArticle', function () {
     return view('articleForm');
 });
 
+
+
+Route::get('/kananiyam', function () {
+    return view('kananiyam');
+})
+
+
 Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
+
+
 
 
 ?>

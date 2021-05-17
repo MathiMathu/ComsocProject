@@ -7,8 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\Event as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
+class seminar extends Model
+{
+    use HasFactory;
+    public $table= "seminar";
+
 class Seminar extends Model
 {
+
     use HasFactory,Notifiable;
     
     /**
@@ -35,4 +42,7 @@ class Seminar extends Model
        
        
    ];
+
+    use HasFactory;
+
 }
