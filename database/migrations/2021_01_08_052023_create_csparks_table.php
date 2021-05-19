@@ -20,6 +20,8 @@ class CreateCsparksTable extends Migration
             $table->date("booking_date");
             $table->time("booking_time");
             $table->string("duration", 15);
+            $table->string('email');
+            $table->string('action')->nullable();
             
             
             $table->timestamps();

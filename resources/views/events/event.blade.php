@@ -213,29 +213,29 @@ use Carbon\Carbon;
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav  ml-auto">
                     <li class="nav-item active" >
-                        <a class="nav-link" href="#" style="color:#ffffff;">Home</a>
+                        <a class="nav-link" href="/" style="color:#ffffff;">Home</a>
                     </li>
                     <li class="nav-item" >
-                        <a class="nav-link" href="#" style="color:#ffffff;">Kananiyam</a>
+                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Kananiyam</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Event</a>
+                        <a class="nav-link" href="{{ route('events.index') }}" style="color:#ffffff;">Event</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color:#ffffff;">Discussion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Seminar</a>
+                        <a class="nav-link" href="/Seminar" style="color:#ffffff;">Seminar</a>
                     </li>
                     <li class="nav-item nav-item1">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Park</a>
+                        <a class="nav-link" href="/cspark" style="color:#ffffff;">Park</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">About</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">Our Team</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">Gallery</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">Financial support</a>
+                            <a class="dropdown-item" href="/members" style="color:#ffffff;">Our Team</a>
+                            <a class="dropdown-item" href="/gallery" style="color:#ffffff;">Gallery</a>
+                            <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial support</a>
                             <a class="dropdown-item" href="#" style="color:#ffffff;">About Us</a>
                         </div>
                     </li>

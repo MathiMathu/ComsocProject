@@ -51,7 +51,10 @@
                   </select>
                   <span class="select-arrow"></span>
                   <button type="submit" class="btn btn-primary">Enter</button>
-                </form>  
+                </form>
+                <div>
+                
+                </div>
               </div>
               <br>
           </div> 
