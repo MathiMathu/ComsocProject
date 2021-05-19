@@ -19,10 +19,12 @@ class CreateFinancesTable extends Migration
             $table->string('Name');
             $table->string('MonthlyIncome');
             $table->string('NoOfSliblings');
+            $table->string('email');
             $table->string('FatherName');
             $table->string('FatherOccupation');
             $table->string('MotherName');
             $table->string('motherOccupation');
+            $table->string('action');
             $table->timestamps();
         });
     }

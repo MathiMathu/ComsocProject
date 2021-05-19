@@ -83,5 +83,7 @@ class SeminarController extends Controller
     }
    
          return view('sort_seminar_registration', compact('users'));
-     }       
+     }   
+     
+
  }

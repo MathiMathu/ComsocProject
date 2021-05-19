@@ -2,17 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
 use App\Http\Controllers\CsparkController;
-
-
 use App\Http\Controllers\FinancialsupportController;
-
-
-
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventRegisterController;
-
 use App\Http\Controllers\ViewRegisteredStudentController;
 use App\Http\Controllers\ViewEventController;
 use App\Http\Controllers\SeminarController;
@@ -53,7 +46,6 @@ Route::get('/d', function () {
 
 Route::get('/create_event', [App\Http\Controllers\EventController::class, 'create'])->name('create_event');
 Route::get('/register_now_form/{id}',[App\Http\Controllers\EventRegisterController::class, 'getDisplay'])->name('getDisplay');
-
 Route::post('/register_now_form',[App\Http\Controllers\EventRegisterController::class, 'store'])->name('store');
 
 
@@ -65,7 +57,7 @@ Route::get('/seminarregistration', function () {
     return view('seminarRegistration');
 });
 
-Route::get('/Seminar', [App\Http\Controllers\SeminarController::class, 'index'])->name('Seminar');
+// Route::get('/Seminar', [App\Http\Controllers\SeminarController::class, 'index'])->name('Seminar');
 Route::get('/seminarregistration',[App\Http\Controllers\SeminarController::class, 'create'])->name('seminarregistration');
 Route::post('/store5',[App\Http\Controllers\SeminarController::class,'store5'])->name('store5');
 Route::get('/view_seminar_registration',[App\Http\Controllers\SeminarController::class, 'index1'])->name('index1');
@@ -87,6 +79,9 @@ Route::get('/gallery', function () {
 Route::get('/photo_album', function () {
     return view('photo_album');
 });
+Route::get('/kananiyam', function () {
+    return view('kananiyam');
+});
 
 
 
@@ -100,6 +95,11 @@ Route::get('/edit/{id}',[ViewEventController::class,'edit'])->name('edit');
 Route::patch('/update/{id}',[ViewEventController::class,'update'])->name('update');
 
 Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFinancialsupport"]);
+Route::get('/view_finance', [App\Http\Controllers\FinancialsupportController::class, 'index'])->name('index');
+Route::get('/sort_financial_students',[App\Http\Controllers\FinancialsupportController::class, 'compute4'])->name('compute4');
+Route::get('/edit6/{id}',[FinancialsupportController::class,'edit6'])->name('edit6');
+Route::patch('/update6/{id}',[FinancialsupportController::class,'update6'])->name('update6');
+Route::get('/refresh_status',[App\Http\Controllers\FinancialsupportController::class, 'index7'])->name('index7');
 
 
 // Route::get('/login', function () {
@@ -127,11 +127,10 @@ Route::get('/edit2/{id}',[MemberController::class,'edit2'])->name('edit2');
 Route::patch('/update2/{id}',[MemberController::class,'update2'])->name('update2');
 
 Route::post("saveCspark",[CsparkController::class, "storeCspark"]);
-
-
-Route::get('/ourTeam', function () {
-    return view('members');
-});
+Route::get('/view_park_bookings', [App\Http\Controllers\CsparkController::class, 'index'])->name('index');
+Route::get('/sort_cspark_booking',[App\Http\Controllers\CsparkController::class, 'compute5'])->name('compute5');
+Route::get('/edit8/{id}',[CsparkController::class,'edit8'])->name('edit8');
+Route::patch('/update8/{id}',[CsparkController::class,'update8'])->name('update8');
 
 
 Route::get('/uploadArticle', function () {
@@ -139,15 +138,5 @@ Route::get('/uploadArticle', function () {
 });
 
 
-
-Route::get('/kananiyam', function () {
-    return view('kananiyam');
-})
-
-
 Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
-
-
-
-
 ?>

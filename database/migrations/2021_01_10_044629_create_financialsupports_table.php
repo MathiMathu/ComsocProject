@@ -17,12 +17,14 @@ class CreateFinancialsupportsTable extends Migration
             $table->id();
             $table->string("RegistrationNo",);
             $table->string("Name");
-            $table->string("MonthlyIncome");
+            $table->integer("MonthlyIncome");
             $table->string("NoOfSiblings");
+            $table->string('email');
             $table->string("FatherName");
             $table->string("FatherOccupation");
             $table->string("MotherName");
             $table->string("MotherOccupation");
+            $table->string('action')->nullable();
 
 
 

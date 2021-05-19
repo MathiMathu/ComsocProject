@@ -22,12 +22,12 @@
 						<input class="text" type="text" name="Name" placeholder=" Enter Name" required=""><br>
 						<input class="text" type="text" name="MonthlyIncome" placeholder="Enter Monthly Income" required=""><br>
 						<input class="text" type="text" name="NoOfSiblings" placeholder="Enter No Of Siblings" required=""><br>
+						<input class="text" type="email" name="email" placeholder="Enter Email" required=""><br>
 						<input class="text" type="text" name="FatherName" placeholder="Enter Father Name" required=""><br>
 						<input class="text" type="text" name="FatherOccupation" placeholder="Enter Father Occupation" required=""><br>
 						<input class="text" type="text" name="MotherName" placeholder="Enter Mother Name" required=""><br>
 						<input class="text" type="text" name="MotherOccupation" placeholder="Enter Mother Occupation" required=""><br>
-
-
+						<input class="text" type="hidden" name="action">
 
 						<div class="wthree-text">
 							<label class="anim">
