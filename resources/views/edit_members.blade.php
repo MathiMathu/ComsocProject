@@ -22,13 +22,13 @@ body {
 .form-control, .form-control:focus, .input-group-text {
 	border-color: #e1e1e1;
 }
-.form-control, .btn {        
+.form-control, .btn {
 	border-radius: 3px;
 }
 .signup-form {
 	width: 400px;
 	margin: 0 auto;
-	padding: 30px 0;		
+	padding: 30px 0;
 }
 .signup-form form {
 	color: #999;
@@ -56,12 +56,12 @@ body {
 .signup-form .form-control {
 	min-height: 38px;
 	box-shadow: none !important;
-}	
+}
 .signup-form .input-group-addon {
 	max-width: 42px;
 	text-align: center;
-}	
-.signup-form .btn, .signup-form .btn:active {        
+}
+.signup-form .btn, .signup-form .btn:active {
 	font-size: 16px;
 	font-weight: bold;
 	background: #19aa8d !important;
@@ -72,7 +72,7 @@ body {
 	background: #179b81 !important;
 }
 .signup-form a {
-	color: #fff;	
+	color: #fff;
 	text-decoration: underline;
 }
 .signup-form a:hover {
@@ -81,7 +81,7 @@ body {
 .signup-form form a {
 	color: #19aa8d;
 	text-decoration: none;
-}	
+}
 .signup-form form a:hover {
 	text-decoration: underline;
 }
@@ -112,7 +112,7 @@ body {
 				<div class="input-group-prepend">
 					<span class="input-group-text">
 						<span class="fa fa-calendar"></span>
-					</span>                    
+					</span>
 				</div>
 				<input type="text" class="form-control" name="year" placeholder="Enter Year" value="{{$member->year}}" required="required">
 			</div>
@@ -122,7 +122,7 @@ body {
 				<div class="input-group-prepend">
 					<span class="input-group-text">
 						<span class="fa fa-user"></span>
-					</span>                    
+					</span>
 				</div>
 				<input type="text" class="form-control" name="name" placeholder="Enter Name" value="{{$member->name}}" required="required">
 			</div>
@@ -132,7 +132,7 @@ body {
 				<div class="input-group-prepend">
 					<span class="input-group-text">
 						<i class="fa fa-tasks"></i>
-					</span>                    
+					</span>
 				</div>
                 <select class="form-control" name="role"  placeholder="Enter Role" value="{{$member->role}}" required="required">
                                  <option value="" disabled selected>Enter Role</option>
@@ -159,7 +159,7 @@ body {
 				<div class="input-group-prepend">
 					<span class="input-group-text">
 						<span class="fa fa-file-image-o"></span>
-					</span>                    
+					</span>
 				</div>
                 <input type="file" class="form-control" name="image_name"  placeholder="Enter image" value="{{$member->image_name}}">
 			</div>
@@ -169,7 +169,7 @@ body {
 				<div class="input-group-prepend">
 					<span class="input-group-text">
                         <span class="fa fa-graduation-cap"></span>
-					</span>                    
+					</span>
 				</div>
                 <select class="form-control"  name="yearofstudy"  placeholder="Enter Year Of Study" value="{{$member->yearofstudy}}" required="required">
                              <option value="" disabled selected>Enter Year Of Study</option>
@@ -177,7 +177,7 @@ body {
                                   <option  {{($member->yearofstudy)=='2nd year Student' ? 'selected' : ''}} value="2nd year Student" >2nd year Student</option>
                                   <option  {{($member->yearofstudy)=='3rd year Student' ? 'selected' : ''}} value="3rd year Student" >3rd year Student</option>
                                   <option  {{($member->yearofstudy)=='Final year Student' ? 'selected' : ''}} value="Final year Student" >Final year Student</option>
-               
+
                 </select>
 			</div>
         </div>
@@ -190,4 +190,3 @@ body {
 </html>
 
 
- 

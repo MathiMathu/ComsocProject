@@ -21,6 +21,28 @@
   <!-- Template Main CSS File -->
   <link href="css/style_form.css" rel="stylesheet">
 
+  <style>
+      .form-content{
+          width:600px;
+          height: auto;
+          justify-content: center;
+          text-align: center;
+          position: relative;
+          left: 23%;
+          background-color:rgb(3, 17, 56);
+          opacity: .7;
+          top: 40px;
+          color: white;
+
+      }
+      form{
+          margin-top: 15px;
+          margin-bottom: 15px;
+          position: relative;
+          opacity: 1;
+      }
+  </style>
+
 
 </head>
 
@@ -52,7 +74,7 @@
                                 <div class="col-lg-4 info">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <h4>Location:</h4>
-                                    <p>CUL1<br>Department of </p>
+                                    <p>University Of<br>Jaffna </p>
                                 </div>
                                 <div class="col-lg-4 info mt-4 mt-lg-0">
                                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
@@ -69,7 +91,7 @@
                     </div>
                 </div>
 
-                <div class="row  justify-content-center">
+                <div class="row  justify-content-center form-content">
                     <div class="col-lg-10">
                     <form method="POST" action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data" >
                         @csrf
@@ -77,14 +99,14 @@
                         <div class="form-group row">
                             <label for="event_name"> <h6 class="mb-0 text-sm">Event Name</h6></label>
                                 <input id="event_name" type="text" class="form-control @error('event_name') is-invalid @enderror" name="event_name" value="{{ old('event_name') }}" placeholder="Enter name" required autocomplete="event_name" autofocus>
-                        
+
                                 @error('event_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                       
+
                             <div class="form-group row">
                             <label for="image_name"><h6 class="mb-1 text-sm">Image</h6></label>
                                 <input id="image_name" type="file" class="form-control @error('image_name') is-invalid @enderror" name="image_name" value="{{ old('image_name') }}" placeholder="Enter email"  required autocomplete="image_name">
@@ -95,18 +117,18 @@
                                     </span>
                                 @enderror
                             </div>
-                            
+
                             <div class="form-group row">
                             <label for="date"><h6 class="mb-0 text-sm">Date</h6></label>
                                 <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" placeholder="Eg: 2017/CSC/001"  required autocomplete="date">
-        
+
                                 @error('date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                            
+
                             <div class="form-group row">
                             <label for="start_time"><h6 class="mb-0 text-sm">Start Time</h6></label>
                                 <input id="start_time" type="time" class="form-control @error('start_time') is-invalid @enderror" name="start_time" value="{{ old('start_time') }}" placeholder="Enter email"  required autocomplete="start_time">
@@ -128,7 +150,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            
+
                             <div class="form-group row">
                             <label for="guest"> <h6 class="mb-0 text-sm">Guest</h6></label>
                                 <input id="guest" type="text" class="form-control @error('guest') is-invalid @enderror" name="guest" value="{{ old('guest') }}" placeholder="Enter name">
@@ -137,7 +159,7 @@
                             <div class="form-group row">
                             <label for="venue"> <h6 class="mb-0 text-sm">Venue</h6></label>
                                 <textarea id="venue" type="text" class="form-control @error('venue') is-invalid @enderror" name="venue" rows="5" value="{{ old('venue') }}" placeholder="Enter name" required autocomplete="venue" autofocus></textarea>
-                        
+
                                 @error('venue')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -145,7 +167,7 @@
                                 @enderror
                             </div>
 
-                           
+
                             <div class="mb-3">
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>

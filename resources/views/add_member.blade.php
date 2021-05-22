@@ -10,25 +10,34 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/style_slide_bar1.css">
+    <link rel="stylesheet" href="css/style_slide_bar2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <style>
 body {
 	color: #fff;
-	background: #19aa8d;
+	background: #000000;
 	font-family: 'Roboto', sans-serif;
+    overflow: hidden;
 }
 .form-control {
 	font-size: 15px;
 }
+form{
+    position: relative;
+    top: -30px;
+}
 .form-control, .form-control:focus, .input-group-text {
 	border-color: #e1e1e1;
 }
-.form-control, .btn {        
+.form-control, .btn {
 	border-radius: 3px;
 }
 .signup-form {
 	width: 400px;
 	margin: 0 auto;
-	padding: 30px 0;		
+	padding: 30px 0;
 }
 .signup-form form {
 	color: #999;
@@ -56,12 +65,12 @@ body {
 .signup-form .form-control {
 	min-height: 38px;
 	box-shadow: none !important;
-}	
+}
 .signup-form .input-group-addon {
 	max-width: 42px;
 	text-align: center;
-}	
-.signup-form .btn, .signup-form .btn:active {        
+}
+.signup-form .btn, .signup-form .btn:active {
 	font-size: 16px;
 	font-weight: bold;
 	background: #19aa8d !important;
@@ -72,7 +81,7 @@ body {
 	background: #179b81 !important;
 }
 .signup-form a {
-	color: #fff;	
+	color: #fff;
 	text-decoration: underline;
 }
 .signup-form a:hover {
@@ -81,7 +90,7 @@ body {
 .signup-form form a {
 	color: #19aa8d;
 	text-decoration: none;
-}	
+}
 .signup-form form a:hover {
 	text-decoration: underline;
 }
@@ -98,14 +107,73 @@ body {
 	font-size: 7px;
 	position: absolute;
 }
+.botom-part{
+    position: relative;
+    top:-30px;
+}
+
 </style>
 </head>
 <body>
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+
+      <header>Com Soc</header>
+      <div class="sidebar__menu">
+        {{-- <div class="sidebar__img">
+            <img src="img/logo.png" alt="logo" />
+            <h1>ComSoc</h1>
+        </div> --}}
+        <div class="sidebar__link active_menu_link">
+          <i class="fa fa-home"></i>
+          <a href="#">Dashboard</a>
+        </div>
+
+        <div class="sidebar__link">
+          <i class="fa fa-user-secret" aria-hidden="true"></i>
+          <a href="#">Admin Management</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <a href="#">User Management</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <a href="#">Society Member</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+          <a href="#">Cs Park</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          <a href="#">Finnancial Support</a>
+        </div>
+
+        <div class="sidebar__link">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <a href="#">Events</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-book" aria-hidden="true"></i>
+          <a href="#">Karaniyam</a>
+        </div>
+        <div class="sidebar__logout">
+          <i class="fa fa-power-off"></i>
+          <a href="#">Log out</a>
+        </div>
+      </div>
+    </div>
 <div class="signup-form">
     <form action="{{ route('store2') }}" method="post" enctype="multipart/form-data">
       @csrf
 		<h2>Add Members</h2>
-		<p>Please fill 
+		<p>Please fill
         this form again and again until all members are entered!</p>
 		<hr>
         <div class="form-group">
@@ -113,7 +181,7 @@ body {
 				<div class="input-group-prepend">
 					<span class="input-group-text">
 						<span class="fa fa-calendar"></span>
-					</span>                    
+					</span>
 				</div>
 				<input type="text" class="form-control" name="year" placeholder="Enter Year" required="required">
 			</div>
@@ -123,7 +191,7 @@ body {
 				<div class="input-group-prepend">
 					<span class="input-group-text">
 						<span class="fa fa-user"></span>
-					</span>                    
+					</span>
 				</div>
 				<input type="text" class="form-control" name="name" placeholder="Enter Name" required="required">
 			</div>
@@ -133,7 +201,7 @@ body {
 				<div class="input-group-prepend">
 					<span class="input-group-text">
 						<i class="fa fa-tasks"></i>
-					</span>                    
+					</span>
 				</div>
                 <select class="form-control" name="role"  placeholder="Enter Role"  required="required">
                                   <option value="" disabled selected>Enter Role</option>
@@ -160,7 +228,7 @@ body {
 				<div class="input-group-prepend">
 					<span class="input-group-text">
 						<span class="fa fa-file-image-o"></span>
-					</span>                    
+					</span>
 				</div>
                 <input type="file" class="form-control" name="image_name"  placeholder="Enter image" required="required">
 			</div>
@@ -170,15 +238,15 @@ body {
 				<div class="input-group-prepend">
 					<span class="input-group-text">
                         <span class="fa fa-graduation-cap"></span>
-					</span>                    
+					</span>
 				</div>
                 <select class="form-control"  name="yearofstudy"  placeholder="Enter Year Of Study"  required="required">
                              <option value="" disabled selected>Enter Year Of Study</option>
                              <option value="1st year Student">1st year Student</option>
                              <option value="2nd year Student">2nd year Student</option>
                              <option value="3rd year Student">3rd year Student</option>
-                             <option value="Final year Student">Final year Student</option>    
-               
+                             <option value="Final year Student">Final year Student</option>
+
                 </select>
 			</div>
         </div>
@@ -186,7 +254,8 @@ body {
             <button type="submit" class="btn btn-primary btn-lg">Add</button>
         </div>
     </form>
-	<div class="text-center">Entered All members!<a href="{{ url('view_members') }}" class="btn btn-primary btn-lg">End</a></div>
+	<div class="text-center botom-part">Entered All members!<a href="{{ url('view_members') }}" class="btn btn-primary btn-lg">End</a></div>
 </div>
+
 </body>
 </html>

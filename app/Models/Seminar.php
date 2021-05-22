@@ -8,16 +8,16 @@ use Illuminate\Foundation\Auth\Event as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 
-class seminar extends Model
-{
-    use HasFactory;
-    public $table= "seminar";
+// class seminar extends Model
+// {
+//     use HasFactory;
+//     public $table= "seminar";
 
 class Seminar extends Model
 {
 
     use HasFactory,Notifiable;
-    
+
     /**
      * The primary key associated with the table.
      *
@@ -30,8 +30,8 @@ class Seminar extends Model
      *
      * @var array
      */
-    
-    
+
+
 
    protected $fillable = [
        'RegistrationNo',
@@ -39,8 +39,8 @@ class Seminar extends Model
        'Email',
        'Place',
        'Language',
-       
-       
+
+
    ];
 
     use HasFactory;

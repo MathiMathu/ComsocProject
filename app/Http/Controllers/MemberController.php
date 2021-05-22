@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class MemberController extends Controller
 {
-    //
+
     public function index()
     {
         // $members = Member::latest()->value('year');
@@ -16,7 +16,7 @@ class MemberController extends Controller
         $students = DB::table('members')
               ->where('year', $members)
               ->get();
-        
+
         return view('members', compact('students'));
     }
 
@@ -48,7 +48,7 @@ class MemberController extends Controller
         $member->name = $request->name;
         $member->role = $request->role;
         $member->yearofstudy = $request->yearofstudy;
-        
+
         $filename = $request->image_name->getClientOriginalName();
         $member->image_name = $filename;
 
@@ -59,13 +59,13 @@ class MemberController extends Controller
 
     public function compute1(Request $request)
     {
-          
+
           $students = DB::table('members')
               ->where('year', $request->year)
               ->get();
-        
+
         return view('members', compact('students'));
-    } 
+    }
 
     public function edit2($id)
     {
@@ -86,15 +86,15 @@ class MemberController extends Controller
         $member->name = $request->name;
         $member->role = $request->role;
         $member->yearofstudy = $request->yearofstudy;
-        
+
         if($request->hasFile('image_name')) {
             $image = $request->file('image_name');
             $filename = $image->getClientOriginalName();
             $image->move(public_path('images/services'), $filename);
             $member->image_name = $filename;
         }
-    
-       
+
+
         $member->save();
         return redirect()->route('index1');
     }

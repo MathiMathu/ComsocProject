@@ -11,18 +11,29 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="css/style_slide_bar1.css">
+    <link rel="stylesheet" href="css/style_slide_bar2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <style>
 body {
-	color: #566787;
+	color: #080a81;
 	background: #f5f5f5;
 	font-family: 'Varela Round', sans-serif;
 	font-size: 13px;
+   
 }
 .table-responsive {
+    position: relative;
+    left: 35px;
+    top: -50px;
+    width: 100%;
     margin: 30px 0;
+    width:98%;
 }
 .table-wrapper {
-    min-width: 1150px;
+    /* min-width: 1150px; */
+    width:98%;
 	background: #fff;
 	padding: 10px 15px;
 	border-radius: 3px;
@@ -43,12 +54,15 @@ body {
 }
 .table-wrapper .btn.btn-primary {
 	color: #fff;
-	background: #03A9F4;
+	background: #080a81;
 }
 .table-wrapper .btn.btn-primary:hover {
-	background: #03a3e7;
+	background: #080a81;
 }
-.table-title .btn {		
+.fa-filter{
+    color: #32f70b;
+}
+.table-title .btn {
 	font-size: 13px;
 	border: none;
 }
@@ -63,17 +77,18 @@ body {
 }
 .table-title {
 	color: #fff;
-	background: #4b5366;		
+	background: #000000;
 	padding: 16px 25px;
 	margin: -20px -25px 10px;
 	border-radius: 3px 3px 0 0;
 }
 .table-title h2 {
+
 	margin: 5px 0 0;
 	font-size: 24px;
 }
-.show-entries select.form-control {        
-	width: 60px;
+.show-entries select.form-control {
+	width: 80px;
 	margin: 0 5px;
 }
 .table-filter .filter-group {
@@ -115,18 +130,25 @@ body {
 }
 .filter-icon i {
 	font-size: 18px;
-	opacity: 0.7;
-}	
+	opacity: 1;
+}
 table.table tr th, table.table tr td {
 	border-color: #e9e9e9;
 	padding: 12px 15px;
 	vertical-align: middle;
 }
+table.table tr th{
+    color:#080a81;
+}
+table.table tr td{
+    opacity: 1;
+    color:#055e5e;
+}
 table.table tr th:first-child {
 	width: 10px;
 }
 table.table tr th:last-child {
-	width: 200px;
+	width: 150px;
 }
 table.table-striped tbody tr:nth-of-type(odd) {
 	background-color: #fcfcfc;
@@ -138,7 +160,7 @@ table.table th i {
 	font-size: 10px;
 	margin: 0 0px;
 	cursor: pointer;
-}	
+}
 table.table td a {
 	font-weight: bold;
 	color: #566787;
@@ -148,7 +170,7 @@ table.table td a {
 table.table td a:hover {
 	color: #2196F3;
 }
-table.table td a.view {        
+table.table td a.view {
 	width: 100px;
 	height: 1000px;
 	color: #2196F3;
@@ -159,7 +181,7 @@ table.table td a.view {
 table.table td a.view i {
 	font-size: 22px;
 	margin: 2px 0 0 1px;
-}   
+}
 table.table .avatar {
 	border-radius: 50%;
 	vertical-align: middle;
@@ -202,11 +224,11 @@ table.table .avatar {
 }
 .pagination li a:hover {
 	color: #666;
-}	
+}
 .pagination li.active a {
 	background: #03A9F4;
 }
-.pagination li.active a:hover {        
+.pagination li.active a:hover {
 	background: #0397d6;
 }
 .pagination li.disabled i {
@@ -220,7 +242,7 @@ table.table .avatar {
 	float: left;
 	margin-top: 10px;
 	font-size: 13px;
-}    
+}
 </style>
 <script>
 $(document).ready(function(){
@@ -229,7 +251,62 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="container-xl">
+<input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+
+    <header>Com Soc</header>
+      <div class="sidebar__menu">
+        {{-- <div class="sidebar__img">
+            <img src="img/logo.png" alt="logo" />
+            <h1>ComSoc</h1>
+        </div> --}}
+        <div class="sidebar__link active_menu_link">
+          <i class="fa fa-home"></i>
+          <a href="#">Dashboard</a>
+        </div>
+
+        <div class="sidebar__link">
+          <i class="fa fa-user-secret" aria-hidden="true"></i>
+          <a href="#">Admin Management</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <a href="#">User Management</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <a href="#">Society Member</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+          <a href="#">Cs Park</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          <a href="#">Finnancial Support</a>
+        </div>
+
+        <div class="sidebar__link">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <a href="#">Events</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-book" aria-hidden="true"></i>
+          <a href="#">Karaniyam</a>
+        </div>
+        <div class="sidebar__logout">
+          <i class="fa fa-power-off"></i>
+          <a href="#">Log out</a>
+        </div>
+      </div>
+    </div>
+<section>
+<div class="container-fluid">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
@@ -237,7 +314,7 @@ $(document).ready(function(){
                     <div class="col-sm-4">
                         <h2>Student <b>Details</b></h2>
                     </div>
-                    <div class="col-sm-8">						
+                    <div class="col-sm-8">
                         <a href="{{ route('index7')}}" class="btn btn-primary"><i class="material-icons">&#xE863;</i> <span>Refresh List</span></a>
                         <!-- <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a> -->
                     </div>
@@ -258,16 +335,16 @@ $(document).ready(function(){
                         </div>
                     </div>
                     <div class="col-sm-9">
-                        
-                        <form action="{{route('compute4')}}" method = "GET"> 
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>    
+
+                        <form action="{{route('compute4')}}" method = "GET">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                         <div class="filter-group">
                             <label>MonthlyIncome</label>
-                            <input class="form-control" type="text" name="MonthlyIncome" ><br>							
+                            <input class="form-control" type="text" name="MonthlyIncome" ><br>
                         </div>
                         <div class="filter-group">
                             <label>Date</label>
-                            <input class="form-control" type="date" name="Date" ><br>							
+                            <input class="form-control" type="date" name="Date" ><br>
                         </div>
                         <span class="filter-icon"><i class="fa fa-filter"></i></span>
                         </form>
@@ -278,16 +355,16 @@ $(document).ready(function(){
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>RegistrationNo</th>
+                        <th>Registration No</th>
                         <th>Name</th>
-                        <th>MonthlyIncome</th>						
-                        <th>NoOfSiblings</th>	
-						<th>Email</th>					
-                        <th>FatherName</th>
-                        <th>FatherOccupation</th>
-                        <th>MotherName</th>
-                        <th>MotherOccupation</th>
-						<th>Action</th>
+                        <th>Monthly come</th>
+                        <th>No Of Siblings</th>
+						<th>Email</th>
+                        <th>Father Name</th>
+                        <th>Father Occupation</th>
+                        <th>Mother Name</th>
+                        <th>Mother Occupation</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -297,19 +374,20 @@ $(document).ready(function(){
                         <td>{{$finance->RegistrationNo}}</td>
                         <td>{{$finance->Name}}</td>
                         <td>{{$finance->MonthlyIncome}}</td>
-                        <td>{{$finance->NoOfSiblings}}</td> 
-						<td>{{$finance->email}}</td>                        
+                        <td>{{$finance->NoOfSiblings}}</td>
+						<td>{{$finance->email}}</td>
                         <td>{{$finance->FatherName}}</td>
                         <td>{{$finance->FatherOccupation}}</td>
                         <td>{{$finance->MotherName}}</td>
                         <td>{{$finance->MotherOccupation}}</td>
-						<td>{{$finance->action}}</td> 
+                        <td>{{$finance->action}}</td>
                     </tr>
-                @endforeach    
+                @endforeach
                 </tbody>
             </table>
         </div>
-    </div>        
-</div>     
+    </div>
+</div>
+</section>
 </body>
 </html>
