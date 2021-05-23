@@ -11,6 +11,10 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/style_slide_bar1.css">
+    <link rel="stylesheet" href="css/style_slide_bar2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <style>
 body {
 	color: #566787;
@@ -19,7 +23,12 @@ body {
 	font-size: 13px;
 }
 .table-responsive {
+    position: relative;
+    left: 35px;
+    top: -50px;
+    width: 100%;
     margin: 30px 0;
+    width:98%;
 }
 .table-wrapper {
     min-width: 1000px;
@@ -43,12 +52,12 @@ body {
 }
 .table-wrapper .btn.btn-primary {
 	color: #fff;
-	background: #03A9F4;
+	background: #080a81;
 }
 .table-wrapper .btn.btn-primary:hover {
-	background: #03a3e7;
+	background: #080a81;
 }
-.table-title .btn {		
+.table-title .btn {
 	font-size: 13px;
 	border: none;
 }
@@ -63,7 +72,7 @@ body {
 }
 .table-title {
 	color: #fff;
-	background: #4b5366;		
+	background: #000000;
 	padding: 16px 25px;
 	margin: -20px -25px 10px;
 	border-radius: 3px 3px 0 0;
@@ -72,7 +81,7 @@ body {
 	margin: 5px 0 0;
 	font-size: 24px;
 }
-.show-entries select.form-control {        
+.show-entries select.form-control {
 	width: 60px;
 	margin: 0 5px;
 }
@@ -116,11 +125,18 @@ body {
 .filter-icon i {
 	font-size: 18px;
 	opacity: 0.7;
-}	
+}
 table.table tr th, table.table tr td {
 	border-color: #e9e9e9;
 	padding: 12px 15px;
 	vertical-align: middle;
+}
+table.table tr th{
+    color:#080a81;
+}
+table.table tr td{
+    opacity: 1;
+    color:#055e5e;
 }
 table.table tr th:first-child {
 	width: 60px;
@@ -138,7 +154,7 @@ table.table th i {
 	font-size: 13px;
 	margin: 0 5px;
 	cursor: pointer;
-}	
+}
 table.table td a {
 	font-weight: bold;
 	color: #566787;
@@ -148,7 +164,7 @@ table.table td a {
 table.table td a:hover {
 	color: #2196F3;
 }
-table.table td a.view {        
+table.table td a.view {
 	width: 30px;
 	height: 30px;
 	color: #2196F3;
@@ -159,7 +175,7 @@ table.table td a.view {
 table.table td a.view i {
 	font-size: 22px;
 	margin: 2px 0 0 1px;
-}   
+}
 table.table .avatar {
 	border-radius: 50%;
 	vertical-align: middle;
@@ -202,11 +218,11 @@ table.table .avatar {
 }
 .pagination li a:hover {
 	color: #666;
-}	
+}
 .pagination li.active a {
 	background: #03A9F4;
 }
-.pagination li.active a:hover {        
+.pagination li.active a:hover {
 	background: #0397d6;
 }
 .pagination li.disabled i {
@@ -220,7 +236,7 @@ table.table .avatar {
 	float: left;
 	margin-top: 10px;
 	font-size: 13px;
-}    
+}
 </style>
 <script>
 $(document).ready(function(){
@@ -229,7 +245,62 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="container-xl">
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+
+    <header>Com Soc</header>
+      <div class="sidebar__menu">
+        {{-- <div class="sidebar__img">
+            <img src="img/logo.png" alt="logo" />
+            <h1>ComSoc</h1>
+        </div> --}}
+        <div class="sidebar__link active_menu_link">
+          <i class="fa fa-home"></i>
+          <a href="#">Dashboard</a>
+        </div>
+
+        <div class="sidebar__link">
+          <i class="fa fa-user-secret" aria-hidden="true"></i>
+          <a href="#">Admin Management</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <a href="#">User Management</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <a href="#">Society Member</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+          <a href="#">Cs Park</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          <a href="#">Finnancial Support</a>
+        </div>
+
+        <div class="sidebar__link">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <a href="#">Events</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-book" aria-hidden="true"></i>
+          <a href="#">Karaniyam</a>
+        </div>
+        <div class="sidebar__logout">
+          <i class="fa fa-power-off"></i>
+          <a href="#">Log out</a>
+        </div>
+      </div>
+    </div>
+<section>
+<div class="container-fluid">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
@@ -237,7 +308,7 @@ $(document).ready(function(){
                     <div class="col-sm-4">
                         <h2>Student <b>Details</b></h2>
                     </div>
-                    <div class="col-sm-8">						
+                    <div class="col-sm-8">
                     </div>
                 </div>
             </div>
@@ -257,8 +328,8 @@ $(document).ready(function(){
                         <th>#</th>
                         <th>RegistrationNo</th>
                         <th>ReasonForBooking</th>
-                        <th>BookingDate</th>						
-                        <th>BookingTime</th>						
+                        <th>BookingDate</th>
+                        <th>BookingTime</th>
                         <th>Duration</th>
                         <th>Email</th>
                         <th>Action</th>
@@ -271,16 +342,17 @@ $(document).ready(function(){
                         <td>{{$student->registration_number}}</td>
                         <td>{{$student->reason_for_booking}}</td>
                         <td>{{$student->booking_date}}</td>
-                        <td>{{$student->booking_time}}</td>                        
+                        <td>{{$student->booking_time}}</td>
                         <td>{{$student->duration}}</td>
                         <td>{{$student->email}}</td>
                         <td><a href="{{ route('edit8', ['id' => $student->id]) }}" class="view" title="Give Status"><i class="material-icons">&#xE5C8;</i></a></td>
                     </tr>
-                    @endforeach    
+                    @endforeach
                 </tbody>
             </table>
         </div>
-    </div>        
-</div>     
+    </div>
+</div>
+</section>
 </body>
 </html>

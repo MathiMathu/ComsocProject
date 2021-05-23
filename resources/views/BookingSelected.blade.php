@@ -66,13 +66,13 @@ body{
               @method('PATCH')
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="id">ID:</label>
-				  <div class="col-sm-10">          
+				  <div class="col-sm-10">
 					<input type="text" class="form-control" id="id" name="id" value="{{$cspark->id}}" required="required">
 				  </div>
 				</div>
 				<div class="form-group">
 				  <label class="control-label col-sm-2" for="registration_number">RegistrationNo:</label>
-				  <div class="col-sm-10">          
+				  <div class="col-sm-10">
 					<input type="text" class="form-control" id="registration_number" placeholder="Enter Last Name" name="registration_number" value="{{$cspark->registration_number}}" required="required">
 				  </div>
 				</div>
@@ -87,7 +87,7 @@ body{
                 </select>
 				  </div>
 				</div>
-				<div class="form-group">        
+				<div class="form-group">
 				  <div class="col-sm-offset-2 col-sm-10">
 					<button type="submit" class="btn btn-default">Submit</button>
 				  </div>

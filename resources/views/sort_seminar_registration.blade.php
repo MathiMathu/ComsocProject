@@ -11,6 +11,9 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style_slide_bar1.css">
+    <link rel="stylesheet" href="css/style_slide_bar2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <style>
 body {
     color: #566787;
@@ -19,7 +22,12 @@ body {
     font-size: 13px;
 }
 .table-responsive {
+    position: relative;
+    left: 35px;
+    top: -50px;
+    width: 100%;
     margin: 30px 0;
+    width:98%;
 }
 .table-wrapper {
     min-width: 1000px;
@@ -70,6 +78,13 @@ table.table tr th, table.table tr td {
     padding: 12px 15px;
     vertical-align: middle;
 }
+table.table tr th{
+    color:#080a81;
+}
+table.table tr td{
+    opacity: 1;
+    color:#055e5e;
+}
 table.table tr th:first-child {
     width: 60px;
 }
@@ -86,7 +101,7 @@ table.table th i {
     font-size: 13px;
     margin: 0 5px;
     cursor: pointer;
-}	
+}
 table.table td:last-child i {
     opacity: 0.9;
     font-size: 22px;
@@ -152,11 +167,11 @@ table.table .avatar {
 }
 .pagination li a:hover {
     color: #666;
-}	
+}
 .pagination li.active a, .pagination li.active a.page-link {
     background: #03A9F4;
 }
-.pagination li.active a:hover {        
+.pagination li.active a:hover {
     background: #0397d6;
 }
 .pagination li.disabled i {
@@ -179,7 +194,62 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="container-xl">
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+
+    <header>Com Soc</header>
+      <div class="sidebar__menu">
+        {{-- <div class="sidebar__img">
+            <img src="img/logo.png" alt="logo" />
+            <h1>ComSoc</h1>
+        </div> --}}
+        <div class="sidebar__link active_menu_link">
+          <i class="fa fa-home"></i>
+          <a href="#">Dashboard</a>
+        </div>
+
+        <div class="sidebar__link">
+          <i class="fa fa-user-secret" aria-hidden="true"></i>
+          <a href="#">Admin Management</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <a href="#">User Management</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <a href="#">Society Member</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+          <a href="#">Cs Park</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          <a href="#">Finnancial Support</a>
+        </div>
+
+        <div class="sidebar__link">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <a href="#">Events</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-book" aria-hidden="true"></i>
+          <a href="#">Karaniyam</a>
+        </div>
+        <div class="sidebar__logout">
+          <i class="fa fa-power-off"></i>
+          <a href="#">Log out</a>
+        </div>
+      </div>
+    </div>
+<section>
+<div class="container-fluid">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
@@ -209,12 +279,13 @@ $(document).ready(function(){
                           <td>{{ $user->Place }}</td>
                           <td>{{ $user->Language }}</td>
                           <td>{{ $user->Date }}</td>
-                      </tr>          
+                      </tr>
                      @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-</div>     
+</div>
+</section>
 </body>
 </html>

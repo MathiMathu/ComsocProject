@@ -86,7 +86,7 @@ table.table th i {
     font-size: 13px;
     margin: 0 5px;
     cursor: pointer;
-}	
+}
 table.table td:last-child i {
     opacity: 0.9;
     font-size: 22px;
@@ -152,11 +152,11 @@ table.table .avatar {
 }
 .pagination li a:hover {
     color: #666;
-}	
+}
 .pagination li.active a, .pagination li.active a.page-link {
     background: #03A9F4;
 }
-.pagination li.active a:hover {        
+.pagination li.active a:hover {
     background: #0397d6;
 }
 .pagination li.disabled i {
@@ -179,7 +179,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="container-xl">
+<div class="container-fluid">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
@@ -203,12 +203,12 @@ $(document).ready(function(){
                          <td>{{ $student->name }}</td>
                          <td>{{ $student->regNo }}</td>
                          <td>{{ $student->email }}</td>
-                      </tr>          
+                      </tr>
                      @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-</div>     
+</div>
 </body>
 </html>

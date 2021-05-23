@@ -29,7 +29,7 @@ body {
 }
 .table-title {
     color: #fff;
-    background: #40b2cd;		
+    background: #40b2cd;
     padding: 16px 25px;
     margin: -20px -25px 10px;
     border-radius: 3px 3px 0 0;
@@ -50,7 +50,7 @@ body {
 .search-box .input-group-addon, .search-box input {
     border-color: #ddd;
     border-radius: 0;
-}	
+}
 .search-box input {
     height: 34px;
     padding-right: 35px;
@@ -113,13 +113,13 @@ table.table td a.delete {
 }
 table.table td i {
     font-size: 19px;
-}    
+}
 </style>
 <script>
 $(document).ready(function(){
 	// Activate tooltips
 	$('[data-toggle="tooltip"]').tooltip();
-    
+
 	// Filter table rows based on searched term
     $("#search").on("keyup", function() {
         var term = $(this).val().toLowerCase();
@@ -127,7 +127,7 @@ $(document).ready(function(){
             $row = $(this);
             var name = $row.find("td:nth-child(2)").text().toLowerCase();
             console.log(name);
-            if(name.search(term) < 0){                
+            if(name.search(term) < 0){
                 $row.hide();
             } else{
                 $row.show();
@@ -140,7 +140,7 @@ $(document).ready(function(){
 <body>
     <div class="container-lg">
         <div class="table-responsive">
-            <div class="table-wrapper">			
+            <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6">
@@ -148,7 +148,7 @@ $(document).ready(function(){
                         </div>
                         <div class="col-sm-6">
                             <div class="search-box">
-                                <div class="input-group">								
+                                <div class="input-group">
                                     <input type="text" id="search" class="form-control" placeholder="Search by Name">
                                     <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
                                 </div>
@@ -162,8 +162,8 @@ $(document).ready(function(){
                         <th>#</th>
                         <th>RegistrationNo</th>
                         <th>Name</th>
-                        <th>MonthlyIncome</th>						
-                        <th>NoOfSiblings</th>						
+                        <th>MonthlyIncome</th>
+                        <th>NoOfSiblings</th>
                         <th>FatherName</th>
                         <th>FatherOccupation</th>
                         <th>MotherName</th>
@@ -177,18 +177,18 @@ $(document).ready(function(){
                         <td>{{$student->RegistrationNo}}</td>
                         <td>{{$student->Name}}</td>
                         <td>{{$student->MonthlyIncome}}</td>
-                        <td>{{$student->NoOfSiblings}}</td>                        
+                        <td>{{$student->NoOfSiblings}}</td>
                         <td>{{$student->FatherName}}</td>
                         <td>{{$student->FatherOccupation}}</td>
                         <td>{{$student->MotherName}}</td>
                         <td>{{$student->MotherOccupation}}</td>
                     </tr>
-                    @endforeach  
+                    @endforeach
                     </tbody>
                 </table>
             </div>
-        </div>        
-    </div>     
+        </div>
+    </div>
 </body>
 </html>
  -->
@@ -206,18 +206,30 @@ $(document).ready(function(){
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/style_slide_bar1.css">
+    <link rel="stylesheet" href="css/style_slide_bar2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 <style>
 body {
-	color: #566787;
+	color: #080a81;
 	background: #f5f5f5;
 	font-family: 'Varela Round', sans-serif;
 	font-size: 13px;
+
 }
 .table-responsive {
+    position: relative;
+    left: 35px;
+    right: 2px;
+    top: -50px;
+    width: 98%;
     margin: 30px 0;
+    /* width:98%; */
 }
 .table-wrapper {
-    min-width: 1150px;
+    overflow: hidden;
+    width:100%;
 	background: #fff;
 	padding: 20px 20px;
 	border-radius: 3px;
@@ -243,7 +255,7 @@ body {
 .table-wrapper .btn.btn-primary:hover {
 	background: #03a3e7;
 }
-.table-title .btn {		
+.table-title .btn {
 	font-size: 13px;
 	border: none;
 }
@@ -258,7 +270,7 @@ body {
 }
 .table-title {
 	color: #fff;
-	background: #4b5366;		
+	background: #000000;
 	padding: 16px 25px;
 	margin: -20px -25px 10px;
 	border-radius: 3px 3px 0 0;
@@ -267,7 +279,7 @@ body {
 	margin: 5px 0 0;
 	font-size: 24px;
 }
-.show-entries select.form-control {        
+.show-entries select.form-control {
 	width: 60px;
 	margin: 0 5px;
 }
@@ -311,17 +323,20 @@ body {
 .filter-icon i {
 	font-size: 18px;
 	opacity: 0.7;
-}	
+}
 table.table tr th, table.table tr td {
 	border-color: #e9e9e9;
 	padding: 12px 15px;
 	vertical-align: middle;
 }
+table.table tr th{
+    color:#080a81;
+}
 table.table tr th:first-child {
 	width: 10px;
 }
 table.table tr th:last-child {
-	width: 150px;
+	width: 100px;
 }
 table.table-striped tbody tr:nth-of-type(odd) {
 	background-color: #fcfcfc;
@@ -333,17 +348,17 @@ table.table th i {
 	font-size: 13px;
 	margin: 0 5px;
 	cursor: pointer;
-}	
+}
 table.table td a {
 	font-weight: bold;
-	color: #566787;
+	color: #080a81;
 	display: inline-block;
 	text-decoration: none;
 }
 table.table td a:hover {
 	color: #2196F3;
 }
-table.table td a.view {        
+table.table td a.view {
 	width: 30px;
 	height: 30px;
 	color: #2196F3;
@@ -354,7 +369,7 @@ table.table td a.view {
 table.table td a.view i {
 	font-size: 22px;
 	margin: 2px 0 0 1px;
-}   
+}
 table.table .avatar {
 	border-radius: 50%;
 	vertical-align: middle;
@@ -397,11 +412,11 @@ table.table .avatar {
 }
 .pagination li a:hover {
 	color: #666;
-}	
+}
 .pagination li.active a {
 	background: #03A9F4;
 }
-.pagination li.active a:hover {        
+.pagination li.active a:hover {
 	background: #0397d6;
 }
 .pagination li.disabled i {
@@ -415,11 +430,66 @@ table.table .avatar {
 	float: left;
 	margin-top: 10px;
 	font-size: 13px;
-}    
+}
 </style>
 </head>
 <body>
-<div class="container-xl">
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
+
+    <div class="sidebar">
+
+    <header>Com Soc</header>
+      <div class="sidebar__menu">
+        {{-- <div class="sidebar__img">
+            <img src="img/logo.png" alt="logo" />
+            <h1>ComSoc</h1>
+        </div> --}}
+        <div class="sidebar__link active_menu_link">
+          <i class="fa fa-home"></i>
+          <a href="#">Dashboard</a>
+        </div>
+
+        <div class="sidebar__link">
+          <i class="fa fa-user-secret" aria-hidden="true"></i>
+          <a href="#">Admin Management</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <a href="#">User Management</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <a href="#">Society Member</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+          <a href="#">Cs Park</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-credit-card" aria-hidden="true"></i>
+          <a href="#">Finnancial Support</a>
+        </div>
+
+        <div class="sidebar__link">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <a href="#">Events</a>
+        </div>
+        <div class="sidebar__link">
+          <i class="fa fa-book" aria-hidden="true"></i>
+          <a href="#">Karaniyam</a>
+        </div>
+        <div class="sidebar__logout">
+          <i class="fa fa-power-off"></i>
+          <a href="#">Log out</a>
+        </div>
+      </div>
+    </div>
+<section>
+<div class="container-fluid">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
@@ -427,7 +497,7 @@ table.table .avatar {
                     <div class="col-sm-4">
                         <h2>Order <b>Details</b></h2>
                     </div>
-                    <div class="col-sm-8">						
+                    <div class="col-sm-8">
                     </div>
                 </div>
             </div>
@@ -448,8 +518,8 @@ table.table .avatar {
                         <th>RegistrationNo</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>MonthlyIncome</th>						
-                        <th>NoOfSiblings</th>						
+                        <th>MonthlyIncome</th>
+                        <th>NoOfSiblings</th>
                         <th>FatherName</th>
                         <th>FatherOccupation</th>
                         <th>MotherName</th>
@@ -466,18 +536,19 @@ table.table .avatar {
                         <td>{{$student->Name}}</td>
                         <td>{{$student->email}}</td>
                         <td>{{$student->MonthlyIncome}}</td>
-                        <td>{{$student->NoOfSiblings}}</td>                        
+                        <td>{{$student->NoOfSiblings}}</td>
                         <td>{{$student->FatherName}}</td>
                         <td>{{$student->FatherOccupation}}</td>
                         <td>{{$student->MotherName}}</td>
                         <td>{{$student->MotherOccupation}}</td>
                         <td><a href="{{ route('edit8', ['id' => $student->id]) }}" class="view" title="Give Status"><i class="material-icons">&#xE5C8;</i></a></td>
                     </tr>
-                    @endforeach  
+                    @endforeach
                 </tbody>
             </table>
         </div>
-    </div>        
-</div>     
+    </div>
+</div>
+</section>
 </body>
 </html>
