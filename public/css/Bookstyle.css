@@ -220,7 +220,10 @@ body {
     color:white;
 
 }
-
+.copyright{
+    color: #100970 !important;
+    font-family: "Raleway", sans-serif;
+}
 
 
 

@@ -9,6 +9,8 @@
     <!--link style navibar and slider-->
     <link rel = "stylesheet" type = "text/css" href = "css/style.css">
 
+     <!--link the font awesome/icons 4.7-->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <!----------------------link google font for body------------------------->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
@@ -136,7 +138,7 @@
                             </li>
                         @endguest
                     </li>
-                   </ul> 
+                   </ul>
             </div><!--collapse navibar-collapse-->
         </div><!--end container-fluid-->
     </nav><!--end navibar-->
@@ -198,10 +200,10 @@
      <footer class="site-footer">
       <div class="container">
         <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p class="text-justify">History of Compsoc/ Introduction-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-        </div>
+            <div class="col-sm-12 col-md-6">
+                <h6>About</h6>
+                <img src="img/home/logo.jpg" alt="" class="img-fluid">
+            </div>
 
             <div class="col-xs-6 col-md-4">
                 <h6 class = "text-center">Contact</h6>

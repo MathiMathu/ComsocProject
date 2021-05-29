@@ -18,8 +18,95 @@
 	<link type="text/css" rel="stylesheet" href="css/Bookstyle.css" />
 
 <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=PSM6SYeL2Z_z_23UfaqJkrXhWiRxPYQ0HEi3YizBFeOrQJykV0TZdqkhhjBCQrM2vBx8YAnSgA4TGuGLadIbBPsWQxsFFk4qB1o4rbX_m-7CLOfEvHdCWEP_7Q1hCzXzkTcNnI2y8FtOCE_jFF7KgcZ1879SuBtxpIju_H87AP_EWzSATRC-4C6HSr--08WoGl99KVkqds2JUSqCglo-QMqmZlRMOzhcoAAAX3sceeliLkqaAP7Fo9lc3Dg97KceGgiTNW7ARvo1U5D6cX8lUE7An7GvfmZZKkDcB0aD2rnGWanSTTdQCa01mzuJtrYxwwxIPfNRwHTfS34SH5XN86mFf7QOCiJT7K2bcJNKIRRc1WKsZzXWWDIZttcxUCqpbIhSVWDrj58soOoTCEOLZOnWARcSPxzbdpKDp4taCGz21-bqIGqNk1Gjo-k0LSvuhRIDru800yzCeE3OlSOQiQ" charset="UTF-8"></script></head>
+<style>
 
+    .dropdown-menu a:hover {
+          color: #1608d4 !important;
+         }
+         a:hover {
+            color:#1608d4 !important;
+         }
+
+         .nav-item{
+             margin-left:10px;
+         }
+         .navbar-toggler{
+             color:#03fce3;
+         }
+</style>
 <body>
+    <!--navigation bar-->
+    <nav class="navbar navbar-expand-md navbar-light  sticky-top " style="background-color:#080624; color:#ffffff;">
+        <div class="container-fluid">
+            <h2 class="society-name " style="color:white; font-family: 'Texturina', serif;">CompSoc</h2>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav  ml-auto">
+                    <li class="nav-item active" >
+                        <a class="nav-link" href="/" style="color:#ffffff;">Home</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Kananiyam</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('events.index') }}" style="color:#ffffff;">Event</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Seminar" style="color:#ffffff;">Seminar</a>
+                    </li>
+                    <li class="nav-item nav-item1">
+                        <a class="nav-link" href="/cspark" style="color:#ffffff;">Park</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">About</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
+                            <a class="dropdown-item" href="/members" style="color:#ffffff;">Our Team</a>
+                            <a class="dropdown-item" href="/gallery" style="color:#ffffff;">Gallery</a>
+
+                            <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial Support</a>
+                            <a class="dropdown-item" href="#" style="color:#ffffff;">About Us</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                    @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="btn" aria-pressed="true" style="color:#ffffff;">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" aria-pressed="true"  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                     <b>
+                                        {{ __('Logout') }}
+                                        </b>
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </li>
+                </ul>
+            </div><!--collapse navibar-collapse-->
+        </div><!--end container-fluid-->
+    </nav><!--end navibar-->
+
 	<div id="booking" class="section">
 		<div class="section-center">
 			<div class="container cspark-form-and-history">
@@ -27,14 +114,8 @@
 					<div class="col-md-12">
 						<div class="booking-cta text-center">
 							<h1 >CS Park</h1>
-							<p >Originally the park was the research field of Hakgala Botanical Garden.
-							The park was formally named in 1897 to commemorate Queen Victoria's Diamond Jubilee.
-							The park was established with the planting of its first tree, an Oak, by a visiting German Princess.
-							The Nanu Oya River runs through the park, creating a number of small lakes.
-							A number of rare bird species can be found in the park.
-                            At the far end of the park is a small children's playground and miniature ridable railway. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, eaque autem. Consequatur officiis nobis delectus repudiandae,
-                            asperiores excepturi quae optio maiores, eius eveniet aut veritatis, neque autem officia! Inventore, quibusdam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat suscipit aspernatur cupiditate, dolorem praesentium,
-                             porro non voluptas omnis est et, vitae iusto nobis itaque! Facere numquam asperiores nobis blanditiis illum. </p>
+							<p >A park is an area of natural, semi-natural, or planted space set aside for human enjoyment and recreation or for the protection of wildlife or natural habitats.
+                                cs park is about  400 m to the inside from the faculty of science in the North Province of Sri Lanka. That was part of the department of computer science. Park consists of flowers, grassy areas, benches, soil, and trees. </p>
 						</div>
 					</div>
 
@@ -42,16 +123,15 @@
                 <div class="row text-center">
                     <div class="col-md-12 booking-term">
                         <h5>Book Park</h5>
-                        <p><h6>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non minus omnis voluptas adipisci. Temporibus, nulla hic? Est sunt soluta ea in,
-                            incidunt architecto aut autem ut magni suscipit dolores accusamus!</h6></p>
+                        <p><h6>you can book the park for your birthday celebration or welcome party or any function</h6></p>
                     </div>
                 </div>
 
-                
+
                 <div class="row text-center">
                         <div class="col-md-12 col-md-offset-1 form-cspark text-center">
                             <div class="booking-form text-center">
-                                
+
                                 <form method="post" action="saveCspark">
                                 @csrf
                                     <div class="row">
@@ -103,7 +183,7 @@
                                         </div>
                                         <input class="text" type="hidden" name="action">
                                     </div>
-                                    
+
                                     <div class="form-btn">
                                         <button class="submit-btn">Check and Book</button>
                                     </div>
@@ -114,6 +194,10 @@
 			</div>
 		</div>
 	</div>
+    <br>
+    <div class="text-center" >
+        <div class="copyright"> <h6 class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2020. All rights reserved.</h6> </div>
+    </div>
 	<script type = "text/javascript" src = "js/bootstrap.min.js "></script>
 	<script type = "text/javascript" src = "js/Jque.js "></script>
 </body>
