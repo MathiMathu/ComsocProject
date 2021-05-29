@@ -38,7 +38,7 @@ use Carbon\Carbon;
             width:100%;
             font-family: "Open Sans", sans-serif;
             color:#222;
-            background: url("../img/event/bg4.jpg") top center no-repeat;
+            background: url("../img/event/bg5.jpg") top center no-repeat;
             background-size: cover;
             position: relative;
         }
@@ -55,8 +55,8 @@ use Carbon\Carbon;
             background:rgba(52, 7, 110, 0.5);
         }
         .gallery-row{
-            margin-top:10px;
-            background:rgba(52, 7, 110, 0.5);
+            margin-top:30px;
+
         }
 
         @media (min-width: 1024px) {
@@ -562,10 +562,10 @@ use Carbon\Carbon;
      <footer class="site-footer">
       <div class="container">
         <div class="row">
-        <div class="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p class="text-justify">History of Compsoc/ Introduction-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-        </div>
+            <div class="col-sm-12 col-md-6">
+                <h6>About</h6>
+                <img src="img/home/logo.jpg" alt="" class="img-fluid">
+            </div>
 
             <div class="col-xs-6 col-md-4">
                 <h6 class = "text-center">Contact</h6>

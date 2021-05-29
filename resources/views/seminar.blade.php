@@ -16,6 +16,34 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
 	</head>
 	<!-- Body-->
+    <style>
+        .page-section img{
+            width:100%;
+            height:100%;
+        }
+        .photos{
+            margin-top:20px;
+            background-color: #080624;
+            opacity: 0.9;
+        }
+        .inside-photo{
+            height: auto;
+            margin-top:20px;
+            margin-bottom: 20px;
+            background-color: #080624;
+        }
+        .footer{
+            position: relative;
+            width:100%;
+            height: 50px;
+            bottom: 0px;
+            background-color: black;
+        }
+        .footer .copyright {
+            position: relative;
+            top:20px;
+        }
+    </style>
 	<body >
     <!--navigation bar-->
     <nav class="navbar navbar-expand-md navbar-light  sticky-top mt-3" style="background-color:#080624; color:#ffffff;">
@@ -165,75 +193,80 @@
 
 		<hr class="mt-2 mb-5">
 
-		<div class="row text-center text-lg-left">
+		<div class="inside-photo">
+            <div class="row text-center text-lg-left photos mt-2 mb-5">
 
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-				</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-			<div class="col-lg-3 col-md-4 col-6">
-				<a href="#" class="d-block mb-4 h-100">
-				<img class="img-fluid img-thumbnail" src="img/semi1.jpg" alt="">
-				</a>
-			</div>
-		</div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s1.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s2.jpg" alt="">
+                    </a>
+                    </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s3.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s4.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s5.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s6.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s7.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s8.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s9.png" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s10.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s11.jpg" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="#" class="d-block mb-4 h-100">
+                    <img class="img-fluid img-thumbnail" src="img/s12.jpg" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
 
 	</div>
 	<!-- /.container -->
         <!-- Footer-->
-        <footer class=" ">
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 All Rights Reserved by <a href="#" target="_blank">Computer Society University of Jaffna.</div></div>
+        <footer class="footer">
+            <div class="container">
+                <div class="small text-center text-muted copyright">Copyright © 2020 All Rights Reserved by <a href="#" target="_blank">Computer Society University of Jaffna.</a>
+            </div>
+            </div>
         </footer>
         </section>
 

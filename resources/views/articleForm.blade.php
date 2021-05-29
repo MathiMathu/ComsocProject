@@ -26,7 +26,7 @@
                 </div>
                 <div class="card-body-top">
 
-                    <form method="POST" action="add_article">
+                    <form method="POST" action="add_article" enctype="multipart/form-data">
                         {{csrf_field()}}
                         <div class="form-row-top">
                             <div class="name">Registration_No</div>

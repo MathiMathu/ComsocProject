@@ -82,6 +82,12 @@ Route::get('/photo_album', function () {
 Route::get('/kananiyam', function () {
     return view('kananiyam');
 });
+Route::get('/add_kananiyam', function () {
+    return view('add_kananiyam');
+});
+Route::get('aboutus', function () {
+    return view('aboutus');
+});
 
 
 
@@ -137,6 +143,12 @@ Route::get('/uploadArticle', function () {
     return view('articleForm');
 });
 
-
 Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
+
+Route::get('/view_article', [App\Http\Controllers\articlecontroller::class, 'index'])->name('index');
+Route::get('/check/{id}',[App\Http\Controllers\articlecontroller::class,'check'])->name('check');
+Route::patch('/update10/{id}',[App\Http\Controllers\articlecontroller::class,'update10'])->name('update10');
+Route::get('/download/{id}',[App\Http\Controllers\articlecontroller::class,'downloadAudiobook'])->name('downloadAudiobook');
+
+// Route::get('/download/{id}', 'articlecontroller@downloadAudiobook');
 ?>

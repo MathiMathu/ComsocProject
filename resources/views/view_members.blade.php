@@ -21,7 +21,7 @@
 <style>
 body {
 	color: #566787;
-  color: #404E67;
+    color: #404E67;
 	background: #f5f5f5;
 	font-family: 'Varela Round', sans-serif;
 	font-size: 13px;

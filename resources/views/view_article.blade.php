@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>View Registered Students</title>
+<title>Students Detail with Search Filter</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -12,15 +12,17 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="css/style_slide_bar1.css">
-<link rel="stylesheet" href="css/style_slide_bar2.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+	<link rel="stylesheet" href="css/style_slide_bar1.css">
+    <link rel="stylesheet" href="css/style_slide_bar2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body {
-	color: #566787;
+	color: #080a81;
 	background: #f5f5f5;
 	font-family: 'Varela Round', sans-serif;
 	font-size: 13px;
+
 }
 .table-responsive {
     position: relative;
@@ -30,10 +32,12 @@ body {
     margin: 30px 0;
     width:98%;
 }
+
 .table-wrapper {
-    min-width: 1000px;
+    /* min-width: 1150px; */
+    width:98%;
 	background: #fff;
-	padding: 20px 25px;
+	padding: 10px 15px;
 	border-radius: 3px;
 	box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
@@ -52,10 +56,13 @@ body {
 }
 .table-wrapper .btn.btn-primary {
 	color: #fff;
-	background: #03A9F4;
+	background: #080a81;
 }
 .table-wrapper .btn.btn-primary:hover {
-	background: #03a3e7;
+	background: #080a81;
+}
+.fa-filter{
+    color: #32f70b;
 }
 .table-title .btn {
 	font-size: 13px;
@@ -72,17 +79,18 @@ body {
 }
 .table-title {
 	color: #fff;
-	background: #4b5366;
+	background: #000000;
 	padding: 16px 25px;
 	margin: -20px -25px 10px;
 	border-radius: 3px 3px 0 0;
 }
 .table-title h2 {
+
 	margin: 5px 0 0;
 	font-size: 24px;
 }
 .show-entries select.form-control {
-	width: 60px;
+	width: 80px;
 	margin: 0 5px;
 }
 .table-filter .filter-group {
@@ -124,7 +132,7 @@ body {
 }
 .filter-icon i {
 	font-size: 18px;
-	opacity: 0.7;
+	opacity: 1;
 }
 table.table tr th, table.table tr td {
 	border-color: #e9e9e9;
@@ -139,10 +147,10 @@ table.table tr td{
     color:#055e5e;
 }
 table.table tr th:first-child {
-	width: 60px;
+	width: 10px;
 }
 table.table tr th:last-child {
-	width: 80px;
+	width: 150px;
 }
 table.table-striped tbody tr:nth-of-type(odd) {
 	background-color: #fcfcfc;
@@ -151,8 +159,8 @@ table.table-striped.table-hover tbody tr:hover {
 	background: #f5f5f5;
 }
 table.table th i {
-	font-size: 13px;
-	margin: 0 5px;
+	font-size: 10px;
+	margin: 0 0px;
 	cursor: pointer;
 }
 table.table td a {
@@ -165,8 +173,8 @@ table.table td a:hover {
 	color: #2196F3;
 }
 table.table td a.view {
-	width: 30px;
-	height: 30px;
+	width: 100px;
+	height: 1000px;
 	color: #2196F3;
 	border: 2px solid;
 	border-radius: 30px;
@@ -245,7 +253,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-    <input type="checkbox" id="check">
+    <div class="hidden-content">
+        <p>We recoment to use the desktop.Becuase this include tables.</p>
+    </div>
+<input type="checkbox" id="check">
     <label for="check">
       <i class="fas fa-bars" id="btn"></i>
       <i class="fas fa-times" id="cancel"></i>
@@ -299,60 +310,84 @@ $(document).ready(function(){
         </div>
       </div>
     </div>
-    <section>
+<section>
 <div class="container-fluid">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-4">
-                        <h2>Registered Students <b>Details</b></h2>
+                        <h2>Article <b>Details</b></h2>
                     </div>
                     <div class="col-sm-8">
-                        <a href="#" class="btn btn-primary"><i class="material-icons">&#xE863;</i> <span>Refresh List</span></a>
+                        <a href="{{ route('index7')}}" class="btn btn-primary"><i class="material-icons">&#xE863;</i> <span>Refresh List</span></a>
                         <!-- <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a> -->
                     </div>
                 </div>
             </div>
             <div class="table-filter">
                 <div class="row">
-                    <div class="col-sm-3">
-                    </div>
-                    <div class="col-sm-9">
+                    {{-- <div class="col-sm-3">
+                        <div class="show-entries">
+                            <span>Show</span>
+                            <select class="form-control">
+                                <option>5</option>
+                                <option>10</option>
+                                <option>15</option>
+                                <option>20</option>
+                            </select>
+                            <span>entries</span>
+                        </div>
+                    </div> --}}
+                    {{-- <div class="col-sm-9">
 
-                        <form action="{{route('compute')}}" method = "GET">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        <form action="{{route('compute4')}}" method = "GET">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
                         <div class="filter-group">
-                            <label>Event ID</label>
-                            <input class="form-control" type="text" name="e_id" required=""><br>
+                            <label>MonthlyIncome</label>
+                            <input class="form-control" type="text" name="MonthlyIncome" ><br>
                         </div>
                         <div class="filter-group">
-                            <label>Event Closing Date</label>
-                            <input class="form-control" type="date" name="date" required=""><br>
+                            <label>Date</label>
+                            <input class="form-control" type="date" name="Date" ><br>
                         </div>
                         <span class="filter-icon"><i class="fa fa-filter"></i></span>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>Event Name</th>
+                        <th>#</th>
+                        <th>Registration No</th>
                         <th>Name</th>
-                        <th>Registration_Number</th>
-                        <th>email</th>
-                        <th>YOS</th>
+                        <th>Article Title</th>
+                        <th>Description</th>
+						<th>Article</th>
+                        <th>Action</th>
+                        <th>Plagisirm check</th>
+                        <th colspan="2"></th>
+                        {{-- <th>Father Name</th>
+                        <th>Father Occupation</th>
+                        <th>Mother Name</th>
+                        <th>Mother Occupation</th>
+                        <th>Action</th> --}}
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($registers as $register)
+                @foreach ($article as $article)
                     <tr>
-                        <td>{{ $register->event_name }}</td>
-                        <td>{{ $register->name }}</td>
-                        <td>{{ $register->regNo }}</td>
-                        <td>{{ $register->email }}</td>
-                        <td>{{ $register->yos }}</td>
+                        <td>{{$article->id}}</td>
+                        <td>{{$article->RegistrationNo}}</td>
+                        <td>{{$article->Name}}</td>
+                        <td>{{$article->Title}}</td>
+                        <td>{{$article->Description}}</td>
+						<td>{{$article->article}}</td>
+                        <td>{{$article->action}}</td>
+                        <td><a href="check/{{$article->id}}">check</a></td>
+                        <td><i class="fa fa-cloud-download" aria-hidden="true"></i></td>
+                        <td><a href="download/{{$article->id}}">Downloard</a></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -363,6 +398,3 @@ $(document).ready(function(){
 </section>
 </body>
 </html>
-
-
-

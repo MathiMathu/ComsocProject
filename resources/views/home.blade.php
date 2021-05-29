@@ -11,7 +11,7 @@
     <!-----link style navibar and slider----->
     <link rel = "stylesheet" type = "text/css" href = "css/style.css">
 
-   
+
    <!-----link google font for website name----->
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Texturina:ital,wght@1,100&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
 
 	<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=v6HePCTnT6Z0HoRqAnrN84RI9LNaEztjACmbi70896NcVWOwpUEAV75w22zaJwFoGrU8UT_8Mu83kcORnkhBTK3YIIza3IvA4wicuw85IsMDzi7g_eBCL2M8sLlyv3B_puWdyO8Q6IjIxudA0qVwp6TPiAslUFASojXN3XnpgcDUIEjqJR759_IoCTZIMvSMvFUBHSbvj7ZRfvOEQhLiH0PTnvBd3w5hZsOu7EuaCjosZohatxu9mpHL96Dq6tbctI7hnUKs864AfPb08onoqdK7SvJTKdOd8YqttHzAQn-ksn5-VatlBQAnDtO-LPXmyiWNge7Xub1Vrj6swdAOsGbP3wtecStM0erT0py1lka_p9XdX4pumayu05MATm3MevONzOOLxRVQQLngZBStCxmDKww08DWuYxugAWOpSKR5T5qh6Od-nGbmhu08V08Aj-XObNTOo9JvsFJjMiZpRA" charset="UTF-8">
     </script>
-	
+
     <!--link the font awesome/icons 4.7-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -32,6 +32,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <style>
+
         body{
             font-family: 'Frank Ruhl Libre', serif;
         }
@@ -39,8 +40,9 @@
           color: #1608d4 !important;
          }
          a:hover {
-            color:#1608d4 !important; 
+            color:#1608d4 !important;
          }
+
          .nav-item{
              margin-left:10px;
          }
@@ -58,10 +60,10 @@
          .container .card:before{
              transform:skew(2deg,2deg);
          }
-        
+
         .vision{
-           
-        } 
+
+        }
         .fa:hover {
             opacity: 0.7;
         }
@@ -77,7 +79,7 @@
         background: #125688;
          color: white;
         }
-        .fa-linkedin {
+        .fa-linkedin:hover {
          background: #007bb5;
          color: white;
         }
@@ -86,17 +88,17 @@
 </head>
 <body>
     <!--navigation bar-->
-    <nav class="navbar navbar-expand-md navbar-light  sticky-top mt-3" style="background-color:#080624; color:#ffffff;">
+    <nav class="navbar navbar-expand-md navbar-light  sticky-top " style="background-color:#080624; color:#ffffff;">
         <div class="container-fluid">
             <h2 class="society-name " style="color:white; font-family: 'Texturina', serif;">CompSoc</h2>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
-           
+
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav  ml-auto">
                     <li class="nav-item active" >
-                        <a class="nav-link" href="#" style="color:#ffffff;">Home</a>
+                        <a class="nav-link" href="" style="color:#ffffff;">Home</a>
                     </li>
                     <li class="nav-item" >
                         <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Kananiyam</a>
@@ -104,9 +106,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('events.index') }}" style="color:#ffffff;">Event</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Discussion</a>
-                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="/Seminar" style="color:#ffffff;">Seminar</a>
                     </li>
@@ -118,12 +118,12 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
                             <a class="dropdown-item" href="/members" style="color:#ffffff;">Our Team</a>
                             <a class="dropdown-item" href="/gallery" style="color:#ffffff;">Gallery</a>
-                           
+
                             <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial Support</a>
                             <a class="dropdown-item" href="#" style="color:#ffffff;">About Us</a>
                         </div>
                     </li>
-                   
+
                     <li class="nav-item">
                     @guest
                             @if (Route::has('login'))
@@ -131,7 +131,7 @@
                                     <a href="{{ route('login') }}" class="btn" aria-pressed="true" style="color:#ffffff;">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -179,13 +179,13 @@
                     <img src="img/home/p26.png" alt="">
                 </div>
             </div>
-         
+
         </div>
         <!--end image slider-->
         <br>
-        
 
-         
+
+
     </div>
     <!--------------------End container class------------------------------------------------------------------------>
     <br>
@@ -193,17 +193,14 @@
     <!--------------------start our vision------------------------------------------------------->
     <div class="container padding shadow">
         <div class="row vision text-center">
-            <div class="col-md-12">
+            <div class="col-md-12 vision" >
                 <h1 class="dispaly-4 vision-term"><span> Our Vision</span> </h1>
-                <p><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sequi eaque ipsa id pariatur fuga voluptate? Quaerat ullam
-                     incidunt voluptatem rem quasi sint dolores dolore id, ad, reprehenderit excepturi corporis.
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt adipisci neque id saepe iste, minima facere aliquid amet, nesciunt 
-                     expedita inventore enim. Velit consequatur temporibus, aspernatur dolore praesentium saepe voluptates.
-                     </i>
+                <p>"Our aims and objectives to promote the dissemination of
+                     scientific knowledge with special emphasis on Computers and their application"
                 </p>
             </div>
         </div>
-    </div> 
+    </div>
 
     <!--------------------End our vision------------------------------------------------------->
     <br>
@@ -217,26 +214,27 @@
         <div class="row ml-5 mr-5 justify-content-around">
             <div class="col-md-4 description  mt-5 ">
                 <div class="content">
-                    
+
                     <h2>Kananiyam</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolorum cupiditate, distinctio vitae quo deleniti exercita</p>
-                    <a href="#">view more</a>
+                    <p>An annual newsletter nurtures student articles to enlighten the readers on latest trends in computing field including various information about student activities and achievements in the DCS.</p>
+                    <a href="/kananiyam " active>view more</a>
                 </div>
             </div>
             <div class="col-md-4 description col-md-offset-2 mt-5">
                 <div class="content">
-                   
+
                     <h2>Event</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolorum cupiditate, distinctio vitae quo deleniti exercita</p>
-                    <a href="#">view more</a>
+                    <p>We arrange workshops and techtalks for students.It is a nice opportunity for discussing, sharing new ideas. Students can get new knowledge from outside resources.</p>
+                    <a href="events">view more</a>
                 </div>
             </div>
             <div class="col-md-4 description col-md-offset-2  mt-5">
                 <div class="content">
-                    
+
                     <h2>Festival</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolorum cupiditate, distinctio vitae quo deleniti exercita</p>
-                    <a href="#">view more</a>
+                    <p>We celebrate festivals, Such as Saraswathi Pooja, Ramadan,
+                        Vesak.Saraswati Pooja is ritualistic worship performed for pleasing the Goddess and receiving her divine grace</p>
+                    <a href="festival">view more</a>
                 </div>
             </div>
         </div>
@@ -250,32 +248,33 @@
         <div class="row ml-5 mr-5 justify-content-around">
             <div class="col-md-4 description  mt-5 ">
                 <div class="content">
-                    
+
                     <h2>Seminar</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolorum cupiditate, distinctio vitae quo deleniti exercita</p>
-                    <a href="#">view more</a>
+                    <p>We do seminars for A/L and O/L students for the past 12 years.You can join Us to teach them</p>
+                    <a href="Seminar">view more</a>
+
                 </div>
             </div>
             <div class="col-md-4 description col-md-offset-2 mt-5">
                 <div class="content">
-                    
+
                     <h2>Our Team</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolorum cupiditate, distinctio vitae quo deleniti exercita</p>
-                    <a href="#">view more</a>
+                    <p>Look, Our ComSoc New team members. Mr. Mathanraj is the chairperson of the Society and the secretary is ,</p>
+                    <a href="members">view more</a>
                 </div>
             </div>
             <div class="col-md-4 description col-md-offset-2  mt-5">
                 <div class="content">
-                   
-                    <h2>Discussion</h2>
+
+                    <h2>CS Park</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolorum cupiditate, distinctio vitae quo deleniti exercita</p>
-                    <a href="#">view more</a>
+                    <a href="cspark">view more</a>
                 </div>
             </div>
         </div>
     </div>
     <!--------------------End  short description part row 2 ------------------------------------------------------------------------>
-    
+
 
 
 
@@ -283,22 +282,23 @@
 
      <!--------------------start about Us------------------------------------------------------->
      <div class="container padding shadow">
-        <div class="row vision ">
+        <div class="row about-us">
             <div class="col-md-12">
                 <h1 class="dispaly-4 aboutus-term"><span>About Us</span> </h1>
-                <p class="text-center"><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sequi eaque ipsa id pariatur fuga voluptate? Quaerat ullam
-                     incidunt voluptatem rem quasi sint dolores dolore id, ad, reprehenderit excepturi corporis.
-                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt adipisci neque id saepe iste, minima facere aliquid amet, nesciunt 
-                     expedita inventore enim. Velit consequatur temporibus, aspernatur dolore praesentium saepe voluptates.
-                     </i>
+                <p class="text-center">The society shall be called,
+                    The Computer Society,
+                    University of Jaffna,
+                    Sri Lanka
+                    Our aims and objectives to promote the
+                    dissemination of scientific knowledge with special emphasis on Computers and their application.
                 </p>
-                <div class="text-center mb-5">
-                    <a href="#" class="btn btn-outline-secondary view-more mt-2 ">View more</a>
+                <div class="text-center mb-5 view-more-button">
+                    <a href="/aboutus" class="btn btn-outline-secondary view-more mt-2 ">View more</a>
                 </div>
-                
+
             </div>
         </div>
-    </div> 
+    </div>
 
     <!--------------------End start about Us------------------------------------------------------->
 
@@ -307,9 +307,12 @@
         <div class="row Galary text-center">
             <div class="col-md-12">
                 <h1 class="dispaly-4 galary-term"><span> Gallery</span>  </h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque sequi eaque ipsa id pariatur fuga voluptate? Quaerat ullam
-                     incidunt voluptatem rem quasi sint dolores dolore id, ad, reprehenderit excepturi corporis
-                     
+                <p>Sunset is the time of day when our sky meets the outer space solar winds.
+                    There are blue, pink, and purple swirls, spinning and twisting, like clouds
+                    of balloons caught in a whirlwind. The sun moves slowly to hide behind the
+                     line of horizon, while the moon races to take its place in prominence atop
+                     the night sky. People slow to a crawl, entranced, fully forgetting the deeds that must still be done.
+
                 </p>
 
                 <!--------galary row 1---------------------------------->
@@ -358,15 +361,15 @@
                 </div>
                  <!--------end galary row 2---------------------------------->
 
-                 <div class="text-center mb-5">
+                 <div class="text-center mb-5 view-more-button">
                     <a href="#" class="btn btn-outline-secondary view-more mt-2 ">View more</a>
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 
     <!--------------------End Galary------------------------------------------------------->
-         
+
      <!--End inside the footer and  navibar-->
 
      <!--footer-->
@@ -393,13 +396,13 @@
             <div class="col-xs-6 col-md-2">
                 <h6>Quick Links</h6>
                 <ul class="footer-links" >
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Kananiyam</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Discussion</a></li>
-                    <li><a href="#">CS park</a></li>
-                    <li><a href="#">Financial Support</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="aboutus">About</a></li>
+                    <li><a href="kananiyam">Kananiyam</a></li>
+                    <li><a href="events">Events</a></li>
+                    <li><a href="#">Festival</a></li>
+                    <li><a href="cspark">CS park</a></li>
+                    <li><a href="finnancial_suport">Financial Support</a></li>
                 </ul>
             </div>
         </div>
@@ -408,7 +411,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
+                    <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
                     <a href="#">Computer Society University of Jaffna </a>.
                     </p>
                 </div>
@@ -418,14 +421,14 @@
                     <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
     <!-- end footer class-->
-		
+
 		<script type = "text/javascript" src = "js/bootstrap.min.js "></script>
 		<script type = "text/javascript" src = "js/Jque.js "></script>
 
