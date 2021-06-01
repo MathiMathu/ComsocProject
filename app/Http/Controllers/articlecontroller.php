@@ -78,9 +78,5 @@ class articlecontroller extends Controller
             $download = public_path().'/storage/images/' . $audiobook->article;
             return response()->download($download);
 
-
-
-
-
     }
 }
