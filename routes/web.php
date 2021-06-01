@@ -79,12 +79,7 @@ Route::get('/gallery', function () {
 Route::get('/photo_album', function () {
     return view('photo_album');
 });
-Route::get('/kananiyam', function () {
-    return view('kananiyam');
-});
-Route::get('/add_kananiyam', function () {
-    return view('add_kananiyam');
-});
+
 Route::get('aboutus', function () {
     return view('aboutus');
 });
@@ -143,6 +138,12 @@ Route::get('/uploadArticle', function () {
     return view('articleForm');
 });
 
+Route::get('/kananiyam', function () {
+    return view('kananiyam');
+});
+Route::get('/add_kananiyam', function () {
+    return view('add_kananiyam');
+});
 Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
 
 Route::get('/view_article', [App\Http\Controllers\articlecontroller::class, 'index'])->name('index');
