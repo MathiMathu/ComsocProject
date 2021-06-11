@@ -108,7 +108,7 @@
                             </div>
 
                             <div class="form-group row">
-                            <label for="image_name"><h6 class="mb-1 text-sm">Image</h6></label>
+                            <label for="image_name"><h6 class="mb-1 text-sm">Insert Flyer</h6></label>
                                 <input id="image_name" type="file" class="form-control @error('image_name') is-invalid @enderror" name="image_name" value="{{ old('image_name') }}" placeholder="Enter email"  required autocomplete="image_name">
 
                                 @error('image_name')
@@ -167,6 +167,19 @@
                                 @enderror
                             </div>
 
+                            <div class="form-group row">
+                            <label for="is_register"> <h6 class="mb-0 text-sm">Action</h6></label>
+                            <select  class="form-control @error('venue') is-invalid @enderror" type="text" id="is_register" name="is_register" placeholder="Action" required="">
+                                 <option value="" disabled selected></option>   
+                                 <option value="0">No Need To Register</option>
+                                 <option value="1">Need To Register</option>
+						    </select>
+                                @error('venue')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
                             <div class="mb-3">
                                 <div class="loading">Loading</div>

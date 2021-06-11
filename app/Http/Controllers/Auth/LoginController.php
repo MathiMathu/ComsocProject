@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 
 class LoginController extends Controller
 {
@@ -36,5 +37,37 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request)
+    {  
+        $inputVal = $request->all();
+   
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+   
+        if(auth()->attempt(array('email' => $inputVal['email'], 'password' => $inputVal['password']))){
+            if (auth()->user()->is_admin == 1) {
+                return redirect()->route('admin.route');
+            }else if (auth()->user()->is_admin == 2) {
+                return redirect()->route('treasurer.route');
+            }else if (auth()->user()->is_admin == 3) {
+                return redirect()->route('editor.route');
+            }
+            else{
+                return redirect()->route('home');
+             }
+        }  
+        else {
+
+            // authentication fail, back to login page with errors
+   
+            return redirect()->route('login')
+             ->withErrors('Incorrect login details');
+   
+   
+            }
     }
 }

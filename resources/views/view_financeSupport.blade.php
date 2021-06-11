@@ -267,41 +267,17 @@ $(document).ready(function(){
         </div> --}}
         <div class="sidebar__link active_menu_link">
           <i class="fa fa-home"></i>
-          <a href="#">Dashboard</a>
-        </div>
-
-        <div class="sidebar__link">
-          <i class="fa fa-user-secret" aria-hidden="true"></i>
-          <a href="#">Admin Management</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-user" aria-hidden="true"></i>
-          <a href="#">User Management</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-users" aria-hidden="true"></i>
-          <a href="#">Society Member</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-birthday-cake" aria-hidden="true"></i>
-          <a href="#">Cs Park</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-credit-card" aria-hidden="true"></i>
-          <a href="#">Finnancial Support</a>
-        </div>
-
-        <div class="sidebar__link">
-          <i class="fa fa-calendar" aria-hidden="true"></i>
-          <a href="#">Events</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-book" aria-hidden="true"></i>
-          <a href="#">Karaniyam</a>
+          <a href="/treasurer">Dashboard</a>
         </div>
         <div class="sidebar__logout">
           <i class="fa fa-power-off"></i>
-          <a href="#">Log out</a>
+          <a aria-pressed="true"  href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                              <b>
+                                  {{ __('Logout') }}
+                              </b>
+            </a>
         </div>
       </div>
     </div>

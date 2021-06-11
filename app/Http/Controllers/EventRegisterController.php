@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Register;
 use App\Models\Event;
+use App\Models\User;
+use Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 
 class EventRegisterController extends Controller
 {
@@ -35,20 +39,26 @@ class EventRegisterController extends Controller
             'yos' => ['required', 'string', 'max:255']
             // 'message'  => ['string', 'max:255']
         ]);
+        if($request->regNo == Auth::user()->regNo)
+        {
+            $event_register = new Register;
 
-        $event_register = new Register;
-
-        $event_register->event_name = $request->event_name;
-        $event_register->name = $request->name;
-        $event_register->regNo = $request->regNo;
-        $event_register->email = $request->email;
-        $event_register->yos = $request->yos;
-        $event_register->message = $request->message;
-        $event_register->save();
-        return redirect(route('events.index'));
-
-
-
+            $event_register->event_name = $request->event_name;
+            $event_register->name = $request->name;
+            $event_register->regNo = $request->regNo;
+            $event_register->email = $request->email;
+            $event_register->yos = $request->yos;
+            $event_register->message = $request->message;
+            $event_register->save();
+            return redirect(route('events.index'));
+        }
+       
+        else
+        {
+            return redirect()->back()->withErrors("Both registration number doesn't match");
+        }
+        
+        
     }
 
      /**

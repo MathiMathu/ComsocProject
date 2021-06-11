@@ -245,7 +245,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-    <input type="checkbox" id="check">
+<input type="checkbox" id="check">
     <label for="check">
       <i class="fas fa-bars" id="btn"></i>
       <i class="fas fa-times" id="cancel"></i>
@@ -253,7 +253,7 @@ $(document).ready(function(){
 
     <div class="sidebar">
 
-    <header>Com Soc</header>
+    <header>CompSoc</header>
       <div class="sidebar__menu">
         {{-- <div class="sidebar__img">
             <img src="img/logo.png" alt="logo" />
@@ -261,41 +261,21 @@ $(document).ready(function(){
         </div> --}}
         <div class="sidebar__link active_menu_link">
           <i class="fa fa-home"></i>
-          <a href="#">Dashboard</a>
-        </div>
-
-        <div class="sidebar__link">
-          <i class="fa fa-user-secret" aria-hidden="true"></i>
-          <a href="#">Admin Management</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-user" aria-hidden="true"></i>
-          <a href="#">User Management</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-users" aria-hidden="true"></i>
-          <a href="#">Society Member</a>
+          <a href="/admin">Dashboard</a>
         </div>
         <div class="sidebar__link">
           <i class="fa fa-birthday-cake" aria-hidden="true"></i>
-          <a href="#">Cs Park</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-credit-card" aria-hidden="true"></i>
-          <a href="#">Finnancial Support</a>
-        </div>
-
-        <div class="sidebar__link">
-          <i class="fa fa-calendar" aria-hidden="true"></i>
-          <a href="#">Events</a>
-        </div>
-        <div class="sidebar__link">
-          <i class="fa fa-book" aria-hidden="true"></i>
-          <a href="#">Karaniyam</a>
+          <a href="/view_park_bookings">Park Management</a>
         </div>
         <div class="sidebar__logout">
           <i class="fa fa-power-off"></i>
-          <a href="#">Log out</a>
+          <a aria-pressed="true"  href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                              <b>
+                                  {{ __('Logout') }}
+                              </b>
+            </a>
         </div>
       </div>
     </div>

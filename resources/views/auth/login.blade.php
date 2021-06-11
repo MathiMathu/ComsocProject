@@ -83,6 +83,10 @@
                                 @endif
                             
                         </div>
+                        <p></p>
+                        @if($errors->any())
+                              {!! implode('', $errors->all('<div class="alert alert-danger" role="alert">:message</div>')) !!}
+                        @endif
                     </form>
                    
                     <div class="row mb-4 px-3"> <small class="font-weight-bold">

@@ -4,14 +4,23 @@ namespace App\Http\Controllers;
 use App\Models\Seminar;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Profile;
 use Illuminate\Support\Facades\DB;
+use Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class SeminarController extends Controller
 {
          
     public function index()
     {
-        return view('seminar');
+        $userData = DB::table('users')
+        //->leftJoin('profiles', 'profiles.id','users.id')
+        ->where('users.id',Auth::user()->id)
+        ->get();
+        return view('seminar')->with('userData', $userData);
+        //return view('seminar');
     }
 
     public function index1()

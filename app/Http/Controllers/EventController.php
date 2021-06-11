@@ -51,6 +51,7 @@ class EventController extends Controller
             'start_time' => 'required',
             'end_time' => 'required',
             'venue' => 'required',
+            'is_register' => 'required',
         ]);
         $event = new Event;
 
@@ -60,6 +61,7 @@ class EventController extends Controller
         $event->end_time = $request->end_time;
         $event->guest = $request->guest;
         $event->venue = $request->venue;
+        $event->is_register = $request->is_register;
 
         $filename = $request->image_name->getClientOriginalName();
         $event->image_name = $filename;
@@ -73,7 +75,7 @@ class EventController extends Controller
 
 
         $event->save();
-        return redirect()->route('events.index');
+        return redirect()->route('admin.route');
     }
 
     /**
@@ -119,5 +121,15 @@ class EventController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function downloadFlyer($id)
+    {
+
+            //$download = Event::where(['id' => $id, 'Event' => $id]);
+            
+            $flyer = Event::find($id);
+            $download = public_path().'/storage/images/' . $flyer->image_name;
+            return response()->download($download);
     }
 }
