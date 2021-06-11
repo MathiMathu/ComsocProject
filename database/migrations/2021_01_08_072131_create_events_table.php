@@ -22,6 +22,7 @@ class CreateEventsTable extends Migration
             $table->time('end_time');
             $table->string('guest')->nullable();
             $table->string('venue');
+            $table->boolean('is_register');
             //$table->text('comments');
             $table->timestamps();
         });

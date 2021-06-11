@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Profile;
+use Illuminate\Support\Facades\DB;
+use Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
@@ -23,6 +29,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
         return view('home');
+        
     }
 }

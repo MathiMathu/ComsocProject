@@ -71,6 +71,7 @@
                                 @enderror
                             </div>
                         
+                            
 
                         <div class="form-group row">
                             <label for="password"><h6 class="mb-0 text-sm">Password</h6></label>
@@ -97,6 +98,9 @@
                                 </button>
                             </div>
                         </div>
+                        <input type="hidden" id="profile" name="profile">
+                        <input type="hidden" id="phone" name="phone">
+                        <input type="hidden" id="profession" name="profession">
                     </form>
            </div>
     </div>

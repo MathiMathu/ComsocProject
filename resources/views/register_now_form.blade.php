@@ -186,6 +186,10 @@ use Carbon\Carbon;
                                 <div class="sent-message">Your message has been sent. Thank you!</div>
                             </div>
                              <div class="text-center"><button type="submit">Register</button></div>
+                             <p></p>
+                             @if($errors->any())
+                              {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
+                             @endif
                         </form>
                     </div>
                 </div>

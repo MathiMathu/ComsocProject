@@ -249,12 +249,20 @@ use Carbon\Carbon;
                             @endif
 
                         @else
-                            <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                @if(empty(Auth::user()->profile))
+                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="10" height="10" class="rounded-circle">
+                                @else
+                                 <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
+                                @endif
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" aria-pressed="true"  href="/profile/{id}">
+                                        <b>
+                                        Profile
+                                        </b>
+                                    </a>
                                     <a class="dropdown-item" aria-pressed="true"  href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -328,7 +336,7 @@ use Carbon\Carbon;
                     $diffDays = $fromDate->diffInDays($toDate);
                     ?>
                   @if($toDate > $fromDate)
-
+                    @if($event->is_register==1)
                 </div>
                    @if (empty($event->guest))
                <div class="row ">
@@ -354,6 +362,7 @@ use Carbon\Carbon;
 
                         </div>
                         <div class="dat-and-time ">
+                            <a href="download1/{{$event->id}}"><i class="fa fa-cloud-download" aria-hidden="true"></i></a>
                             <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">{{ $event->date}}</span></i>
                             <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">{{ date('h:i a',strtotime($event->start_time))}}</span></i>
                         </div>
@@ -380,11 +389,73 @@ use Carbon\Carbon;
 
                   </div>
                   <div class="dat-and-time ">
+                      <a href="download1/{{$event->id}}"><i class="fa fa-cloud-download" aria-hidden="true"></i></a>
                       <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">{{ $event->date}}</span></i>
                       <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">{{ date('h:i a',strtotime($event->start_time))}}</span></i>
                   </div>
 
                   @endif
+                @else
+                </div>
+                   @if (empty($event->guest))
+               <div class="row ">
+               <div class="col-md-12 this-mont-event no-gutters">
+
+                    <!--strt events without guest name---->
+
+                     <div class="row mt-3 event-description-details">
+                        <div class="col-md-3 event-img">
+                            <img src="{{asset('/storage/images/'.$event->image_name)}}" alt="" class="">
+                        </div>
+
+                        <div class="col-md-9 event-description ">
+                            <h3 class="event-title  text-center mt-2">{{ $event->event_name}}</h3>
+                            <h6 class="event-description mt-4">{{ $event->event_name}} will be held on  {{ $event->date}} from {{ date('h:i a',strtotime($event->start_time))}} to  {{ date('h:i a',strtotime($event->end_time))}} at  {{ $event->venue}}
+                                .It is organized by computer society of university of Jaffna.We warmly welcomes all of you.
+                            </h6>
+
+
+                            <div class="text-center register-now">
+                                <a href="{{ URL('register_now_form/'.$event->id)}}" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
+                            </div>
+
+                        </div>
+                        <div class="dat-and-time ">
+                            <a href="download1/{{$event->id}}"><i class="fa fa-cloud-download" aria-hidden="true"></i></a>
+                            <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">{{ $event->date}}</span></i>
+                            <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">{{ date('h:i a',strtotime($event->start_time))}}</span></i>
+                        </div>
+                   @else
+                    <!--strt events with guest name---->
+              <div class="row ">
+                <div class="col-md-12 this-mont-event no-gutters">
+                 <div class="row mt-3 event-description-details">
+                  <div class="col-md-3 event-img">
+                      <img src="{{asset('/storage/images/'.$event->image_name)}}" alt="" class="">
+                  </div>
+
+                  <div class="col-md-9 event-description ">
+
+                      <h3 class="event-title  text-center mt-2">{{ $event->event_name}}</h3>
+                      <h6 class="event-description mt-4">{{ $event->event_name}} will be held on  {{ $event->date}} from {{ date('h:i a',strtotime($event->start_time))}} to  {{ date('h:i a',strtotime($event->end_time))}} at  {{ $event->venue}}
+                          .It is organized by computer society of university of Jaffna. The chief guest for the event is {{ $event->guest}}. We warmly welcomes all of you.
+                      </h6>
+
+
+                      <!-- <div class="text-center register-now">
+                          <a href="{{ URL('register_now_form/'.$event->id)}}" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
+                      </div> -->
+
+                  </div>
+                  <div class="dat-and-time ">
+                  
+                      <a href="download1/{{$event->id}}"><i class="fa fa-cloud-download" aria-hidden="true"></i></a>
+                      <i class="fa fa-calendar" aria-hidden="true"><span class="ml-2 mr-3">{{ $event->date}}</span></i>
+                      <i class="fa fa-clock-o" aria-hidden="true"><span class="ml-2 mr-3">{{ date('h:i a',strtotime($event->start_time))}}</span></i>
+                  </div>
+
+                  @endif
+                 @endif
                @endif
 
             @endforeach
