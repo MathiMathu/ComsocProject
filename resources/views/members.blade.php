@@ -15,7 +15,7 @@
      <!----------------------link google font for body------------------------->
    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
 
-	<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=v6HePCTnT6Z0HoRqAnrN84RI9LNaEztjACmbi70896NcVWOwpUEAV75w22zaJwFoGrU8UT_8Mu83kcORnkhBTK3YIIza3IvA4wicuw85IsMDzi7g_eBCL2M8sLlyv3B_puWdyO8Q6IjIxudA0qVwp6TPiAslUFASojXN3XnpgcDUIEjqJR759_IoCTZIMvSMvFUBHSbvj7ZRfvOEQhLiH0PTnvBd3w5hZsOu7EuaCjosZohatxu9mpHL96Dq6tbctI7hnUKs864AfPb08onoqdK7SvJTKdOd8YqttHzAQn-ksn5-VatlBQAnDtO-LPXmyiWNge7Xub1Vrj6swdAOsGbP3wtecStM0erT0py1lka_p9XdX4pumayu05MATm3MevONzOOLxRVQQLngZBStCxmDKww08DWuYxugAWOpSKR5T5qh6Od-nGbmhu08V08Aj-XObNTOo9JvsFJjMiZpRA" charset="UTF-8"></script></head>
+	{{-- <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=v6HePCTnT6Z0HoRqAnrN84RI9LNaEztjACmbi70896NcVWOwpUEAV75w22zaJwFoGrU8UT_8Mu83kcORnkhBTK3YIIza3IvA4wicuw85IsMDzi7g_eBCL2M8sLlyv3B_puWdyO8Q6IjIxudA0qVwp6TPiAslUFASojXN3XnpgcDUIEjqJR759_IoCTZIMvSMvFUBHSbvj7ZRfvOEQhLiH0PTnvBd3w5hZsOu7EuaCjosZohatxu9mpHL96Dq6tbctI7hnUKs864AfPb08onoqdK7SvJTKdOd8YqttHzAQn-ksn5-VatlBQAnDtO-LPXmyiWNge7Xub1Vrj6swdAOsGbP3wtecStM0erT0py1lka_p9XdX4pumayu05MATm3MevONzOOLxRVQQLngZBStCxmDKww08DWuYxugAWOpSKR5T5qh6Od-nGbmhu08V08Aj-XObNTOo9JvsFJjMiZpRA" charset="UTF-8"></script></head> --}}
 
     <!--link the font awesome/icons 4.7-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -45,7 +45,7 @@
                      {{ $last = date('Y')-10 }}
                      {{ $now = date('Y')}}
                       @for($i=$now;$i>$last;$i--)
-                      <option value="" disabled selected></option>     
+                      <option value="" disabled selected></option>
                       <option value="{{$i}}"> <h6>{{$i}}</h6> </option>
                       @endfor
                   </select>
@@ -53,18 +53,18 @@
                   <button type="submit" class="btn btn-primary">Enter</button>
                 </form>
                 <div>
-                
+
                 </div>
               </div>
               <br>
-          </div> 
+          </div>
       </div>
       <br>
       <div class="row member-detail">
           <!-- Team member -->
-        @if (collect($students)->isEmpty()) 
-          <h2 class="ml-5 ml-sm-5 mb-5"> No Team For this Year Has Been Selected</h2><br> 
-        @else  
+        @if (collect($students)->isEmpty())
+          <h2 class="ml-5 ml-sm-5 mb-5"> No Team For this Year Has Been Selected</h2><br>
+        @else
         @foreach ($students as $student)
         <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="image-flip" >
@@ -737,7 +737,7 @@
                       </div>
                   </div>
               </div>
-          </div> --> 
+          </div> -->
           <!-- ./Team member -->
           <!-- Team member -->
           <!-- <div class="col-xs-12 col-sm-6 col-md-4">
