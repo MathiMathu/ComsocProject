@@ -31,6 +31,7 @@ class articlecontroller extends Controller
 
         $request->Article->storeAs('images',$filename,'public');
         $article->save();
+        return view('add_kananiyam');
     }
     public function index()
     {

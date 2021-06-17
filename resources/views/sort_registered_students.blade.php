@@ -245,35 +245,38 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<div class="sidebar">
+    <input type="checkbox" id="check">
+    <label for="check">
+      <i class="fas fa-bars" id="btn"></i>
+      <i class="fas fa-times" id="cancel"></i>
+    </label>
 
-<header>Com Soc</header>
-  <div class="sidebar__menu">
-    {{-- <div class="sidebar__img">
-        <img src="img/logo.png" alt="logo" />
-        <h1>ComSoc</h1>
-    </div> --}}
-    <div class="sidebar__link active_menu_link">
-      <i class="fa fa-home"></i>
-      <a href="/admin">Dashboard</a>
+    <div class="sidebar">
+
+    <header>CompSoc</header>
+      <div class="sidebar__menu">
+        {{-- <div class="sidebar__img">
+            <img src="img/logo.png" alt="logo" />
+            <h1>ComSoc</h1>
+        </div> --}}
+        <div class="sidebar__link active_menu_link">
+          <i class="fa fa-home"></i>
+          <a href="/admin">Dashboard</a>
+        </div>
+        {{-- <div class="sidebar__link">
+            <i class="fa fa-user-secret" aria-hidden="true"></i>
+            <a href="/view_seminar_registration">Seminar Management</a>
+          </div> --}}
+        <div class="sidebar__logout">
+          <i class="fa fa-power-off"></i>
+          <a aria-pressed="true"  href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();"><b>
+                                  {{ __('Logout') }}
+                              </b></a>
+        </div>
+      </div>
     </div>
-    <div class="sidebar__link">
-      <i class="fa fa-birthday-cake" aria-hidden="true"></i>
-      <a href="/view_park_bookings">Park Management</a>
-    </div>
-    <div class="sidebar__logout">
-      <i class="fa fa-power-off"></i>
-      <a aria-pressed="true"  href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                      document.getElementById('logout-form').submit();">
-                          <b>
-                              {{ __('Logout') }}
-                          </b>
-        </a>
-       
-    </div>
-  </div>
-</div>
 <section>
 <div class="container-fluid">
     <div class="table-responsive">
