@@ -17,7 +17,7 @@ class UsersTablesSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'MainAdminnnn',
+            'name' => 'MainAdmin',
             'regNo' => '2017/CSC/021',
             'email' => 'johndoe2@hotmail.com',
             'is_admin'=>'1',
