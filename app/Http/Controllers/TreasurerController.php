@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Profile;
 use Illuminate\Support\Facades\DB;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class TreasurerController extends Controller
@@ -19,5 +19,5 @@ class TreasurerController extends Controller
         ->get();
         return view('handleTreasurer')->with('userData', $userData);
         //return view('handleTreasurer');
-    } 
+    }
 }

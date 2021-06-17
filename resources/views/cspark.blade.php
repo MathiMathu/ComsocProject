@@ -19,6 +19,35 @@
 
 {{-- <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=PSM6SYeL2Z_z_23UfaqJkrXhWiRxPYQ0HEi3YizBFeOrQJykV0TZdqkhhjBCQrM2vBx8YAnSgA4TGuGLadIbBPsWQxsFFk4qB1o4rbX_m-7CLOfEvHdCWEP_7Q1hCzXzkTcNnI2y8FtOCE_jFF7KgcZ1879SuBtxpIju_H87AP_EWzSATRC-4C6HSr--08WoGl99KVkqds2JUSqCglo-QMqmZlRMOzhcoAAAX3sceeliLkqaAP7Fo9lc3Dg97KceGgiTNW7ARvo1U5D6cX8lUE7An7GvfmZZKkDcB0aD2rnGWanSTTdQCa01mzuJtrYxwwxIPfNRwHTfS34SH5XN86mFf7QOCiJT7K2bcJNKIRRc1WKsZzXWWDIZttcxUCqpbIhSVWDrj58soOoTCEOLZOnWARcSPxzbdpKDp4taCGz21-bqIGqNk1Gjo-k0LSvuhRIDru800yzCeE3OlSOQiQ" charset="UTF-8"></script></head> --}}
 <style>
+    body{
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+          .dropdown-menu a:hover {
+          color: #1608d4 !important;
+         }
+         a:hover {
+            color:#1608d4 !important;
+         }
+
+         .nav-item{
+             margin-left:10px;
+         }
+         .navbar-toggler{
+             color:#03fce3;
+         }
+         .navbar{
+                padding:.8rem;
+            }
+            .navbar-nav{
+                padding-right:20px;
+
+            }
+            .nav-link{
+                font-size: 1.1em !important;
+            }
+            h1, h2, h3, h4, h5, h6, a, i, p {
+                font-family: "Raleway", sans-serif;
+            }
 
     .dropdown-menu a:hover {
           color: #1608d4 !important;

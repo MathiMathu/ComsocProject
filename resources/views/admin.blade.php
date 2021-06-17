@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
+
 	<!--------link font awesome---->
     <link
       rel="stylesheet"
@@ -51,7 +51,7 @@
         /* .wrap{
           width: 30%;
           position: absolute;
-          
+
           transform: translate(-50%, -50%);
         } */
         @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
@@ -506,17 +506,39 @@ main {
     display: none;
   }
 }
-.navbar{
-    padding:.8rem;
-}
-.navbar-nav{
-    padding-right:20px;
+.dropdown {
+  position: relative;
+  display: inline-block;
+  right: 10px;
 
 }
-.nav-link{
-    font-size: 1.1em !important;
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 0;
+  margin-right: 20px;
+  z-index: 1;
 }
 
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-menu{
+    position: relative;
+
+
+}
+.dropdown-menu a {
+    text-decoration: none;
+    color: #010869;
+}
+.rounded-circle{
+    border-radius: 50%;
+}
     </style>
   </head>
   <body id="body">
@@ -526,13 +548,28 @@ main {
           <i class="fa fa-bars" aria-hidden="true"></i>
         </div>
         <div class="navbar__left">
-          
+
           <a class="active_link" href="#">Admin</a>
         </div>
         @foreach($userData as $a)
         <div class="navbar__right">
         <div class="collapse navbar-collapse" id="navbar-list-4">
-              <ul class="navbar-nav">
+            <div class="dropdown navbar-nav">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @if(empty($a->profile))
+                    <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                    @else
+                    <img src="{{asset('/storage/images/'.$a->profile)}}" width="40" height="40" class="rounded-circle">
+                    @endif
+                </a>
+                <div class="dropdown-content">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="sidebar__logout" href="/profile/{id}">Profile</a>
+                     </div>
+                </div>
+              </div>
+
+            {{-- <ul class="navbar-nav">
                <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 @if(empty($a->profile))
@@ -544,12 +581,12 @@ main {
                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <a class="sidebar__logout" href="/profile/{id}">Profile</a>
                </div>
-             </li>   
-         </ul>
-  </div>
+              </li>
+            </ul> --}}
+        </div>
         </div>
         @endforeach
-        </nav>
+    </nav>
 
       <main>
         <div class="main__container">
@@ -587,7 +624,7 @@ main {
             </div>
 
             <div class="card">
-             
+
               <i class="fa fa-graduation-cap fa-2x text-yellow" aria-hidden="true"></i>
               <div class="card_inner">
                 <p class="text-primary-p">Seminar Register Students</p>
@@ -596,7 +633,7 @@ main {
             </div>
 
             <div class="card">
-              
+
               <i class="fa fa-birthday-cake  fa-2x text-green" aria-hidden="true"></i>
               <div class="card_inner">
                 <p class="text-primary-p">Park Book</p>
@@ -610,8 +647,8 @@ main {
       <div id="sidebar">
         <div class="sidebar__title">
           <div class="sidebar__img">
-            <img src="img/logo.jpeg" alt="logo" />
-            <p></p>
+            <img src="img/logo.jpeg" alt="logo" style="border-radius: 50%" />
+            <span></span>
             <h1>CompSoc</h1>
           </div>
           <i
