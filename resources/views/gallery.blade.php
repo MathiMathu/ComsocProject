@@ -1,3 +1,6 @@
+<?php 
+use Illuminate\Support\Str;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -267,7 +270,41 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="btn" aria-pressed="true" style="color:#ffffff;">LogIn</a>
+                    @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="btn" aria-pressed="true" style="color:#ffffff;">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                        @else
+                        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @if(empty(Auth::user()->profile))
+                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="10" height="10" class="rounded-circle">
+                                @else
+                                 <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
+                                @endif
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" aria-pressed="true"  href="/profile/{id}">
+                                        <b>
+                                        Profile
+                                        </b>
+                                    </a>
+                                    <a class="dropdown-item" aria-pressed="true"  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                     <b>
+                                        {{ __('Logout') }}
+                                        </b>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                     </li>
                 </ul>
             </div><!--collapse navibar-collapse-->
@@ -322,77 +359,21 @@
                                 <span>34 Photos</span>
                             </span>
                         </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album8.jpg" alt="">
+                        @foreach ($files as $file)
+                        <a class="gallery-item" href="{{ route('album', ['id' => $file->id]) }}">
+                        <?php
+                         $picture="";
+                         $picture = Str::substr($file->filenames,2,20);
+                         $length = strlen($file->filenames);
+                         $a = (int)($length/20);
+                         ?>
+                        <img class=" img-fluid" src="{{asset('/storage/gallery/'.$picture)}}"> 
                             <span class="overlay">
-                                <h2>Vegetarian Food</h2>
-                                <span>10 Photos</span>
+                                <h2>{{ $file->Event_Name }}</h2>
+                                <span><?php echo($a) ?></span>
                             </span>
                         </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album9.jpg" alt="">
-                            <span class="overlay">
-                                <h2>Travel</h2>
-                                <span>19 Photos</span>
-                            </span>
-                        </a>
-
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album10.jpg" alt="">
-                            <span class="overlay">
-                                <h2>Family</h2>
-                                <span>42 Photos</span>
-                            </span>
-                        </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album11.jpg" alt="">
-                            <span class="overlay">
-                                <h2>Food</h2>
-                                <span>10 Photos</span>
-                            </span>
-                        </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album12.jpg" alt="">
-                            <span class="overlay">
-                                <h2>Gadgets</h2>
-                                <span>76 Photos</span>
-                            </span>
-                        </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album1.jpg" alt="" class="img-fluid">
-                            <span class="overlay">
-                                <h2>Nature</h2>
-                                <span>14 Photos</span>
-                            </span>
-                        </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album2.png" alt="">
-                            <span class="overlay">
-                                <h2>People</h2>
-                                <span>7 Photos</span>
-                            </span>
-                        </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album3.png" alt="">
-                            <span class="overlay">
-                                <h2>Sky</h2>
-                                <span>22 Photos</span>
-                            </span>
-                        </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album5.jpg" alt="">
-                            <span class="overlay">
-                                <h2>Building</h2>
-                                <span>28 Photos</span>
-                            </span>
-                        </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album6.jpg" alt="">
-                            <span class="overlay">
-                                <h2>People 2</h2>
-                                <span>17 Photos</span>
-                            </span>
-                        </a>
+                        @endforeach
                     </div>
                 </div>
 
