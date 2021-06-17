@@ -14,6 +14,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TreasurerController;
 use App\Http\Controllers\EditorController;
+use App\Http\Controllers\FileController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,8 +47,7 @@ Route::get('/d', function () {
 
 
 
-// Route::get('/create_event', [App\Http\Controllers\EventController::class, 'create'])->name('create_event');
-// Route::get('/register_now_form/{id}',[App\Http\Controllers\EventRegisterController::class, 'getDisplay'])->name('getDisplay');
+
 Route::post('/register_now_form',[App\Http\Controllers\EventRegisterController::class, 'store'])->name('store');
 
 
@@ -58,7 +59,7 @@ Route::get('/seminarregistration', function () {
     return view('seminarRegistration');
 });
 
-// Route::get('/Seminar', [App\Http\Controllers\SeminarController::class, 'index'])->name('Seminar');
+
 
 Route::post('/store5',[App\Http\Controllers\SeminarController::class,'store5'])->name('store5');
 
@@ -66,16 +67,13 @@ Route::get('/financial_support', function () {
     return view('financial_support');
 });
 
-// Route::get('/finnancial_apply_now', function () {
-//     return view('finnancial_apply_now');
-// });
+
 Route::get('/cspark', function () {
     return view('cspark');
 });
-Route::get('/gallery', function () {
-    return view('gallery');
-});
-Route::get('/photo_album', function () {
+Route::get('gallery', [FileController::class, 'view']); 
+
+Route::get('/photo_album/{id}', function () {
     return view('photo_album');
 });
 Route::get('/kananiyam', function () {
@@ -87,7 +85,7 @@ Route::get('/add_kananiyam', function () {
 Route::get('aboutus', function () {
     return view('aboutus');
 });
-
+Route::get('/album/{id}',[FileController::class, 'album'])->name('album');
 
 Route::post("saveFinancialsupport",[FinancialsupportController::class, "storeFinancialsupport"]);
 
@@ -147,6 +145,13 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::get('/edit8/{id}',[CsparkController::class,'edit8'])->name('edit8');
     Route::patch('/update8/{id}',[CsparkController::class,'update8'])->name('update8');
 
+    Route::get('/delete20/{id}',[FileController::class,'delete20'])->name('delete20');
+    Route::get('/view_gallery',[App\Http\Controllers\FileController::class, 'index20'])->name('index20');
+    Route::get('file', [FileController::class, 'create']); 
+    Route::post('file', [FileController::class, 'store']);
+
+    Route::get('/view_registered_users', [App\Http\Controllers\UserController::class, 'index21'])->name('index21');
+    Route::get('/student_details',[App\Http\Controllers\UserController::class, 'compute20'])->name('compute20');
 });
 
 
@@ -190,4 +195,9 @@ Route::group(['middleware' => ['auth', 'editor']], function(){
     Route::get('/download/{id}',[App\Http\Controllers\articlecontroller::class,'downloadAudiobook'])->name('downloadAudiobook');
 
 });
+
+
+
+
+
 ?>

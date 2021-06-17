@@ -1,3 +1,6 @@
+<?php 
+use Illuminate\Support\Str;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,36 +202,70 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav  ml-auto">
                     <li class="nav-item active" >
-                        <a class="nav-link" href="#" style="color:#ffffff;">Home</a>
+                        <a class="nav-link" href="/" style="color:#ffffff;">Home</a>
                     </li>
                     <li class="nav-item" >
-                        <a class="nav-link" href="#" style="color:#ffffff;">Kananiyam</a>
+                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Kananiyam</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Event</a>
+                        <a class="nav-link" href="{{ route('events.index') }}" style="color:#ffffff;">Event</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" style="color:#ffffff;">Discussion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Seminar</a>
+                        <a class="nav-link" href="/Seminar" style="color:#ffffff;">Seminar</a>
                     </li>
                     <li class="nav-item nav-item1">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Park</a>
+                        <a class="nav-link" href="/cspark" style="color:#ffffff;">Park</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">About</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">Our Team</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">Gallery</a>
+                            <a class="dropdown-item" href="/members" style="color:#ffffff;">Our Team</a>
+                            <a class="dropdown-item" href="/gallery" style="color:#ffffff;">Gallery</a>
 
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">Financial Support</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">About Us</a>
+                            <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial Support</a>
+                            <a class="dropdown-item" href="aboutus" style="color:#ffffff;">About Us</a>
                         </div>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="#" class="btn" aria-pressed="true" style="color:#ffffff;">LogIn</a>
+                     <li class="nav-item">
+                    @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="btn" aria-pressed="true" style="color:#ffffff;">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                        @else
+                        <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                @if(empty(Auth::user()->profile))
+                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="10" height="10" class="rounded-circle">
+                                @else
+                                 <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
+                                @endif
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" aria-pressed="true"  href="/profile/{id}">
+                                        <b>
+                                        Profile
+                                        </b>
+                                    </a>
+                                    <a class="dropdown-item" aria-pressed="true"  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                     <b>
+                                        {{ __('Logout') }}
+                                        </b>
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                     </li>
                 </ul>
             </div><!--collapse navibar-collapse-->
@@ -239,25 +276,36 @@
     <div class="container">
         <div class="row content text-center">
             <div class="event-title  mt-15" >
-            <h2 class="event-heading" ><span>IEEE</span></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero aliquam eligendi cupiditate odio consectetur alias doloremque dolorum necessitatibus, quos sed deleniti tenetur id quae et suscipit mollitia nobis atque quidem?</p>
+            @foreach($files as $file)
+            <h2 class="event-heading" ><span>{{ $file->Event_Name}}</span></h2>
+            <p>{{ $file->description}}</p>
+            <?php  
+                 $length = strlen($file->filenames);
+                 $i =2;
+            ?>
             <div class="row text-center">
                 <div class="col-md-12">
-                    <figure><img src="img/gallery/album1.jpg" alt="" class="img-fluid"></figure>
-                </div>
-
-                <div class="col-md-12">
-                    <figure><img src="img/gallery/album1.jpg" alt="" class="img-fluid">
+                <?php
+                 $picture = Str::substr($file->filenames,2,20);
+                ?>
+                @while($i<$length)
+                <?php $picture = Str::substr($file->filenames,$i,20);
+                $i = $i+20+3; ?>
+                <figure><img src="{{asset('/storage/gallery/'.$picture)}}" alt="" style="width:700px;height:75%;" class="img-fluid">
+                @endwhile
+                <!-- <div class="col-md-12">
+                    <figure><img src="storage/gallery/album1.jpg" alt="" class="img-fluid">
                         <figcaption>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae voluptatibus, odit obcaecati consequatur dolore cum labore, doloremque id ratione placeat est quasi numquam rem dolorum esse, similique iure accusantium aperiam.</figcaption>
                     </figure>
                 </div>
                 <div class="col-md-12">
-                    <figure><img src="img/gallery/album1.jpg" alt="" class="img-fluid"></figure>
+                    <figure><img src="storage/gallery/album1.jpg" alt="" class="img-fluid"></figure>
                 </div>
                 <div class="col-md-12">
                     <p class="text-center"><a href="gallery" class="btn btn-primary btn-outline">More Photos</a></p>
-                </div>
+                </div> -->
             </div>
+            @endforeach
         </div>
         </div>
     </div>
@@ -274,7 +322,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <h6>About</h6>
-                <img src="img/logo.jpg" alt="" class="img-fluid">
+                <img src="storage/gallery/logo.jpg" alt="" class="img-fluid">
             </div>
 
             <div class="col-xs-6 col-md-4">

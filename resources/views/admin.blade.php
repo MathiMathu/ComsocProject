@@ -628,7 +628,7 @@ main {
           </div>
           <div class="sidebar__link">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <a href="#">User Management</a>
+            <a href="view_registered_users">User Management</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-users" aria-hidden="true"></i>
@@ -645,6 +645,10 @@ main {
           <div class="sidebar__link">
             <i class="fa fa-calendar" aria-hidden="true"></i>
             <a href="/view_registered_students">Student Management</a>
+          </div>
+          <div class="sidebar__link">
+          <i class="fa fa-picture-o" aria-hidden="true"></i>
+            <a href="/view_gallery">Gallery Management</a>
           </div>
           <div class="sidebar__link">
             <i class="fa fa-user-secret" aria-hidden="true"></i>
