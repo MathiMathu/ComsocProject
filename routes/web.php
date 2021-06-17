@@ -76,12 +76,7 @@ Route::get('gallery', [FileController::class, 'view']);
 Route::get('/photo_album/{id}', function () {
     return view('photo_album');
 });
-Route::get('/kananiyam', function () {
-    return view('kananiyam');
-});
-Route::get('/add_kananiyam', function () {
-    return view('add_kananiyam');
-});
+
 Route::get('aboutus', function () {
     return view('aboutus');
 });
@@ -115,6 +110,12 @@ Route::post("saveCspark",[CsparkController::class, "storeCspark"]);
 
 
 
+Route::get('/kananiyam', function () {
+    return view('kananiyam');
+});
+Route::get('/add_kananiyam', function () {
+    return view('add_kananiyam');
+});
 Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
 Route::get('/download1/{id}',[App\Http\Controllers\EventController::class,'downloadFlyer'])->name('downloadFlyer');
 

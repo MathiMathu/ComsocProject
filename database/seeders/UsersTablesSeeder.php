@@ -37,6 +37,6 @@ class UsersTablesSeeder extends Seeder
             'is_admin'=>'3',
             'password'=> bcrypt('07070707'),
         ]);
-    
+
     }
 }
