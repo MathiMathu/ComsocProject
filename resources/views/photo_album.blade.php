@@ -1,25 +1,18 @@
-<?php 
+<?php
 use Illuminate\Support\Str;
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
-    <link rel = "stylesheet" type = "text/css" href = "css/bootstrap.min.css">
-	<link rel = "stylesheet" type = "text/css" href = "css/footer.css">
+    <title>Photo Album</title>
+
+	<link rel = "stylesheet" type = "text/css"  href="{{asset('css/footer.css') }}">
     <!--link style navibar and slider-->
-    <link rel = "stylesheet" type = "text/css" href = "css/style.css">
+    <link rel = "stylesheet" type = "text/css" href="{{asset('css/style.css') }}">
 
 
    <!----------------------link google font for website name------------------------->
@@ -29,7 +22,7 @@ use Illuminate\Support\Str;
      <!----------------------link google font for body------------------------->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
 
-	<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=v6HePCTnT6Z0HoRqAnrN84RI9LNaEztjACmbi70896NcVWOwpUEAV75w22zaJwFoGrU8UT_8Mu83kcORnkhBTK3YIIza3IvA4wicuw85IsMDzi7g_eBCL2M8sLlyv3B_puWdyO8Q6IjIxudA0qVwp6TPiAslUFASojXN3XnpgcDUIEjqJR759_IoCTZIMvSMvFUBHSbvj7ZRfvOEQhLiH0PTnvBd3w5hZsOu7EuaCjosZohatxu9mpHL96Dq6tbctI7hnUKs864AfPb08onoqdK7SvJTKdOd8YqttHzAQn-ksn5-VatlBQAnDtO-LPXmyiWNge7Xub1Vrj6swdAOsGbP3wtecStM0erT0py1lka_p9XdX4pumayu05MATm3MevONzOOLxRVQQLngZBStCxmDKww08DWuYxugAWOpSKR5T5qh6Od-nGbmhu08V08Aj-XObNTOo9JvsFJjMiZpRA" charset="UTF-8"></script></head>
+
 
     <!--link the font awesome/icons 4.7-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -40,7 +33,22 @@ use Illuminate\Support\Str;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <style>
+        body{
+            font-family: 'Frank Ruhl Libre', serif;
+        }
+          .dropdown-menu a:hover {
+          color: #1608d4 !important;
+         }
+         a:hover {
+            color:#1608d4 !important;
+         }
 
+         .nav-item{
+             margin-left:10px;
+         }
+         .navbar-toggler{
+             color:#03fce3;
+         }
 
           .dropdown-menu a:hover {
           color: #1608d4 !important;
@@ -80,7 +88,7 @@ use Illuminate\Support\Str;
         background: #125688;
          color: white;
         }
-        .fa-linkedin {
+        .fa-linkedin:hover {
          background: #007bb5;
          color: white;
         }
@@ -242,7 +250,7 @@ use Illuminate\Support\Str;
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(empty(Auth::user()->profile))
-                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="10" height="10" class="rounded-circle">
+                                <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
                                 @else
                                  <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
                                 @endif
@@ -276,37 +284,39 @@ use Illuminate\Support\Str;
     <div class="container">
         <div class="row content text-center">
             <div class="event-title  mt-15" >
-            @foreach($files as $file)
-            <h2 class="event-heading" ><span>{{ $file->Event_Name}}</span></h2>
-            <p>{{ $file->description}}</p>
-            <?php  
-                 $length = strlen($file->filenames);
-                 $i =2;
-            ?>
-            <div class="row text-center">
-                <div class="col-md-12">
-                <?php
-                 $picture = Str::substr($file->filenames,2,20);
-                ?>
-                @while($i<$length)
-                <?php $picture = Str::substr($file->filenames,$i,20);
-                $i = $i+20+3; ?>
-                <figure><img src="{{asset('/storage/gallery/'.$picture)}}" alt="" style="width:700px;height:75%;" class="img-fluid">
-                @endwhile
-                <!-- <div class="col-md-12">
-                    <figure><img src="storage/gallery/album1.jpg" alt="" class="img-fluid">
-                        <figcaption>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae voluptatibus, odit obcaecati consequatur dolore cum labore, doloremque id ratione placeat est quasi numquam rem dolorum esse, similique iure accusantium aperiam.</figcaption>
-                    </figure>
-                </div>
-                <div class="col-md-12">
-                    <figure><img src="storage/gallery/album1.jpg" alt="" class="img-fluid"></figure>
-                </div>
-                <div class="col-md-12">
-                    <p class="text-center"><a href="gallery" class="btn btn-primary btn-outline">More Photos</a></p>
-                </div> -->
+                @foreach($files as $file)
+                    <h2 class="event-heading" ><span>{{ $file->Event_Name}}</span></h2>
+                    <p>{{ $file->description}}</p>
+                    <?php
+                        $length = strlen($file->filenames);
+                        $i =2;
+                    ?>
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <?php
+                              $picture = Str::substr($file->filenames,2,20);
+                            ?>
+                            @while($i<$length)
+                                <?php $picture = Str::substr($file->filenames,$i,20);
+                                 $i = $i+20+3;
+                                ?>
+                                <figure><img src="{{asset('/storage/gallery/'.$picture)}}" alt="" style="width:700px;height:75%;" class="img-fluid"></figure>
+                            @endwhile
+                            <!-- <div class="col-md-12">
+                                <figure><img src="storage/gallery/album1.jpg" alt="" class="img-fluid">
+                                    <figcaption>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae voluptatibus, odit obcaecati consequatur dolore cum labore, doloremque id ratione placeat est quasi numquam rem dolorum esse, similique iure accusantium aperiam.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-md-12">
+                                <figure><img src="storage/gallery/album1.jpg" alt="" class="img-fluid"></figure>
+                            </div>
+                            <div class="col-md-12">
+                                <p class="text-center"><a href="gallery" class="btn btn-primary btn-outline">More Photos</a></p>
+                            </div> -->
+                       </div>
+                    </div>
+                @endforeach
             </div>
-            @endforeach
-        </div>
         </div>
     </div>
 
@@ -316,62 +326,63 @@ use Illuminate\Support\Str;
      <!-------------------- end Compnent of the betweeen navibar and footer------------------------------------------------------->
      <br>
      <br>
-     <!--footer-->
-     <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h6>About</h6>
-                <img src="storage/gallery/logo.jpg" alt="" class="img-fluid">
-            </div>
-
-            <div class="col-xs-6 col-md-4">
-                <h6 class = "text-center">Contact</h6>
-                <div class="row">
-                    <div class="column left">
-                        <p style = "font-size : 10px"> President,<br>Computer Society (CompSoc),<br>Department of Computer Science,<br>University of Jaffna.<br>Email :  comsoc@univ.jfn.ac.lk<br>Phone : 077 104 4491</p>
-                    </div>
-                    <div class="column right">
-                        <p style = "font-size : 10px">Head,<br>Department of Computer Science,<br>Faculty of Science,<br>University of Jaffna.<br>Email :  dcs@univ.jfn.ac.lk<br>Phone : 021 221 8194</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-xs-6 col-md-2">
-                <h6>Quick Links</h6>
-                <ul class="footer-links" >
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Kananiyam</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Discussion</a></li>
-                    <li><a href="#">CS park</a></li>
-                    <li><a href="#">Financial Support</a></li>
-                </ul>
-            </div>
-        </div>
-        <hr>
-    </div>
+      <!--footer-->
+      <footer class="site-footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
-                    <a href="#">Computer Society University of Jaffna </a>.
-                    </p>
-                </div>
+          <div class="row">
+              <div class="col-sm-12 col-md-6">
+                  <h6>About</h6>
+                  <img src="{{ URL::to('img/logo.jpg') }}" alt="" class="img-fluid">
+              </div>
 
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <ul class="social-icons">
-                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- end footer class-->
+              <div class="col-xs-6 col-md-4">
+                  <h6 class = "text-center">Contact</h6>
+                  <div class="row">
+                      <div class="column left">
+                          <p style = "font-size : 10px"> President,<br>Computer Society (CompSoc),<br>Department of Computer Science,<br>University of Jaffna.<br>Email :  comsoc@univ.jfn.ac.lk<br>Phone : 077 104 4491</p>
+                      </div>
+                      <div class="column right">
+                          <p style = "font-size : 10px">Head,<br>Department of Computer Science,<br>Faculty of Science,<br>University of Jaffna.<br>Email :  dcs@univ.jfn.ac.lk<br>Phone : 021 221 8194</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-xs-6 col-md-2">
+                  <h6>Quick Links</h6>
+                  <ul class="footer-links" >
+                      <li><a href="/">Home</a></li>
+                      <li><a href="aboutus">About</a></li>
+                      <li><a href="kananiyam">Kananiyam</a></li>
+                      <li><a href="events">Events</a></li>
+                      <li><a href="#">Festival</a></li>
+                      <li><a href="cspark">CS park</a></li>
+                      <li><a href="finnancial_suport">Financial Support</a></li>
+                  </ul>
+              </div>
+          </div>
+          <hr>
+      </div>
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-8 col-sm-6 col-xs-12">
+                      <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+                      <a href="#">Computer Society University of Jaffna </a>.
+                      </p>
+                  </div>
+
+                  <div class="col-md-4 col-sm-6 col-xs-12">
+                      <ul class="social-icons">
+                      <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                      <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                      <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                      <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </footer>
+      <!-- end footer class-->
+
 
 		<script type = "text/javascript" src = "js/bootstrap.min.js "></script>
 		<script type = "text/javascript" src = "js/Jque.js "></script>
