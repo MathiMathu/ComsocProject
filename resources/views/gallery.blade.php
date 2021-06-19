@@ -1,4 +1,4 @@
-<?php 
+<?php
 use Illuminate\Support\Str;
 ?>
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ use Illuminate\Support\Str;
         background: #125688;
          color: white;
         }
-        .fa-linkedin {
+        .fa-linkedin:hover {
          background: #007bb5;
          color: white;
         }
@@ -231,7 +231,7 @@ use Illuminate\Support\Str;
 </head>
 <body>
     <!--navigation bar-->
-    <nav class="navbar navbar-expand-md navbar-light  sticky-top mt-3" style="background-color:#080624; color:#ffffff;">
+    <nav class="navbar navbar-expand-md navbar-light  sticky-top " style="background-color:#080624; color:#ffffff;">
         <div class="container-fluid">
             <h2 class="society-name " style="color:white; font-family: 'Texturina', serif;">CompSoc</h2>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -367,7 +367,7 @@ use Illuminate\Support\Str;
                          $length = strlen($file->filenames);
                          $a = (int)($length/20);
                          ?>
-                        <img class=" img-fluid" src="{{asset('/storage/gallery/'.$picture)}}"> 
+                        <img class=" img-fluid" src="{{asset('/storage/gallery/'.$picture)}}">
                             <span class="overlay">
                                 <h2>{{ $file->Event_Name }}</h2>
                                 <span><?php echo($a) ?></span>
