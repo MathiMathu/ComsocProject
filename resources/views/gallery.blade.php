@@ -281,7 +281,7 @@ use Illuminate\Support\Str;
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(empty(Auth::user()->profile))
-                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="10" height="10" class="rounded-circle">
+                                <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
                                 @else
                                  <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
                                 @endif

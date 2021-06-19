@@ -373,7 +373,7 @@
                  <!--------end galary row 2---------------------------------->
 
                  <div class="text-center mb-5 view-more-button">
-                    <a href="#" class="btn btn-outline-secondary view-more mt-2 ">View more</a>
+                    <a href="gallery" class="btn btn-outline-secondary view-more mt-2 ">View more</a>
                 </div>
             </div>
         </div>
