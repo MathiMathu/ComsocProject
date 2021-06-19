@@ -118,10 +118,8 @@ Route::get('/kananiyam', function () {
 //     return view('festival');
 // });
 // Route::get('/festivalgallery'.'App\Http\Controllers\FestivalController@index');
-Route::get('/add_images', function () {
-    return view('add_festival_image');
-});
-Route::get('/festival', [App\Http\Controllers\FestivalController::class, 'festival'])->name('festiva;');
+
+Route::get('/festival', [App\Http\Controllers\FestivalController::class, 'festival'])->name('festival');
 
 
 // Route::post('/upload_data'.'App\Http\Controllers\FestivalController@store');
@@ -171,6 +169,9 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::get('/student_details',[App\Http\Controllers\UserController::class, 'compute20'])->name('compute20');
 
     Route::get('/festivalgallery', [App\Http\Controllers\FestivalController::class, 'index'])->name('index');
+    Route::get('/add_images', function () {
+        return view('add_festival_image');
+    });
     Route::post('/upload_data', [App\Http\Controllers\FestivalController::class, 'store'])->name('store');
     Route::get('/view_festival/{id}', [App\Http\Controllers\FestivalController::class, 'gallery'])->name('gallery');
     Route::get('/delete_images/{id}',[App\Http\Controllers\FestivalController::class,'delete1'])->name('delete1');
