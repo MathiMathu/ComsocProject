@@ -691,6 +691,10 @@ main {
             <i class="fa fa-user-secret" aria-hidden="true"></i>
             <a href="/view_seminar_registration">Seminar Management</a>
           </div>
+          <div class="sidebar__link">
+            <i class="fa fa-ravelry" aria-hidden="true"></i>
+            <a href="/festivalgallery">Festival Management</a>
+          </div>
           <div class="sidebar__logout">
             <i class="fa fa-power-off"></i>
             <a aria-pressed="true"  href="{{ route('logout') }}"
