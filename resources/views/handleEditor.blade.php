@@ -597,7 +597,7 @@ main {
               <i class="fa fa-book  fa-2x text-blue" aria-hidden="true"></i>
               <div class="card_inner">
                 <p class="text-primary-p">Articles Uploaded</p>
-                <span class="font-bold text-title">4</span>
+                <span class="font-bold text-title">{{ $number }}</span>
               </div>
             </div>
         </div>

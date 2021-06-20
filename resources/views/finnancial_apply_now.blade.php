@@ -36,7 +36,11 @@
 							</label>
 							<div class="clear"> </div>
 						</div>
+                        @if($errors->any())
+                        {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
+                        @endif
 						<input type="submit" value="Apply Now">
+						
 					</form>
 				</div>
 			</div>

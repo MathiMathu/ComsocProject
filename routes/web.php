@@ -16,7 +16,11 @@ use App\Http\Controllers\TreasurerController;
 use App\Http\Controllers\EditorController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\Password1Controller;
 use App\Http\Controllers\FestivalController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -168,6 +172,11 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::get('/view_registered_users', [App\Http\Controllers\UserController::class, 'index21'])->name('index21');
     Route::get('/student_details',[App\Http\Controllers\UserController::class, 'compute20'])->name('compute20');
 
+
+    Route::get('/editpassword/{id}',[PasswordController::class,'editpassword'])->name('editpassword');
+    Route::patch('/updatepassword/{id}',[PasswordController::class,'updatepassword'])->name('updatepassword');
+
+
     Route::get('/festivalgallery', [App\Http\Controllers\FestivalController::class, 'index'])->name('index');
     Route::get('/add_images', function () {
         return view('add_festival_image');
@@ -175,6 +184,7 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::post('/upload_data', [App\Http\Controllers\FestivalController::class, 'store'])->name('store');
     Route::get('/view_festival/{id}', [App\Http\Controllers\FestivalController::class, 'gallery'])->name('gallery');
     Route::get('/delete_images/{id}',[App\Http\Controllers\FestivalController::class,'delete1'])->name('delete1');
+
 });
 
 
@@ -197,6 +207,9 @@ Route::group(['middleware' => ['auth']], function(){
         return view('articleForm');
     });
     Route::get('/seminarregistration',[App\Http\Controllers\SeminarController::class, 'create'])->name('seminarregistration');
+
+    Route::get('/changepassword1/{id}',[Password1Controller::class,'changepassword1'])->name('changepassword1');
+    Route::patch('/updatepassword1/{id}',[Password1Controller::class,'updatepassword1'])->name('updatepassword1');
 });
 
 
@@ -219,8 +232,6 @@ Route::group(['middleware' => ['auth', 'editor']], function(){
 
 });
 
-
-
-
+    
 
 ?>

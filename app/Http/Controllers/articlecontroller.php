@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class articlecontroller extends Controller
 {
@@ -20,6 +21,8 @@ class articlecontroller extends Controller
             'description' => 'required|max:100|min:5',
             'Article' => 'required',
         ]);
+        if($request->RegistrationNo == Auth::user()->regNo)
+     {
         $article->RegistrationNo=$request->RegistrationNo;
         $article->Name=$request->Name;
         $article->Title=$request->Title;
@@ -32,6 +35,12 @@ class articlecontroller extends Controller
         $request->Article->storeAs('images',$filename,'public');
         $article->save();
         return view('add_kananiyam');
+     }
+        else
+     {
+        return redirect()->back()->withErrors("Register with your registration number");
+     }  
+
     }
     public function index()
     {

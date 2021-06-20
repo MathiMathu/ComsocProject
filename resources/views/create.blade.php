@@ -292,7 +292,14 @@ tbody {
   <input type="file" id="files" name="filenames[]" multiple />
   </div>
       </div>
+      <br></br>
+      <div class="input-group hdtuto control-group lst increment" >
+  <p font-color:red>Maximum 11 files are allowed</p>
+  </div>
 <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
+@if($errors->any())
+   {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
+ @endif
 </form>   
 </div>
 </div>

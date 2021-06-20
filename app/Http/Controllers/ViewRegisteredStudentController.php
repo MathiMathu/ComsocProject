@@ -21,12 +21,8 @@ class ViewRegisteredStudentController extends Controller
     public function compute(Request $request)
     {
           
-        $users = DB::table('events')
-                ->where('id', $request->e_id)->value('event_name');
-        
-    
-          $students = DB::table('registers')
-              ->where('event_name', $users)
+       $students = DB::table('registers')
+              ->where('event_id', $request->e_id)
               ->whereDate('created_at','<=', $request->date)
               ->get();
         

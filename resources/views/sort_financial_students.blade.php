@@ -326,7 +326,7 @@ table.table .avatar {
                         <td>{{$student->FatherOccupation}}</td>
                         <td>{{$student->MotherName}}</td>
                         <td>{{$student->MotherOccupation}}</td>
-                        <td><a href="{{ route('edit8', ['id' => $student->id]) }}" class="view" title="Give Status"><i class="material-icons">&#xE5C8;</i></a></td>
+                        <td><a href="{{ route('edit6', ['id' => $student->id]) }}" class="view" title="Give Status"><i class="material-icons">&#xE5C8;</i></a></td>
                     </tr>
                     @endforeach
                 </tbody>
