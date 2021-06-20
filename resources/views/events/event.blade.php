@@ -415,9 +415,9 @@ use Carbon\Carbon;
                             </h6>
 
 
-                            <div class="text-center register-now">
+                            <!-- <div class="text-center register-now">
                                 <a href="{{ URL('register_now_form/'.$event->id)}}" class="btn btn-outline-secondary view-more mt-2 ">Register Now</a>
-                            </div>
+                            </div> -->
 
                         </div>
                         <div class="dat-and-time ">

@@ -611,7 +611,7 @@ main {
               ></i>
               <div class="card_inner">
                 <p class="text-primary-p">Number of Users</p>
-                <span class="font-bold text-title">578</span>
+                <span class="font-bold text-title">{{ $number1 }}</span>
               </div>
             </div>
 
@@ -619,7 +619,7 @@ main {
               <i class="fa fa-calendar fa-2x text-red" aria-hidden="true"></i>
               <div class="card_inner">
                 <p class="text-primary-p">Upcoming Event</p>
-                <span class="font-bold text-title">2467</span>
+                <span class="font-bold text-title">{{ $number2 }}</span>
               </div>
             </div>
 
@@ -628,7 +628,7 @@ main {
               <i class="fa fa-graduation-cap fa-2x text-yellow" aria-hidden="true"></i>
               <div class="card_inner">
                 <p class="text-primary-p">Seminar Register Students</p>
-                <span class="font-bold text-title">340</span>
+                <span class="font-bold text-title">{{ $number3 }}</span>
               </div>
             </div>
 
@@ -637,7 +637,7 @@ main {
               <i class="fa fa-birthday-cake  fa-2x text-green" aria-hidden="true"></i>
               <div class="card_inner">
                 <p class="text-primary-p">Park Book</p>
-                <span class="font-bold text-title">45</span>
+                <span class="font-bold text-title">{{ $number4 }}</span>
               </div>
             </div>
           </div>

@@ -17,8 +17,7 @@ class CsparkController extends Controller
     
     public function storeCspark(Request $request)
     {
-
-
+       
         $cspark_obj=new Cspark;
 
         $cspark_obj->registration_number=$request->registration_number;

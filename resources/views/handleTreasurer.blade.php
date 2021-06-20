@@ -596,10 +596,12 @@ main {
                 class="fa fa-user-o fa-2x text-lightblue"
                 aria-hidden="true"
               ></i>
+              
               <div class="card_inner">
                 <p class="text-primary-p">Number of Users For Finnancial Support</p>
-                <span class="font-bold text-title">5</span>
+                <span class="font-bold text-title">{{ $number }}</span>
               </div>
+            
             </div>
         </div>
       </main>

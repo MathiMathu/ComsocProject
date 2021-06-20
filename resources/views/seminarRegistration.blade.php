@@ -63,6 +63,9 @@
 						    </select><br>
                             <input class="text" type="date" name="Date" placeholder="Date" required=""><br>
 							<input type="submit" value="RegisterNow">
+                            @if($errors->any())
+                              {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
+                             @endif
                         </form>
                     </div>
                 </div>

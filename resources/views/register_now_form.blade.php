@@ -135,6 +135,7 @@ use Carbon\Carbon;
                     <form  class="register-now-form" action="{{ route('store') }}" method="POST">
                         @csrf
                   <input type="hidden" id="event_name" name="event_name" value="{{$event->event_name}}">
+                  <input type="hidden" id="event_id" name="event_id" value="{{$event->id}}">
                   @endforeach 
                            <div class="form-group row">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Enter name" required autocomplete="name" autofocus>

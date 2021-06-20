@@ -194,6 +194,9 @@
                                 <div class="sent-message">Your Article has been uploaded. Thank you!</div>
                             </div>
                              <div class="btn btn-secondary btn-lg"><button type="submit" class="btn btn-dark"><b>Create</b></button></div>
+                             @if($errors->any())
+                         {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
+                         @endif
                         </form>
                     </div>
                 </div>

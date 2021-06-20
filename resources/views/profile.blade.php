@@ -139,14 +139,14 @@ body{
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
-                                <li class="nav-item">
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                    </div>
+                    <!-- <div class="col-md-2">
+                    </div> -->
                 </div>
                 <div class="row">
                     <div class="col-md-4">
@@ -162,6 +162,7 @@ body{
                             <a class="nav-link" href="/editor">Dashboard</a><br/>
                             @endif
                             <a class="nav-link" href="{{ route('edit11', ['id' => $a->id]) }}">Edit Profile</a><br/>
+                            <a class="nav-link" href="{{ route('changepassword1', ['id' => $a->id]) }}">Change Password</a><br/>
                         </div>
                     </div>
                     <div class="col-md-8">

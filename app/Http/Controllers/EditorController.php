@@ -16,7 +16,8 @@ class EditorController extends Controller
         //->leftJoin('profiles', 'profiles.id','users.id')
         ->where('users.id',Auth::user()->id)
         ->get();
-        return view('handleEditor')->with('userData', $userData);
+        $number = DB::table('articles')->count();
+        return view('handleEditor',compact('number'))->with('userData', $userData);
         //return view('handleEditor');
     } 
 }

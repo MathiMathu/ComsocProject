@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Financialsupport;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class FinancialsupportController extends Controller
 {
     
@@ -22,6 +23,8 @@ class FinancialsupportController extends Controller
     public function storeFinancialsupport(Request $request)
     {
 
+    if($request->RegistrationNo == Auth::user()->regNo)
+     {
        $financialsupport_obj= new Financialsupport;
 
         $financialsupport_obj->RegistrationNo=$request->RegistrationNo;
@@ -37,7 +40,12 @@ class FinancialsupportController extends Controller
 
         $financialsupport_obj->save();
 
-        return redirect()->back();
+        return redirect()->back()->withErrors('Successful Registration');
+     }
+    else
+    {
+        return redirect()->back()->withErrors("Register with your registration number");
+    }  
        
     }
 
