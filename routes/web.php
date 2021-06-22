@@ -53,7 +53,7 @@ Route::get('/d', function () {
 
 
 
-Route::post('/register_now_form',[App\Http\Controllers\EventRegisterController::class, 'store'])->name('store');
+Route::post('/register_now_form',[App\Http\Controllers\EventRegisterController::class, 'store30'])->name('store30');
 
 
 Route::get('/Seminar', function () {
@@ -175,14 +175,15 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
 
     Route::get('/editpassword/{id}',[PasswordController::class,'editpassword'])->name('editpassword');
     Route::patch('/updatepassword/{id}',[PasswordController::class,'updatepassword'])->name('updatepassword');
+    Route::patch('/updatepassword3/{id}',[PasswordController::class,'updatepassword3'])->name('updatepassword3');
 
 
     Route::get('/festivalgallery', [App\Http\Controllers\FestivalController::class, 'index'])->name('index');
     Route::get('/add_images', function () {
         return view('add_festival_image');
     });
-    Route::post('/upload_data', [App\Http\Controllers\FestivalController::class, 'store'])->name('store');
-    Route::get('/view_festival/{id}', [App\Http\Controllers\FestivalController::class, 'gallery'])->name('gallery');
+    Route::post('/upload_data', [App\Http\Controllers\FestivalController::class, 'store100'])->name('store100');
+    
     Route::get('/delete_images/{id}',[App\Http\Controllers\FestivalController::class,'delete1'])->name('delete1');
 
 });
@@ -232,6 +233,6 @@ Route::group(['middleware' => ['auth', 'editor']], function(){
 
 });
 
-    
+Route::get('/view_festival/{id}', [App\Http\Controllers\FestivalController::class, 'gallery'])->name('gallery');   
 
 ?>

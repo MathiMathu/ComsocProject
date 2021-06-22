@@ -224,6 +224,12 @@ input[type="file"] {
 tbody {
     text-align: center;
 }
+.required:after{
+  content:"*";
+  color:red;
+  font-weight:bold;
+  font-size:25px;
+}
 </style>
 </head>
 <body>
@@ -280,13 +286,21 @@ tbody {
 <form method="post" action="{{url('file')}}" enctype="multipart/form-data">
     @csrf
     <div class="input-group hdtuto control-group lst increment" >
+    <label class="required"></label>
   <input type="text" class="form-control @error('Event_Name') is-invalid @enderror" name="Event_Name" placeholder="Enter Event Name" required>
   </div>
   <br>
   <div class="input-group hdtuto control-group lst increment" >
-  <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Enter description" required>
+  <label class="required"></label>
+  <input type="date" class="form-control @error('date') is-invalid @enderror" name="date" placeholder="Enter Date" required>
   </div>
   <br>
+  <div class="input-group hdtuto control-group lst increment" >
+  <label class="required"></label>
+  <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" placeholder="Enter description" required>
+  </div>
+  
+  
   <div class="clone hide">
       <div class="hdtuto control-group lst input-group" style="margin-top:10px">
   <input type="file" id="files" name="filenames[]" multiple />
@@ -294,7 +308,7 @@ tbody {
       </div>
       <br></br>
       <div class="input-group hdtuto control-group lst increment" >
-  <p font-color:red>Maximum 11 files are allowed</p>
+  
   </div>
 <button type="submit" class="btn btn-success" style="margin-top:10px">Submit</button>
 @if($errors->any())

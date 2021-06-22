@@ -263,10 +263,6 @@ $(document).ready(function(){
           <i class="fa fa-home"></i>
           <a href="/admin">Dashboard</a>
         </div>
-        <div class="sidebar__link">
-          <i class="fa fa-birthday-cake" aria-hidden="true"></i>
-          <a href="/view_park_bookings">Park Management</a>
-        </div>
         <div class="sidebar__logout">
           <i class="fa fa-power-off"></i>
           <a aria-pressed="true"  href="{{ route('logout') }}"
@@ -314,6 +310,7 @@ $(document).ready(function(){
                         <th>Profile</th>
                         <th>Phone</th>
                         <th>Profession</th>
+						<th>Action</th>
                         </tr>
                 </thead>
                 <tbody>
@@ -328,6 +325,7 @@ $(document).ready(function(){
                         <td>{{$student->profile}}</td>
                         <td>{{$student->phone}}</td>
                         <td>{{$student->profession}}</td>
+						<td> <a href="{{ route('editpassword', ['id' => $student->id]) }}" class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a></td>
                     </tr>
                     @endforeach
                 </tbody>

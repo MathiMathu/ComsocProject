@@ -17,21 +17,21 @@ class UsersTablesSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'MainAdmin',
+            'name' => 'Mathanrajh',
             'regNo' => '2017/CSC/021',
             'email' => 'johndoe2@hotmail.com',
             'is_admin'=>'1',
             'password'=> bcrypt('07070707'),
         ]);
         User::create([
-            'name' => 'Treasurer',
+            'name' => 'E.M.S.H Ekanayaka',
             'regNo' => '2017/CSC/031',
             'email' => 'johndoe3@hotmail.com',
             'is_admin'=>'2',
             'password'=> bcrypt('07070707'),
         ]);
         User::create([
-            'name' => 'Editor',
+            'name' => 'T.D.Pramuditha Chamikara',
             'regNo' => '2017/CSC/030',
             'email' => 'johndoe4@hotmail.com',
             'is_admin'=>'3',

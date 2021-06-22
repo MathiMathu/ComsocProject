@@ -45,12 +45,12 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'event_name' => 'required',
+            'event_name' => ['required', 'string','regex:/[A-Z]/', 'max:255'],
             'image_name' => 'required',
             'date' => 'required',
             'start_time' => 'required',
             'end_time' => 'required',
-            'venue' => 'required',
+            'venue' => ['required', 'string','regex:/[A-Z]/'],
             'is_register' => 'required',
         ]);
         $event = new Event;

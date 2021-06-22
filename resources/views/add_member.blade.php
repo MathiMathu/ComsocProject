@@ -185,6 +185,8 @@ form{
 				</div>
                 <select class="form-control" name="role"  placeholder="Enter Role"  required="required">
                                   <option value="" disabled selected>Enter Role</option>
+								  <option value="Patron">Patron</option>
+								  <option value="Senior Treasurer">Senior Treasurer</option>
                                   <option value="President">President</option>
                                   <option value="Secretary">Secretary</option>
                                   <option value="Junior Treasurer">Junior Treasurer</option>

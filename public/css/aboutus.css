@@ -6,8 +6,6 @@
 }
 .navbar{
     padding:.8rem;
-    position: relative;
-    
 }
 .navbar-nav{
     padding-right:20px;
@@ -27,11 +25,11 @@ a:hover {
  }
 
 .about-section{
-    background: url("../img/pic.jpg") no-repeat left;
-    background-size: 55%;
+    background: url("../img/logo.jpeg") no-repeat left;
+    background-size: 45%;
     background-color: #fdfdfd;
     overflow: hidden;
-    padding: 100px 0;
+    padding: 0 0;
     position: relative;
     top: -30px;
     overflow: hidden;
@@ -41,7 +39,7 @@ a:hover {
     width: 55%;
     float: right;
     background-color: #fdfdfd;
-    padding: 150px;
+    padding: 70px;
 }
 
 .inner-container h1{
@@ -67,7 +65,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 15px;
 }
 .fa:hover {
     opacity: 0.7;

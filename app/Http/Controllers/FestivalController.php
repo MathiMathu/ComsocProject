@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\FestivalGallery;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\QueryException;
 
 class FestivalController extends Controller
 {
@@ -20,7 +21,7 @@ class FestivalController extends Controller
 
         return view('festival', compact('image'));
     }
-    public function store(Request $request)
+    public function store100(Request $request)
     {
         //dd($request->all());
 
@@ -29,9 +30,10 @@ class FestivalController extends Controller
             'year' => 'required',
             'title' => 'required',
            'filename'=>'required',
-           'filename.*'=>'image|mimes:jpeg,jpg,png,gif,svg|max:2048'
+           'filename.*'=>'image|mimes:jpeg,jpg,png,gif,svg|max:3000'
 
         ]);
+        try{
         if($request->hasFile('filename')){
             foreach($request->file('filename') as $image)
             {
@@ -47,6 +49,11 @@ class FestivalController extends Controller
         $upload_model->title=$request->title;
         $upload_model->filename=json_encode($data);
         $upload_model->save();
+    }
+       
+    catch (QueryException $exception) {
+       return redirect()->back()->with('success','File size is too long');
+   }
         return back()->with('success','Your images has been successfully');
     }
 

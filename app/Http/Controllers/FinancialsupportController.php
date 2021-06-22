@@ -23,8 +23,18 @@ class FinancialsupportController extends Controller
     public function storeFinancialsupport(Request $request)
     {
 
-    if($request->RegistrationNo == Auth::user()->regNo)
+        $this->validate($request,[
+            
+            'Name' => ['required', 'string','regex:/[A-Z]/','regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'RegistrationNo' => ['required', 'string','min:11','max:12', 'regex:/[A-Z]/'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            
+           
+        ]);
+    if($request->RegistrationNo == Auth::user()->regNo && $request->email == Auth::user()->email)
      {
+        
+        
        $financialsupport_obj= new Financialsupport;
 
         $financialsupport_obj->RegistrationNo=$request->RegistrationNo;
@@ -44,7 +54,7 @@ class FinancialsupportController extends Controller
      }
     else
     {
-        return redirect()->back()->withErrors("Register with your registration number");
+        return redirect()->back()->withErrors("Unmatched Details");
     }  
        
     }

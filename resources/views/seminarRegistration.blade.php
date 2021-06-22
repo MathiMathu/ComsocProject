@@ -20,6 +20,9 @@
                     <div class="agileits-top">
                         <form method="POST" action="{{ route('store5') }}" method="POST">
 					     	@csrf
+                             @if($errors->any())
+                              {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
+                             @endif
                             <input class="text" type="text" name="RegistrationNo" placeholder="RegistrationNo" required=""><br>
                             <input class="text" type="text" name="Name" placeholder="Name" required=""><br>
 							<input class="text" type="text" name="Email" placeholder="Email" required=""><br>
@@ -63,9 +66,7 @@
 						    </select><br>
                             <input class="text" type="date" name="Date" placeholder="Date" required=""><br>
 							<input type="submit" value="RegisterNow">
-                            @if($errors->any())
-                              {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
-                             @endif
+                           
                         </form>
                     </div>
                 </div>

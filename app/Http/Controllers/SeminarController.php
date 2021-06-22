@@ -40,15 +40,16 @@ class SeminarController extends Controller
     {
         
        $this->validate($request,[
-            'RegistrationNo' => 'required',
-            'Name' => 'required',
-            'Email' => 'required',
+            'RegistrationNo' =>  ['required', 'string','min:11','max:12', 'regex:/[A-Z]/'],
+            'Name' => ['required', 'string','regex:/[A-Z]/','regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'Email' => ['required', 'string', 'email', 'max:255'],
             'Place' => 'required',
             'Language' => 'required',
             'Date' => 'required',
             
+            
         ]);
-        if($request->RegistrationNo == Auth::user()->regNo)
+        if($request->RegistrationNo == Auth::user()->regNo && $request->Email == Auth::user()->email)
         {
         $seminar = new Seminar;
 
@@ -65,7 +66,7 @@ class SeminarController extends Controller
        
         else
     {
-        return redirect()->back()->withErrors("Register with your registration number");
+        return redirect()->back()->withErrors("Unmatched Details");
     }
             // 'name' => ['required', 'string', 'max:255'],
             // 'regNo' => ['required', 'string','min:11','max:12', 'regex:/[A-Z]/','unique:users'],

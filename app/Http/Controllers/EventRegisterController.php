@@ -29,7 +29,7 @@ class EventRegisterController extends Controller
      //return view('register_now_form',compact('users'));
 
     }
-    public function store(Request $request)
+    public function store30(Request $request)
     {
         $this->validate($request,[
             'event_id' => ['string', 'max:255'],
@@ -46,7 +46,7 @@ class EventRegisterController extends Controller
         ->get();
         
 
-        if($request->regNo == Auth::user()->regNo)
+        if($request->regNo == Auth::user()->regNo && $request->email == Auth::user()->email)
         {
             if ($students->isEmpty())
             {
@@ -70,7 +70,7 @@ class EventRegisterController extends Controller
        
         else
         {
-            return redirect()->back()->withErrors("Both registration number doesn't match");
+            return redirect()->back()->withErrors("Unmatched Details");
         }
         
         

@@ -17,7 +17,7 @@ class FestivalgalleryTable extends Migration
             $table->bigIncrements('id');
             $table->string('date');
             $table->string('title');
-            $table->string('filename');
+            $table->string('filename',3000);
             $table->timestamps();
         });
     }
