@@ -581,7 +581,7 @@ main {
           <!-- MAIN TITLE STARTS HERE -->
 
           <div class="main__title">
-            <img src="img/gallery/hello.svg" alt="" />
+          <img src="img/hello.svg" alt="" />
             <div class="main__greeting">
               <h1>Hello Editor</h1>
               <p>Welcome to your dashboard</p>

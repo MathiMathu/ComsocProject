@@ -121,7 +121,7 @@ body{
                     <div class="col-md-4">
                         <div class="profile-img">
                         @if(empty($users->profile))
-                        <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                        <img src="{{URL::asset('/image/default.jpg')}}" alt="profile Pic">
                         @else
                         <img class="col-md-10 event-img" src="{{asset('/storage/images/'.$users->profile)}}" />
                         @endif
@@ -131,14 +131,12 @@ body{
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="profile-head">
-                                    <h5>
+                                    <h1><b>
                                         {{$users->name}}
-                                    </h5>
-                                    <h6>
-                                    {{$users->profession}}
-                                    </h6>
+                                        </b>
+                                    </h1>
                                     <p class="proile-rating"> <span></span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
@@ -148,6 +146,9 @@ body{
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
                                 </li> -->
                             </ul>
+                                <h4>
+                                    {{ $users->profession}}
+                                </h4>
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -191,18 +192,18 @@ body{
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Phone</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{$users->phone}}" placeholder="Enter phone">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-6">
                                             <input id="profession" type="text" class="form-control @error('profession') is-invalid @enderror" name="profession" value="{{$users->profession}}" placeholder="Enter profession">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{$users->phone}}" placeholder="Enter phone">
                                             </div>
                                         </div>
                             </div>

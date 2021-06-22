@@ -40,7 +40,7 @@
               <div class="form-group age-selection">
               <form method="POST" action="{{ route('compute1') }}">
                  @csrf
-                  <span class="form-label" style="color : #1100ff;"> <h5>Year</h5> </span>
+                  <span class="form-label" style="color : #1100ff;"> <h5>Year</h5></span>
                   <select class="form-control" name="year">
                      {{ $last = date('Y')-10 }}
                      {{ $now = date('Y')}}
@@ -49,8 +49,8 @@
                       <option value="{{$i}}"> <h6>{{$i}}</h6> </option>
                       @endfor
                   </select>
-                  <span class="select-arrow"></span>
-                  <button type="submit" class="btn btn-primary">Enter</button>
+                  <!-- <span class="select-arrow"></span> -->
+                  <button type="submit" class="btn btn-primary" style="color : #1100ff;"></button>
                 </form>
                 <div>
 
@@ -63,7 +63,7 @@
       <div class="row member-detail">
           <!-- Team member -->
         @if (collect($students)->isEmpty())
-          <h2 class="ml-5 ml-sm-5 mb-5"> No Team For this Year Has Been Selected</h2><br>
+          <h2 class="ml-5 ml-sm-5 mb-5">Data is not available for current selected year</h2><br>
         @else
         @foreach ($students as $student)
         <div class="col-xs-12 col-sm-6 col-md-4">

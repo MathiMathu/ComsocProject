@@ -79,32 +79,31 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                  <ul class="navbar-nav  ml-auto">
-                    <li class="nav-item active" >
+                 <li class="nav-item active" >
                         <a class="nav-link" href="/" style="color:#ffffff;">Home</a>
                     </li>
                     <li class="nav-item" >
-                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Kananiyam</a>
+                        <a class="nav-link" href="aboutus" style="color:#ffffff;">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('events.index') }}" style="color:#ffffff;">Event</a>
+                        <a class="nav-link" href="/members" style="color:#ffffff;">Team</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Discussion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Seminar" style="color:#ffffff;">Seminar</a>
+                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Newsletter</a>
                     </li>
                     <li class="nav-item nav-item1">
-                        <a class="nav-link" href="/cspark" style="color:#ffffff;">Park</a>
+                        <a class="nav-link" href="/gallery" style="color:#ffffff;">Gallery</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">About</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">Events</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
-                            <a class="dropdown-item" href="/members" style="color:#ffffff;">Our Team</a>
-                            <a class="dropdown-item" href="/gallery" style="color:#ffffff;">Gallery</a>
-
+                            <a class="dropdown-item" href="{{ route('events.index') }}" style="color:#ffffff;">Upcoming Events</a>
+                            <a class="dropdown-item" href="#" style="color:#ffffff;">Previous Events</a>
+                            <a class="dropdown-item" href="/Seminar" style="color:#ffffff;">Seminars</a>
+                            <a class="dropdown-item" href="/festival" style="color:#ffffff;">Festivals</a>
+                            <a class="dropdown-item" href="/cspark" style="color:#ffffff;">Park</a>
                             <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial Support</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">About Us</a>
                         </div>
                     </li>
 
@@ -173,14 +172,14 @@
                     <li>Student should have sat and attained a minimum Grade Point Average (GPA) of 2.0 in the final examinations of courses adding up to a total of at least 18 credits at the particular Level in the previous year.
                     No disciplinary action should have been taken against the student.
                     </li>
-                    <li>SOnly courses considered for the final award of the programme will be taken for the calculation of GPA for the Bursary.
+                    <li>Some courses considered for the final award of the programme will be taken for the calculation of GPA for the Bursary.
                     </li>
                     <li> The gross family income of the student shall be less than Rs 500,000/= [Student shall submit a sworn statement that his/her family income is less than Rs. 500,000/=]</li>
-                    <li>The university from time to time may make necessary amendments to the criteria while abiding by the guidelines proposed in this document.</li>
+                    <li>The university from time to time may make necessary amendments to the criteria while abiding by the guidelines proposed in the document.</li>
                 </ul>
             </div>
             <div class="col-md-6">
-                <h4><b>How I Apply this Schoolership</b></h4>
+                <h4><b>How To Apply for Scholarship</b></h4>
                 <ul>
                     <li> How to Apply: For being considered for the award, applicants have to take admission in the undergraduate degree coursework at the university. After being enrolled, you can complete the application form and hand over to Grama Niladari of the division.</li>
                     <li>Supporting Documents: Students have to submit the acceptance letter along with a form and savings account details at any Bank of a student.
@@ -195,7 +194,7 @@
                     <li>Students chosen for the ordinary support will receive Rs.3900 per instalment.</li>
                 </ul>
 
-                <a href="finnancial_apply_now" class="btn btn-apply" >Apply Now</a>
+                <a href="finnancial_apply_now" class="btn btn-apply" >Apply For Financial support</a>
             </div>
         </div>
     </div>
@@ -228,13 +227,12 @@
             <div class="col-xs-6 col-md-2">
                 <h6>Quick Links</h6>
                 <ul class="footer-links" >
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Kananiyam</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Discussion</a></li>
-                    <li><a href="#">CS park</a></li>
-                    <li><a href="#">Financial Support</a></li>
+                   <li><a href="/">Home</a></li>
+                    <li><a href="aboutus">About</a></li>
+                    <li><a href="/members">Team</a></li>
+                    <li><a href="kananiyam">Newsletter</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="events">Events</a></li>
                 </ul>
             </div>
         </div>
@@ -250,7 +248,7 @@
 
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <ul class="social-icons">
-                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="facebook" href="https://m.facebook.com/uojcompsoc"><i class="fa fa-facebook"></i></a></li>
                     <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
                     <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
