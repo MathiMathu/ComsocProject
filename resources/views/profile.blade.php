@@ -1,7 +1,38 @@
-<HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <!--link style navibar and slider-->
+    
+
+
+   <!----------------------link google font for website name------------------------->
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Texturina:ital,wght@1,100&display=swap" rel="stylesheet">
+
+     <!----------------------link google font for body------------------------->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+	{{-- <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=v6HePCTnT6Z0HoRqAnrN84RI9LNaEztjACmbi70896NcVWOwpUEAV75w22zaJwFoGrU8UT_8Mu83kcORnkhBTK3YIIza3IvA4wicuw85IsMDzi7g_eBCL2M8sLlyv3B_puWdyO8Q6IjIxudA0qVwp6TPiAslUFASojXN3XnpgcDUIEjqJR759_IoCTZIMvSMvFUBHSbvj7ZRfvOEQhLiH0PTnvBd3w5hZsOu7EuaCjosZohatxu9mpHL96Dq6tbctI7hnUKs864AfPb08onoqdK7SvJTKdOd8YqttHzAQn-ksn5-VatlBQAnDtO-LPXmyiWNge7Xub1Vrj6swdAOsGbP3wtecStM0erT0py1lka_p9XdX4pumayu05MATm3MevONzOOLxRVQQLngZBStCxmDKww08DWuYxugAWOpSKR5T5qh6Od-nGbmhu08V08Aj-XObNTOo9JvsFJjMiZpRA" charset="UTF-8"></script></head> --}}
+
+    <!--link the font awesome/icons 4.7-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+       <!----------------------link google font for body------------------------->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
 <!------ Include the above in your HEAD tag ---------->
 <style>
 body{
@@ -117,51 +148,55 @@ body{
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="col-md-3 event-img">
+                        <div class="col-md-2 event-img">
                         @if(empty($a->profile))
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                        <img src="{{URL::asset('/image/default.jpg')}}" alt="profile Pic" height="200" width="200">
                         @else
                         <img src="{{asset('/storage/images/'.$a->profile)}}"/>
                         @endif
                         </div>
                     </div>
                   
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <div class="profile-head">
-                                    <h5>
+                                    <h1><b>
                                     {{ $a->name}}
-                                    </h5>
-                                    <h6>
-                                    {{ $a->profession}}
-                                    </h6>
+                                    </b>
+                                    </h1>
+                                   
                                     <p class="proile-rating"> <span></span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                 </li>
-                                <li class="nav-item">
+                             </ul>   
+                                <h4>
+                                    {{ $a->profession}}
+                                </h4>
+                                <!-- <li class="nav-item">
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                    </div>
+                    <!-- <div class="col-md-2">
+                    </div> -->
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-work">
                             <p>Profile</p>
                             @if($a->is_admin==0)
-                            <a class="nav-link" href="/home">Dashboard</a><br/>
+                            <a class="nav-link" href="/home">Dashboard</a>
                             @elseif($a->is_admin==1)
-                            <a class="nav-link" href="/admin">Dashboard</a><br/>
+                            <a class="nav-link" href="/admin">Dashboard</a>
                             @elseif($a->is_admin==2)
-                            <a class="nav-link" href="/treasurer">Dashboard</a><br/>
+                            <a class="nav-link" href="/treasurer">Dashboard</a>
                             @else
-                            <a class="nav-link" href="/editor">Dashboard</a><br/>
+                            <a class="nav-link" href="/editor">Dashboard</a>
                             @endif
-                            <a class="nav-link" href="{{ route('edit11', ['id' => $a->id]) }}">Edit Profile</a><br/>
+                            <a class="nav-link" href="{{ route('edit11', ['id' => $a->id]) }}">Edit Profile</a>
+                            <a class="nav-link" href="{{ route('changepassword1', ['id' => $a->id]) }}">Change Password</a>
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -192,7 +227,14 @@ body{
                                             </div>
                                         </div>
                         @endforeach
-                       
+                                       <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Profession</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <p> {{ $a->profession}} </p>  
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label>Phone</label>
@@ -201,14 +243,7 @@ body{
                                             <p> {{ $a->phone}} </p> 
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Profession</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                            <p> {{ $a->profession}} </p>  
-                                            </div>
-                                        </div>
+                                        
                             </div>
                         </div>
                     </div>

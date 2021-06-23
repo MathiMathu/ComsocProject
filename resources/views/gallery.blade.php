@@ -1,4 +1,4 @@
-<?php 
+<?php
 use Illuminate\Support\Str;
 ?>
 <!DOCTYPE html>
@@ -63,7 +63,7 @@ use Illuminate\Support\Str;
         background: #125688;
          color: white;
         }
-        .fa-linkedin {
+        .fa-linkedin:hover {
          background: #007bb5;
          color: white;
         }
@@ -231,7 +231,7 @@ use Illuminate\Support\Str;
 </head>
 <body>
     <!--navigation bar-->
-    <nav class="navbar navbar-expand-md navbar-light  sticky-top mt-3" style="background-color:#080624; color:#ffffff;">
+    <nav class="navbar navbar-expand-md navbar-light  sticky-top " style="background-color:#080624; color:#ffffff;">
         <div class="container-fluid">
             <h2 class="society-name " style="color:white; font-family: 'Texturina', serif;">CompSoc</h2>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -244,28 +244,27 @@ use Illuminate\Support\Str;
                         <a class="nav-link" href="/" style="color:#ffffff;">Home</a>
                     </li>
                     <li class="nav-item" >
-                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Kananiyam</a>
+                        <a class="nav-link" href="aboutus" style="color:#ffffff;">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('events.index') }}" style="color:#ffffff;">Event</a>
+                        <a class="nav-link" href="/members" style="color:#ffffff;">Team</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Discussion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Seminar" style="color:#ffffff;">Seminar</a>
+                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Newsletter</a>
                     </li>
                     <li class="nav-item nav-item1">
-                        <a class="nav-link" href="/cspark" style="color:#ffffff;">Park</a>
+                        <a class="nav-link" href="/gallery" style="color:#ffffff;">Gallery</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">About</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">Events</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
-                            <a class="dropdown-item" href="/members" style="color:#ffffff;">Our Team</a>
-                            <a class="dropdown-item" href="/gallery" style="color:#ffffff;">Gallery</a>
-
+                            <a class="dropdown-item" href="{{ route('events.index') }}" style="color:#ffffff;">Upcoming Events</a>
+                            <a class="dropdown-item" href="#" style="color:#ffffff;">Previous Events</a>
+                            <a class="dropdown-item" href="/Seminar" style="color:#ffffff;">Seminars</a>
+                            <a class="dropdown-item" href="/festival" style="color:#ffffff;">Festivals</a>
+                            <a class="dropdown-item" href="/cspark" style="color:#ffffff;">Park</a>
                             <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial Support</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">About Us</a>
                         </div>
                     </li>
 
@@ -281,7 +280,7 @@ use Illuminate\Support\Str;
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(empty(Auth::user()->profile))
-                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="10" height="10" class="rounded-circle">
+                                <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
                                 @else
                                  <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
                                 @endif
@@ -367,7 +366,7 @@ use Illuminate\Support\Str;
                          $length = strlen($file->filenames);
                          $a = (int)($length/20);
                          ?>
-                        <img class=" img-fluid" src="{{asset('/storage/gallery/'.$picture)}}"> 
+                        <img class=" img-fluid" src="{{asset('/storage/gallery/'.$picture)}}">
                             <span class="overlay">
                                 <h2>{{ $file->Event_Name }}</h2>
                                 <span><?php echo($a) ?></span>
@@ -406,13 +405,12 @@ use Illuminate\Support\Str;
             <div class="col-xs-6 col-md-2">
                 <h6>Quick Links</h6>
                 <ul class="footer-links" >
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Kananiyam</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Discussion</a></li>
-                    <li><a href="#">CS park</a></li>
-                    <li><a href="#">Financial Support</a></li>
+                <li><a href="/">Home</a></li>
+                    <li><a href="aboutus">About</a></li>
+                    <li><a href="/members">Team</a></li>
+                    <li><a href="kananiyam">Newsletter</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="events">Events</a></li>
                 </ul>
             </div>
         </div>
@@ -428,7 +426,7 @@ use Illuminate\Support\Str;
 
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <ul class="social-icons">
-                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="facebook" href="https://m.facebook.com/uojcompsoc"><i class="fa fa-facebook"></i></a></li>
                     <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
                     <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>

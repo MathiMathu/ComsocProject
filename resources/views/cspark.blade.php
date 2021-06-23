@@ -74,30 +74,31 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav  ml-auto">
-                    <li class="nav-item active" >
+                <li class="nav-item active" >
                         <a class="nav-link" href="/" style="color:#ffffff;">Home</a>
                     </li>
                     <li class="nav-item" >
-                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Kananiyam</a>
+                        <a class="nav-link" href="aboutus" style="color:#ffffff;">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('events.index') }}" style="color:#ffffff;">Event</a>
+                        <a class="nav-link" href="/members" style="color:#ffffff;">Team</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/Seminar" style="color:#ffffff;">Seminar</a>
+                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Newsletter</a>
                     </li>
                     <li class="nav-item nav-item1">
-                        <a class="nav-link" href="/cspark" style="color:#ffffff;">Park</a>
+                        <a class="nav-link" href="/gallery" style="color:#ffffff;">Gallery</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">About</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">Events</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
-                            <a class="dropdown-item" href="/members" style="color:#ffffff;">Our Team</a>
-                            <a class="dropdown-item" href="/gallery" style="color:#ffffff;">Gallery</a>
-
+                            <a class="dropdown-item" href="{{ route('events.index') }}" style="color:#ffffff;">Upcoming Events</a>
+                            <a class="dropdown-item" href="#" style="color:#ffffff;">Previous Events</a>
+                            <a class="dropdown-item" href="/Seminar" style="color:#ffffff;">Seminars</a>
+                            <a class="dropdown-item" href="/festival" style="color:#ffffff;">Festivals</a>
+                            <a class="dropdown-item" href="/cspark" style="color:#ffffff;">Park</a>
                             <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial Support</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">About Us</a>
                         </div>
                     </li>
 
@@ -150,9 +151,9 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="booking-cta text-center">
-							<h1 >CS Park</h1>
+							<h1 >CSC Park</h1>
 							<p >A park is an area of natural, semi-natural, or planted space set aside for human enjoyment and recreation or for the protection of wildlife or natural habitats.
-                                cs park is about  400 m to the inside from the faculty of science in the North Province of Sri Lanka. That was part of the department of computer science. Park consists of flowers, grassy areas, benches, soil, and trees. </p>
+                                csc park is about  400 m to the inside from the faculty of science in the North Province of Sri Lanka. That was part of the department of computer science. Park consists of flowers, grassy areas, benches, soil, and trees. </p>
 						</div>
 					</div>
 
@@ -160,7 +161,7 @@
                 <div class="row text-center">
                     <div class="col-md-12 booking-term">
                         <h5>Book Park</h5>
-                        <p><h6>you can book the park for your birthday celebration or welcome party or any function</h6></p>
+                        <p><h6>You can book the park for your birthday celebration or welcome party or any function</h6></p>
                     </div>
                 </div>
 

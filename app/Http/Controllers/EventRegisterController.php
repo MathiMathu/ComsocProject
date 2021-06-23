@@ -22,16 +22,17 @@ class EventRegisterController extends Controller
     }
     public function getDisplay($id){
         //$users = DB::select('select * from users where active = ?', [1]);
-        $users = DB::select('select date,event_name from events where id=?',[$id]);
+        $users = DB::select('select date,event_name,id from events where id=?',[$id]);
         //$users =Event::find($id);
  
        return view('register_now_form', ['users' => $users]);
      //return view('register_now_form',compact('users'));
 
     }
-    public function store(Request $request)
+    public function store30(Request $request)
     {
         $this->validate($request,[
+            'event_id' => ['string', 'max:255'],
             'event_name' => ['string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'regNo' => ['required', 'string','min:11','max:12', 'regex:/[A-Z]/'],
@@ -39,23 +40,37 @@ class EventRegisterController extends Controller
             'yos' => ['required', 'string', 'max:255']
             // 'message'  => ['string', 'max:255']
         ]);
-        if($request->regNo == Auth::user()->regNo)
-        {
-            $event_register = new Register;
+        
+        $students = DB::table('registers')
+        ->where([['event_id',$request->event_id],['email',$request->email]])
+        ->get();
+        
 
-            $event_register->event_name = $request->event_name;
-            $event_register->name = $request->name;
-            $event_register->regNo = $request->regNo;
-            $event_register->email = $request->email;
-            $event_register->yos = $request->yos;
-            $event_register->message = $request->message;
-            $event_register->save();
-            return redirect(route('events.index'));
+        if($request->regNo == Auth::user()->regNo && $request->email == Auth::user()->email)
+        {
+            if ($students->isEmpty())
+            {
+                $event_register = new Register;
+
+                $event_register->event_id = $request->event_id;
+                $event_register->event_name = $request->event_name;
+                $event_register->name = $request->name;
+                $event_register->regNo = $request->regNo;
+                $event_register->email = $request->email;
+                $event_register->yos = $request->yos;
+                $event_register->message = $request->message;
+                $event_register->save();
+                return redirect(route('events.index'));
+            }
+            else{
+                return redirect()->back()->withErrors("Already Registered");
+            }
+            
         }
        
         else
         {
-            return redirect()->back()->withErrors("Both registration number doesn't match");
+            return redirect()->back()->withErrors("Unmatched Details");
         }
         
         

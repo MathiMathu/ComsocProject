@@ -581,7 +581,7 @@ main {
           <!-- MAIN TITLE STARTS HERE -->
 
           <div class="main__title">
-            <img src="img/gallery/hello.svg" alt="" />
+          <img src="img/hello.svg" alt="" />
             <div class="main__greeting">
               <h1>Hello Editor</h1>
               <p>Welcome to your dashboard</p>
@@ -597,7 +597,7 @@ main {
               <i class="fa fa-book  fa-2x text-blue" aria-hidden="true"></i>
               <div class="card_inner">
                 <p class="text-primary-p">Articles Uploaded</p>
-                <span class="font-bold text-title">4</span>
+                <span class="font-bold text-title">{{ $number }}</span>
               </div>
             </div>
         </div>

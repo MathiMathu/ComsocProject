@@ -17,6 +17,7 @@ class CreateRegistersTable extends Migration
             $table->bigIncrements('id');
             // $table->unsignedBigInteger('event_id');
             // $table->foreign('event_id')->references('id')->on('events');
+            $table->string('event_id');
             $table->string('event_name');
             $table->string('name');
             $table->string('regNo');

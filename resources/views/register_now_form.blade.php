@@ -113,17 +113,18 @@ use Carbon\Carbon;
                                 <div class="col-lg-4 info">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <h4>Location:</h4>
-                                    <p>CUL1<br>Department of </p>
+                                    <p>CUL1<br>Department of Computer Science
+                                    <br>University of Jaffna</p>
                                 </div>
                                 <div class="col-lg-4 info mt-4 mt-lg-0">
                                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                     <h4>Email:</h4>
-                                    <p>info@example.com<br>contact@exampleomputer science.com</p>
+                                    <p>comsoc@univ.jfn.ac.lk</p>
                                 </div>
                                 <div class="col-lg-4 info mt-4 mt-lg-0">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                     <h4>Call:</h4>
-                                    <p><br></p>
+                                    <p>021 221 8194</p>
                                 </div>
                             </div>
                         </div>
@@ -132,10 +133,14 @@ use Carbon\Carbon;
 
                 <div class="row  justify-content-center">
                     <div class="col-lg-10">
-                    <form  class="register-now-form" action="{{ route('store') }}" method="POST">
+                    <form  class="register-now-form" action="{{ route('store30') }}" method="POST">
                         @csrf
                   <input type="hidden" id="event_name" name="event_name" value="{{$event->event_name}}">
+                  <input type="hidden" id="event_id" name="event_id" value="{{$event->id}}">
                   @endforeach 
+                             @if($errors->any())
+                              {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
+                             @endif
                            <div class="form-group row">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Enter name" required autocomplete="name" autofocus>
 
@@ -187,9 +192,7 @@ use Carbon\Carbon;
                             </div>
                              <div class="text-center"><button type="submit">Register</button></div>
                              <p></p>
-                             @if($errors->any())
-                              {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
-                             @endif
+                            
                         </form>
                     </div>
                 </div>

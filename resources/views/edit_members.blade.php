@@ -135,7 +135,9 @@ body {
 					</span>
 				</div>
                 <select class="form-control" name="role"  placeholder="Enter Role" value="{{$member->role}}" required="required">
-                                 <option value="" disabled selected>Enter Role</option>
+                                  <option value="" disabled selected>Enter Role</option>
+								  <option {{($member->role)=='Patron' ? 'selected' : ''}} value="Patron">Patron</option>
+                                  <option {{($member->role)=='Senior Treasurer' ? 'selected' : ''}} value="Senior Treasurer">Senior Treasurer</option>
                                   <option {{($member->role)=='President' ? 'selected' : ''}} value="President">President</option>
                                   <option {{($member->role)=='Secretary' ? 'selected' : ''}} value="Secretary">Secretary</option>
                                   <option {{($member->role)=='Junior Treasurer' ? 'selected' : ''}} value="Junior Treasurer">Junior Treasurer</option>

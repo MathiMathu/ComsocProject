@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Gallerie;
 use Illuminate\Support\Facades\DB; 
+use Illuminate\Database\QueryException;
 class FileController extends Controller
 {
     /**
@@ -25,30 +26,40 @@ class FileController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-                'filenames.*' => 'image',
+                'filenames.*' => 'image|mimes:jpeg,jpg,png,gif,svg|max:3000',
                 'Event_Name' => ['required', 'string', 'max:255'],
-                'description' => ['required', 'string', 'max:255'],
+                'description' => ['required', 'string', 'max:500'],
+                'date' => 'required'
         ]);
   
         $files = [];
-        if($request->hasfile('filenames'))
-         {
-            foreach($request->file('filenames') as $file)
+        
+        try{
+            if($request->hasfile('filenames'))
             {
-                $name = date('YmdHis').rand(11,99).'.'.$file->extension();
-                $file->storeAs('gallery',$name,'public');
-                // $file->storeAs('images', $name);
-                $files[] = $name;  
+               foreach($request->file('filenames') as $file)
+               {
+                   $name = date('YmdHis').rand(10,99).'.'.$file->extension();
+                   $file->storeAs('gallery',$name,'public');
+                   // $file->storeAs('images', $name);
+                   $files[] = $name;  
+               }
             }
-         }
-  
-         $file= new Gallerie();
-         $file->filenames = $files;
-         $file->Event_Name = $request->Event_Name;
-         $file->description = $request->description;
-         $file->save();
-  
-        return back()->with('success', 'Data Your files has been successfully added');
+     
+            $file= new Gallerie();
+            $file->filenames = $files;
+            $file->Event_Name = $request->Event_Name;
+            $file->description = $request->description;
+            $file->date = $request->date;
+            $file->save();
+        }
+       
+         catch (QueryException $exception) {
+            return redirect()->back()->withErrors("Cannot Upload more than 11 files ");
+        }
+        return redirect()->back()->withErrors('Images have been successfully added');
+                 
+        
     }
 
     public function view()
@@ -60,7 +71,7 @@ class FileController extends Controller
 
     public function album($id)
     {
-     $files = DB::select('select Event_Name,filenames,description from galleries where id=?',[$id]);
+     $files = DB::select('select Event_Name,filenames,description,date from galleries where id=?',[$id]);
         
  
      return view('photo_album', ['files' => $files]);

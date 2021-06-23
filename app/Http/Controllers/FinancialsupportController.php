@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Financialsupport;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 class FinancialsupportController extends Controller
 {
     
@@ -22,6 +23,18 @@ class FinancialsupportController extends Controller
     public function storeFinancialsupport(Request $request)
     {
 
+        $this->validate($request,[
+            
+            'Name' => ['required', 'string','regex:/[A-Z]/','regex:/^[a-zA-Z]+$/u', 'max:255'],
+            'RegistrationNo' => ['required', 'string','min:11','max:12', 'regex:/[A-Z]/'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            
+           
+        ]);
+    if($request->RegistrationNo == Auth::user()->regNo && $request->email == Auth::user()->email)
+     {
+        
+        
        $financialsupport_obj= new Financialsupport;
 
         $financialsupport_obj->RegistrationNo=$request->RegistrationNo;
@@ -37,7 +50,12 @@ class FinancialsupportController extends Controller
 
         $financialsupport_obj->save();
 
-        return redirect()->back();
+        return redirect()->back()->withErrors('Successful Registration');
+     }
+    else
+    {
+        return redirect()->back()->withErrors("Unmatched Details");
+    }  
        
     }
 

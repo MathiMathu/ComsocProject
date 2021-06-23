@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Album</title>
 
+    <link href="css/bootstrap.min.css"  href="{{asset('css/bootstrap.min.css') }}" rel="stylesheet" type='text/css' />
 	<link rel = "stylesheet" type = "text/css"  href="{{asset('css/footer.css') }}">
     <!--link style navibar and slider-->
     <link rel = "stylesheet" type = "text/css" href="{{asset('css/style.css') }}">
@@ -209,34 +210,34 @@ use Illuminate\Support\Str;
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav  ml-auto">
-                    <li class="nav-item active" >
+                <li class="nav-item active" >
                         <a class="nav-link" href="/" style="color:#ffffff;">Home</a>
                     </li>
                     <li class="nav-item" >
-                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Kananiyam</a>
+                        <a class="nav-link" href="aboutus" style="color:#ffffff;">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('events.index') }}" style="color:#ffffff;">Event</a>
+                        <a class="nav-link" href="/members" style="color:#ffffff;">Team</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#" style="color:#ffffff;">Discussion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Seminar" style="color:#ffffff;">Seminar</a>
+                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Newsletter</a>
                     </li>
                     <li class="nav-item nav-item1">
-                        <a class="nav-link" href="/cspark" style="color:#ffffff;">Park</a>
+                        <a class="nav-link" href="/gallery" style="color:#ffffff;">Gallery</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">About</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">Events</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
-                            <a class="dropdown-item" href="/members" style="color:#ffffff;">Our Team</a>
-                            <a class="dropdown-item" href="/gallery" style="color:#ffffff;">Gallery</a>
-
+                            <a class="dropdown-item" href="{{ route('events.index') }}" style="color:#ffffff;">Upcoming Events</a>
+                            <a class="dropdown-item" href="#" style="color:#ffffff;">Previous Events</a>
+                            <a class="dropdown-item" href="/Seminar" style="color:#ffffff;">Seminars</a>
+                            <a class="dropdown-item" href="/festival" style="color:#ffffff;">Festivals</a>
+                            <a class="dropdown-item" href="/cspark" style="color:#ffffff;">Park</a>
                             <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial Support</a>
-                            <a class="dropdown-item" href="aboutus" style="color:#ffffff;">About Us</a>
                         </div>
                     </li>
+
 
                      <li class="nav-item">
                     @guest
@@ -286,7 +287,12 @@ use Illuminate\Support\Str;
             <div class="event-title  mt-15" >
                 @foreach($files as $file)
                     <h2 class="event-heading" ><span>{{ $file->Event_Name}}</span></h2>
+
                     <p>{{ $file->description}}</p>
+
+                    <p>Date: {{ $file->date}}</p>
+                    <p style = "font-colour : black"><strong>{{ $file->description}}</strong></p>
+
                     <?php
                         $length = strlen($file->filenames);
                         $i =2;
@@ -350,6 +356,7 @@ use Illuminate\Support\Str;
               <div class="col-xs-6 col-md-2">
                   <h6>Quick Links</h6>
                   <ul class="footer-links" >
+
                       <li><a href="/">Home</a></li>
                       <li><a href="aboutus">About</a></li>
                       <li><a href="kananiyam">Kananiyam</a></li>
@@ -357,6 +364,14 @@ use Illuminate\Support\Str;
                       <li><a href="#">Festival</a></li>
                       <li><a href="cspark">CS park</a></li>
                       <li><a href="finnancial_suport">Financial Support</a></li>
+
+                    <li><a href="/">Home</a></li>
+                    <li><a href="aboutus">About</a></li>
+                    <li><a href="/members">Team</a></li>
+                    <li><a href="kananiyam">Newsletter</a></li>
+                    <li><a href="/gallery">Gallery</a></li>
+                    <li><a href="events">Events</a></li>
+
                   </ul>
               </div>
           </div>
@@ -372,7 +387,11 @@ use Illuminate\Support\Str;
 
                   <div class="col-md-4 col-sm-6 col-xs-12">
                       <ul class="social-icons">
+
                       <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+
+                      <li><a class="facebook" href="https://m.facebook.com/uojcompsoc"><i class="fa fa-facebook"></i></a></li>
+
                       <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                       <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
                       <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>

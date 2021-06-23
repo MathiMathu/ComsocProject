@@ -88,30 +88,31 @@
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav  ml-auto">
-                    <li class="nav-item active" >
+                <li class="nav-item active" >
                         <a class="nav-link" href="/" style="color:#ffffff;">Home</a>
                     </li>
                     <li class="nav-item" >
-                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Kananiyam</a>
+                        <a class="nav-link" href="aboutus" style="color:#ffffff;">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('events.index') }}" style="color:#ffffff;">Event</a>
+                        <a class="nav-link" href="/members" style="color:#ffffff;">Team</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/Seminar" style="color:#ffffff;">Seminar</a>
+                        <a class="nav-link" href="/kananiyam" style="color:#ffffff;">Newsletter</a>
                     </li>
                     <li class="nav-item nav-item1">
-                        <a class="nav-link" href="/cspark" style="color:#ffffff;">Park</a>
+                        <a class="nav-link" href="/gallery" style="color:#ffffff;">Gallery</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">About</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">Events</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
-                            <a class="dropdown-item" href="/members" style="color:#ffffff;">Our Team</a>
-                            <a class="dropdown-item" href="/gallery" style="color:#ffffff;">Gallery</a>
-
+                            <a class="dropdown-item" href="{{ route('events.index') }}" style="color:#ffffff;">Upcoming Events</a>
+                            <a class="dropdown-item" href="#" style="color:#ffffff;">Previous Events</a>
+                            <a class="dropdown-item" href="/Seminar" style="color:#ffffff;">Seminars</a>
+                            <a class="dropdown-item" href="/festival" style="color:#ffffff;">Festivals</a>
+                            <a class="dropdown-item" href="/cspark" style="color:#ffffff;">Park</a>
                             <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial Support</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">About Us</a>
                         </div>
                     </li>
 
@@ -127,7 +128,7 @@
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(empty(Auth::user()->profile))
-                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="10" height="10" class="rounded-circle">
+                                <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
                                 @else
                                  <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
                                 @endif
@@ -166,7 +167,7 @@
                         <hr class="divider my-4" />
                     </div>
                     <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">We are doing this for 10 years. We are doing seminars for school students from various cities for free.</p>
+                        <p class="text-white-75 font-weight-light mb-5">Conducting seminars to recap ICT subjects and past examination papers to those students who prepare to sit for the G.C.E (O/L) and G.C.E(A/L).It will be very helpful for the school students.Students will get wider knowledge.Volunteer students can apply to conduct seminars.</p>
                         <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Read More</a>
                         <a class="btn btn-primary btn-xl js-scroll-trigger" href="seminarregistration">Register Teach Them</a>
                     </div>
@@ -178,126 +179,155 @@
             <div class="container">
                 <div class="row justify-content-center about-seminar">
                     <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">About Seminar</h2>
+                        <h2 class="text-white mt-0">Past Seminars</h2>
                         <hr class="divider light my-4" />
-                        <p class="text-white-50 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque sequi delectus minus illum doloribus sapiente ducimus atque
-                             dignissimos facere molestias consectetur ipsum laborum iusto quidem alias, fuga voluptate esse? Tempore!</p>
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">MoreInfo</a>
+<table class="table table-bordered table-dark">
+</table>
+                        
+                        <p class="text-white-60 mb-5">The Computer Society (COMSOC) of the DCS has conducted four seminars to recap ICT subjects and past examination papers to those students who sat for the G.C.E. (A/L) in August 2018. The seminars were conducted on the following dates and venues:</p>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Services-->
-        <section class="page-section" id="services">
-            <div class="container">
-                <h2 class="text-center mt-0">At Seminars</h2>
-                <hr class="divider my-4" />
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-microphone text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Speakers</h3>
-                            <p class="text-muted mb-0">Speakers are our students</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Language</h3>
-                            <p class="text-muted mb-0">We conatct seminars in all three languages</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-utensils text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Refreshments</h3>
-                            <p class="text-muted mb-0">our compsoc is giving free refreshments for participating students</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 text-center">
-                        <div class="mt-5">
-                            <i class="fas fa-4x fa-chalkboard-teacher text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Methods of seminar</h3>
-                            <p class="text-muted mb-0">With interactive slides and other things</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <div class="row justify-content-center about-seminar">
+                <table class="table table-bordered table">
+  <thead>
+    <tr>
+      <th scope="col">Seminar</th>
+      <th scope="col">Date</th>
+      <th scope="col">Educational Zone</th>
+      <th scope="col">Centre</th>
+      <th scope="col">#Students</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>14/07/2018</td>
+      <td>Jaffna</td>
+      <td>DCS@UoJ</td>
+      <td>74</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>14/07/2018</td>
+      <td>Aralaganwila</td>
+      <td>Vilayaya Central College</td>
+      <td>20</td>
+    </tr>
+    <tr>
+    <th scope="row">3</th>
+      <td>15/07/2018</td>
+      <td>Mullaithivu</td>
+      <td>Puthukkudiyiruppu Central College</td>
+      <td>20</td>
+    </tr>
+    <tr>
+    <th scope="row">4</th>
+    <td>16/07/2018</td>
+      <td>Anuradhapura</td>
+      <td>Anuradhapura Central College</td>
+      <td>20</td>
+    </tr>
+  </tbody>
+</table>
+<p class="text-black-60 mb-5">The Computer Society (COMSOC) of the Department of Computer Science (DCS), University of Jaffna conducted two parallel workshop one in Mulliyavalai and another one in Polonnaruwa to recap ICT subjects and past examination papers to the G.C.E. (A/L) students. The workshop was held on 16th of July 2017 from 8.30 am to 4.30 pm in the following centres:<br>
+             <ol>
+                <li>Mullaithivu Educational Zone held in Vidyananda College, Mulliyavalai</li>
+                <li>Polonnaruwa Centre held in Vilayaya Central College</li>         
+            </ol></p>
+    </div> 
+    <div class="row justify-content-center about-seminar">
+<table class="table table-bordered table-dark">
+</table>  
+            <p class="text-black-60 mb-5">The Computer Society (COMSOC) of the Department of Computer Science (DCS), University of Jaffna conducted an Introductory Seminars on Website Development for School Students at the following schools in the year of 2012:<br>
+            <ol>[29/06/2012] Jaffna Zonal
+                <li>Jaffna Central College</li>
+                <li>Jaffna Hindu Ladies College</li>
+                <li>Puththoor Somaskanda Vidyalayam.</li>
+            </ol><br></br>
+            <ol>[02/07/2012] Valikaamam Zonal
+                <li>J/Manipay Hindu Ladies College</li>
+                <li>J/Vaddu Hindu College</li>
+                <li>J/Ramanathan Hindu Ladies College</li>
+                <li> J/Mallakam Maha Vidyalayam</li>
+            </ol><br></br>
+            <ol>[05-07-2012] Vadamaraadchi Zonal
+                <li>J/Nelliyadi Maththiya Maha Vidyalayam</li>
+                <li>J/Methodist Girls’ High School</li>
+                <li>J/Uduppiddi American Mission Girls College</li>
+            </ol><br></br>
+            <ol>[10/07/2012] Thenmaraadchi Zonal
+                <li>J/Kathaithady Muththukumarasuvamy Maha Vidyalayam</li>
+                <li>J/Chanvakachcheri Hindu College</li>
+                <li>J/Kodikamam Thirunavaukarasu Vidyalayam</li>
+            </ol><br></br>
+            <ol>[06-07-2012] Island Zonal
+                <li>J/Velanai Central College</li>
+                <li>J/St.Antoneys’ College, Kayts</li>
+                <li>J/Yarlton College, Karainagar</li>
+            </ol>
+        </p>
+        </div>
+
+<div class="row justify-content-center about-seminar">
+<table class="table table-bordered table-dark">
+</table>
+<p class="text-black-60 mb-5">The Computer Society (COMSOC) of the Department of Computer Science (DCS), University of Jaffna conducted Hands on Practical for School Teachers on Website development using Joomla in the following schools in the year of 2012:<br>
+      <ol>
+      <li>[31/07/2012] Puloly Computer Resource Center</li>
+      <li>[01/08/2012] Sanmarka Maha Vidyalayam</li> 
+      </ol>
+        </p>
+</div>
+<div class="row justify-content-center about-seminar">
+<table class="table table-bordered table-dark">
+</table>
+<p class="text-black-60 mb-5">The Computer Society (COMSOC) of the Department of Computer Science (DCS), University of Jaffna conducted Hands on Practical for School Students on Website development using Joomla in the following schools in the year of 2012:<br>
+      <ol>
+      <li>[06/08/2012] Velanai Computer Resource Center</li> 
+      <li>[07/08/2012] Puloly Computer Resource Center</li>  
+      <li>[08/08/2012] Inuvil Hindu College</li> 
+      <li>[08/08/2012] Chankanai Sivapirakasa Vidyalayam</li> 
+      <li>[09/08/2012] Jaffna Computer Resource Center</li>     
+      <li>[10/08/2012] Sanmarka Maha Vidyalayam</li>  
+      <li>[15/08/2012] Chavakachcheri Ladies College</li>     
+      <li>[15/08/2012] Kaithady Resource Center</li> 
+     </ol></p>
+ </div>           
+</div>
+ </section>
 
 			<!-- Photos Content -->
-	<div class="container page-section">
-
+	
 		<h1 class="font-weight-heavy text-center text-lg-Center mt-4 mb-0">Photos</h1>
 
 		<hr class="mt-2 mb-5">
 
 		<div class="inside-photo">
-            <div class="row text-center text-lg-left photos mt-2 mb-5">
-
-                <div class="col-lg-3 col-md-4 col-6">
-                    <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s1.jpg" alt="">
+            <div class="row text-center text-lg-left photos mt-1 mb-4">
+                <div class="col-lg-3 col-md-4 col-5">
+                    <a href="#" class="d-block mb-4 h-300">
+                    <img class="img-fluid img-thumbnail" src="img/seminar21 (2).jpg" alt="">
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-6">
+                <div class="col-lg-3 col-md-4 col-5">
                     <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s2.jpg" alt="">
-                    </a>
-                    </div>
-                <div class="col-lg-3 col-md-4 col-6">
-                    <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s3.jpg" alt="">
+                    <img class="img-fluid img-thumbnail" src="img/seminar21 (1).jpg" alt="">
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-6">
-                    <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s4.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6">
-                    <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s5.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6">
-                    <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s6.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6">
-                    <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s7.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6">
-                    <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s8.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6">
-                    <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s9.png" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6">
-                    <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s10.jpg" alt="">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4 col-6">
+                <div class="col-lg-3 col-md-4 col-5">
                     <a href="#" class="d-block mb-4 h-100">
                     <img class="img-fluid img-thumbnail" src="img/s11.jpg" alt="">
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4 col-6">
+                <div class="col-lg-3 col-md-4 col-5">
                     <a href="#" class="d-block mb-4 h-100">
-                    <img class="img-fluid img-thumbnail" src="img/s12.jpg" alt="">
+                    <img class="img-fluid img-thumbnail" src="img/s4.jpg"  alt="">
                     </a>
                 </div>
             </div>
         </div>
 
-	</div>
+	
 	<!-- /.container -->
         <!-- Footer-->
         <footer class="footer">
@@ -310,9 +340,9 @@
 
 
 
-		<script type = "text/javascript" src = "js/bootstrap.min.js "></script>
+		<!-- <script type = "text/javascript" src = "js/bootstrap.min.js "></script>
 		<script type = "text/javascript" src = "js/Jque.js "></script>
-		<script type = "text/javascript" src = "js/script.js "></script>
+		<script type = "text/javascript" src = "js/script.js "></script> -->
 
 	</body>
 </html>

@@ -74,17 +74,18 @@
                                 <div class="col-lg-4 info">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <h4>Location:</h4>
-                                    <p>University Of<br>Jaffna </p>
+                                    <p>CUL1<br>Department of Computer Science
+                                    <br>University of Jaffna</p>
                                 </div>
                                 <div class="col-lg-4 info mt-4 mt-lg-0">
                                     <i class="fa fa-envelope-o" aria-hidden="true"></i>
                                     <h4>Email:</h4>
-                                    <p>info@example.com<br>contact@exampleomputer science.com</p>
+                                    <p>comsoc@univ.jfn.ac.lk</p>
                                 </div>
                                 <div class="col-lg-4 info mt-4 mt-lg-0">
                                     <i class="fa fa-phone" aria-hidden="true"></i>
                                     <h4>Call:</h4>
-                                    <p><br></p>
+                                    <p>021 221 8194</p>
                                 </div>
                             </div>
                         </div>
@@ -169,12 +170,12 @@
 
                             <div class="form-group row">
                             <label for="is_register"> <h6 class="mb-0 text-sm">Action</h6></label>
-                            <select  class="form-control @error('venue') is-invalid @enderror" type="text" id="is_register" name="is_register" placeholder="Action" required="">
+                            <select  class="form-control @error('is_register') is-invalid @enderror" type="text" id="is_register" name="is_register" placeholder="Action" required="">
                                  <option value="" disabled selected></option>   
                                  <option value="0">No Need To Register</option>
                                  <option value="1">Need To Register</option>
 						    </select>
-                                @error('venue')
+                                @error('is_register')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

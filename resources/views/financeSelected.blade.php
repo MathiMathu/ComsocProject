@@ -93,6 +93,7 @@ body{
 				  </div>
 				</div>
                 </form>
+				<a href="/view_finance" class="btn btn-default">Back</a>
 			</div>
 		</div>
 	</div>

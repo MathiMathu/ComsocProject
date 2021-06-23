@@ -377,6 +377,7 @@ $(document).ready(function(){
                         <th>profile</th>
                         <th>Phone</th>
                         <th>Profession</th>
+                        <th>Action</th>
                      </tr>
                     </thead>
                     <tbody>
@@ -391,6 +392,7 @@ $(document).ready(function(){
                         <td><img src= "{{ asset('storage/images/'.$user->profile)}}" style="max-width:60px;"/></td>
                         <td>{{$user->phone}}</td>
                         <td>{{$user->profession}}</td>
+                        <td> <a href="{{ route('editpassword', ['id' => $user->id]) }}" class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a></td>
                     </tr>
                     @endforeach
                     </tbody>

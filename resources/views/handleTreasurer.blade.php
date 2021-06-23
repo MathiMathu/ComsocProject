@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>TREASURER DASHBOARD</title>
+    <title>JUNIOR TREASURER DASHBOARD</title>
     <style>
       .search {
           width: 100%;
@@ -551,7 +551,7 @@ main {
         </div>
         <div class="navbar__left">
 
-          <a class="active_link" href="#">Treasurer</a>
+          <a class="active_link" href="#">Junior Treasurer</a>
         </div>
         @foreach($userData as $a)
         <div class="navbar__right">
@@ -580,9 +580,9 @@ main {
           <!-- MAIN TITLE STARTS HERE -->
 
           <div class="main__title">
-            <img src="img/gallery/hello.svg" alt="" />
+          <img src="img/hello.svg" alt="" />
             <div class="main__greeting">
-              <h1>Hello Treasurer</h1>
+              <h1>Hello Junior Treasurer</h1>
               <p>Welcome to your dashboard</p>
             </div>
           </div>
@@ -596,10 +596,11 @@ main {
                 class="fa fa-user-o fa-2x text-lightblue"
                 aria-hidden="true"
               ></i>
+              
               <div class="card_inner">
                 <p class="text-primary-p">Number of Users For Finnancial Support</p>
-                <span class="font-bold text-title">5</span>
-              </div>
+                <span class="font-bold text-title">{{ $number }}</span>
+              </div> 
             </div>
         </div>
       </main>

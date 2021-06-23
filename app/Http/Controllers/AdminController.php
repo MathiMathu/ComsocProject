@@ -17,6 +17,10 @@ class AdminController extends Controller
         //->leftJoin('profiles', 'profiles.id','users.id')
         ->where('users.id',Auth::user()->id)
         ->get();
-        return view('admin')->with('userData', $userData);
+        $number1 = DB::table('users')->count();
+        $number2 = DB::table('events')->count();
+        $number3 = DB::table('seminars')->count();
+        $number4 = DB::table('csparks')->count();
+        return view('admin',compact('number1','number2','number3','number4'))->with('userData', $userData);
     } 
 }

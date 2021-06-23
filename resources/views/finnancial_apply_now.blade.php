@@ -18,15 +18,63 @@
 				<div class="agileits-top ">
 					<form method="post" action="saveFinancialsupport">
 					@csrf
+					    @if($errors->any())
+                        {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
+                        @endif
 						<input class="text" type="text" name="RegistrationNo" placeholder="Enter Registration No" required=""><br>
+						@error('RegistrationNo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 						<input class="text" type="text" name="Name" placeholder=" Enter Name" required=""><br>
+						@error('Name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 						<input class="text" type="text" name="MonthlyIncome" placeholder="Enter Monthly Income" required=""><br>
+						@error('MonthlyIncome')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 						<input class="text" type="text" name="NoOfSiblings" placeholder="Enter No Of Siblings" required=""><br>
+						@error('NoOfSiblings')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 						<input class="text" type="email" name="email" placeholder="Enter Email" required=""><br>
+						@error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 						<input class="text" type="text" name="FatherName" placeholder="Enter Father Name" required=""><br>
+						@error('FatherName')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 						<input class="text" type="text" name="FatherOccupation" placeholder="Enter Father Occupation" required=""><br>
+						@error('FatherOccupation')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 						<input class="text" type="text" name="MotherName" placeholder="Enter Mother Name" required=""><br>
+						@error('MotherName')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 						<input class="text" type="text" name="MotherOccupation" placeholder="Enter Mother Occupation" required=""><br>
+						@error('MotherOccupation')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
 						<input class="text" type="hidden" name="action">
 
 						<div class="wthree-text">
@@ -37,6 +85,7 @@
 							<div class="clear"> </div>
 						</div>
 						<input type="submit" value="Apply Now">
+						
 					</form>
 				</div>
 			</div>
