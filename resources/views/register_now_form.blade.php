@@ -38,7 +38,7 @@ use Carbon\Carbon;
     <header id="header" class="d-flex align-items-center">
         <div class="container d-flex flex-column align-items-center">
             <h1>Register Available</h1>
-            <h2>Register for improve your coding skills</h2>
+            <h2></h2>
             <div id="demo">
                 @foreach ($users as $event)
 
@@ -91,7 +91,7 @@ use Carbon\Carbon;
                     }
                     }, 1000);
                 </script>
-                
+
             </div>
         </div>
     </header>
@@ -135,7 +135,7 @@ use Carbon\Carbon;
                     <form  class="register-now-form" action="{{ route('store') }}" method="POST">
                         @csrf
                   <input type="hidden" id="event_name" name="event_name" value="{{$event->event_name}}">
-                  @endforeach 
+                  @endforeach
                            <div class="form-group row">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Enter name" required autocomplete="name" autofocus>
 
@@ -181,9 +181,9 @@ use Carbon\Carbon;
                                  <div class="validate"></div>
                             </div>
                             <div class="mb-3">
-                                <div class="loading">Loading</div>
+                                <div class="loading"></div>
                                 <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                                <div class="sent-message"></div>
                             </div>
                              <div class="text-center"><button type="submit">Register</button></div>
                              <p></p>

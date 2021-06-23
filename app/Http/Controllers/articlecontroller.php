@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Document;
 use Illuminate\Support\Facades\DB;
 
 class articlecontroller extends Controller
@@ -80,4 +81,9 @@ class articlecontroller extends Controller
             return response()->download($download);
 
     }
+    public function kananiyam(){
+
+        return view('kananiyam');
+    }
+
 }

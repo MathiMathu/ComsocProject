@@ -104,7 +104,7 @@
                             <a class="dropdown-item" href="/gallery" style="color:#ffffff;">Gallery</a>
 
                             <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial Support</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">About Us</a>
+                            <a class="dropdown-item" href="aboutus" style="color:#ffffff;">About Us</a>
                         </div>
                     </li>
 

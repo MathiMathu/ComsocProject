@@ -198,22 +198,17 @@
 	  <br>
 	  <div class="container-fluid">
         <div class="row">
+
           <div class="col-7">
             <fieldset id="randomForm" class="tm-bg-white-transparent" style = "padding : 5px">
 				<ul>
-				<li><a href = "Configuration Guide.pdf">2015 Kananiyam Article</a></li>
+				<li><a href = "view_past/">2017 Kananiyam Article</a></li>
 				<br>
-				<li><a href = "Configuration Guide.pdf">2016 Kananiyam Article</a></li>
-				<br>
-				<li><a href = "Configuration Guide.pdf">2017 Kananiyam Article</a></li>
-				<br>
-				<li><a href = "Configuration Guide.pdf">2018 Kananiyam Article</a></li>
-				<br>
-				<li><a href = "Configuration Guide.pdf">2019 Kananiyam Article</a></li>
-				<br>
-				<li><a href = "Configuration Guide.pdf">2020 Kananiyam Article</a></li>
+
+
 				</ul>
             </fieldset>
+           
           </div>
         </div>
 		<br>

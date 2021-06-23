@@ -621,7 +621,7 @@ use Carbon\Carbon;
             </div>
 
             <div class="text-center view-more">
-                <a href="#" class="btn btn-outline-secondary view-more mt-2 ">view more</a>
+                <a href="gallery" class="btn btn-outline-secondary view-more mt-2 ">view more</a>
             </div>
         </div>
     </section>

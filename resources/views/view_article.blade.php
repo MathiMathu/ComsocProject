@@ -274,6 +274,10 @@ $(document).ready(function(){
           <i class="fa fa-home"></i>
           <a href="/editor">Dashboard</a>
         </div>
+        {{-- <div class="sidebar__link">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <a href="/upload_past_kananiyam">Upload Past Kananiyam</a>
+          </div> --}}
         <div class="sidebar__logout">
           <i class="fa fa-power-off"></i>
           <a aria-pressed="true"  href="{{ route('logout') }}"
