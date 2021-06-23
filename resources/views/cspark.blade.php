@@ -17,6 +17,13 @@
 	<!-- Custom stlylesheet -->
 	<link type="text/css" rel="stylesheet" href="css/Bookstyle.css" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 {{-- <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=PSM6SYeL2Z_z_23UfaqJkrXhWiRxPYQ0HEi3YizBFeOrQJykV0TZdqkhhjBCQrM2vBx8YAnSgA4TGuGLadIbBPsWQxsFFk4qB1o4rbX_m-7CLOfEvHdCWEP_7Q1hCzXzkTcNnI2y8FtOCE_jFF7KgcZ1879SuBtxpIju_H87AP_EWzSATRC-4C6HSr--08WoGl99KVkqds2JUSqCglo-QMqmZlRMOzhcoAAAX3sceeliLkqaAP7Fo9lc3Dg97KceGgiTNW7ARvo1U5D6cX8lUE7An7GvfmZZKkDcB0aD2rnGWanSTTdQCa01mzuJtrYxwwxIPfNRwHTfS34SH5XN86mFf7QOCiJT7K2bcJNKIRRc1WKsZzXWWDIZttcxUCqpbIhSVWDrj58soOoTCEOLZOnWARcSPxzbdpKDp4taCGz21-bqIGqNk1Gjo-k0LSvuhRIDru800yzCeE3OlSOQiQ" charset="UTF-8"></script></head> --}}
 <style>
     body{
@@ -118,7 +125,7 @@
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(empty(Auth::user()->profile))
-                                 <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="10" height="10" class="rounded-circle">
+                                <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
                                 @else
                                  <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
                                 @endif

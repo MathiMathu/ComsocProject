@@ -50,7 +50,9 @@
                       @endfor
                   </select>
                   <!-- <span class="select-arrow"></span> -->
-                  <button type="submit" class="btn btn-primary" style="color : #1100ff;"></button>
+                 <div class="text-center">
+                    <button type="submit" class="btn btn-primary " style="color : #1100ff; margin-top:10px;">Enter</button>
+                 </div>
                 </form>
                 <div>
 

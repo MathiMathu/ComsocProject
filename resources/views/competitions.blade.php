@@ -11,13 +11,19 @@
     <link rel="stylesheet" href="css/style1.css">
 
     <title>Competition Details</title>
+    <style>
+        .row{
+            margin: 5px;
+        }
+
+    </style>
 </head>
 
 <body style = "background-color: darkblue;">
 
 <div class="row vr-gallery">
         <div>
-            <div class="row">
+            <div class="row " >
                 <div class="col-md-12 col-lg-7 pr-0 pd-md">
                     <img src="images/winnerslist.jpg" alt="" height="350px">
                 </div>
@@ -53,7 +59,7 @@
                     <br>
                     <b>
                     "You don't take photographs, You Make it"
-                   
+
                     </b>
                     </p>
                 </div>
@@ -61,13 +67,13 @@
         </div>
     </div>
 
-  
-
-    
-    
 
 
-    
+
+
+
+
+
 
 
     <script src="js/jquery-1.12.0.min.js"></script>
@@ -75,5 +81,6 @@
     <script src="js/main.js"></script>
 
 </body>
+
 
 </html>

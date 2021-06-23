@@ -1,10 +1,10 @@
 <?php
-  
+
 namespace App\Http\Controllers;
-  
+
 use Illuminate\Http\Request;
 use App\Models\Gallerie;
-use Illuminate\Support\Facades\DB; 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\QueryException;
 class FileController extends Controller
 {
@@ -17,7 +17,7 @@ class FileController extends Controller
     {
         return view('create');
     }
-  
+
     /**
      * Show the application dashboard.
      *
@@ -31,9 +31,9 @@ class FileController extends Controller
                 'description' => ['required', 'string', 'max:500'],
                 'date' => 'required'
         ]);
-  
+
         $files = [];
-        
+
         try{
             if($request->hasfile('filenames'))
             {
@@ -42,10 +42,10 @@ class FileController extends Controller
                    $name = date('YmdHis').rand(10,99).'.'.$file->extension();
                    $file->storeAs('gallery',$name,'public');
                    // $file->storeAs('images', $name);
-                   $files[] = $name;  
+                   $files[] = $name;
                }
             }
-     
+
             $file= new Gallerie();
             $file->filenames = $files;
             $file->Event_Name = $request->Event_Name;
@@ -53,27 +53,27 @@ class FileController extends Controller
             $file->date = $request->date;
             $file->save();
         }
-       
+
          catch (QueryException $exception) {
             return redirect()->back()->withErrors("Cannot Upload more than 11 files ");
         }
         return redirect()->back()->withErrors('Images have been successfully added');
-                 
-        
+
+
     }
 
     public function view()
     {
         $files = Gallerie::all();
-        
+
         return view('gallery',compact('files'));
     }
 
     public function album($id)
     {
      $files = DB::select('select Event_Name,filenames,description,date from galleries where id=?',[$id]);
-        
- 
+
+
      return view('photo_album', ['files' => $files]);
     }
 

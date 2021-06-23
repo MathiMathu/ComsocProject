@@ -263,9 +263,10 @@ Route::group(['middleware' => ['auth', 'editor']], function(){
     Route::get('/upload_past_kananiyam', [App\Http\Controllers\DocumentController::class, 'index'])->name('index');
 
 
-Route::get('/view_festival/{id}', [App\Http\Controllers\FestivalController::class, 'gallery'])->name('gallery');
+
 
 });
+Route::get('/view_festival/{id}', [App\Http\Controllers\FestivalController::class, 'gallery'])->name('gallery');
 
 
 

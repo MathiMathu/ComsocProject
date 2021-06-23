@@ -19,7 +19,7 @@ body {
 	color: #fff;
 	background: #000000;
 	font-family: 'Roboto', sans-serif;
-    overflow: hidden;
+    
 }
 .form-control {
 	font-size: 15px;

@@ -11,6 +11,11 @@
     <link rel="stylesheet" href="css/style1.css">
 
     <title>UoJCoders Details</title>
+    <style>
+        .row{
+            margin:5px;
+        }
+    </style>
 </head>
 
 <body>

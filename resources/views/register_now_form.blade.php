@@ -136,15 +136,7 @@ use Carbon\Carbon;
                     <form  class="register-now-form" action="{{ route('store30') }}" method="POST">
                         @csrf
                   <input type="hidden" id="event_name" name="event_name" value="{{$event->event_name}}">
-
-                  <input type="hidden" id="event_id" name="event_id" value="{{$event->id}}">
                   @endforeach
-                             @if($errors->any())
-                              {!! implode('', $errors->all('<div class="text-center"><button type="button" class="btn btn-danger">:message</button></div>')) !!}
-                             @endif
-
-                  @endforeach
-
                            <div class="form-group row">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Enter name" required autocomplete="name" autofocus>
 

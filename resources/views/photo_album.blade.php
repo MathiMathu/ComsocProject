@@ -288,7 +288,7 @@ use Illuminate\Support\Str;
                 @foreach($files as $file)
                     <h2 class="event-heading" ><span>{{ $file->Event_Name}}</span></h2>
 
-                    <p>{{ $file->description}}</p>
+
 
                     <p>Date: {{ $file->date}}</p>
                     <p style = "font-colour : black"><strong>{{ $file->description}}</strong></p>

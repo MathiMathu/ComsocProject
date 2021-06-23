@@ -16,6 +16,9 @@
         .inside-page h1, .inside-page h3{
             color: white;
         }
+        img{
+            height:200px;
+        }
         .images img{
             width: 80% !important;
         }
@@ -56,7 +59,7 @@
                 <div class="row text-center">
                     <div class="col-md-12">
                         <?php foreach (json_decode($images->filename)as $picture) { ?>
-                            <img src="{{ asset('/image/'.$picture) }}" style="height:auto; width:50%; margin: 5px; " class="img-fluid text-center" /><br>
+                            <img src="{{ asset('/image/'.$picture) }}" style="height:500px; width:50%; margin: 5px; " class="img-fluid text-center" /><br>
                            <?php } ?>
                     </div>
                 </div>
