@@ -93,7 +93,7 @@
     <!--navigation bar-->
     <nav class="navbar navbar-expand-md navbar-light  sticky-top " style="background-color:#080624; color:#ffffff;">
         <div class="container-fluid">
-          
+
             <h2 class="society-name " style="color:white; font-family: 'Texturina', serif;">CompSoc</h2>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
