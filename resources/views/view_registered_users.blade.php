@@ -397,6 +397,9 @@ $(document).ready(function(){
                         <td>{{$user->phone}}</td>
                         <td>{{$user->profession}}</td>
                         <td> <a href="{{ route('editpassword', ['id' => $user->id]) }}" class="edit" title="Edit"><i class="material-icons">&#xE254;</i></a></td>
+                        @if($user->is_admin == 0 )
+                        <td><a href="{{ route('deletepassword', ['id' => $user->id]) }}" class="delete" title="Delete"><i class="material-icons">&#xE872;</i></a></td>
+                        @endif
                     </tr>
                     @endforeach
                     </tbody>

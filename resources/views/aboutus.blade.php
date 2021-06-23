@@ -39,7 +39,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">Events</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
                             <a class="dropdown-item" href="{{ route('events.index') }}" style="color:#ffffff;">Upcoming Events</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">Previous Events</a>
+                            <a class="dropdown-item" href="/previousevents" style="color:#ffffff;">Previous Events</a>
                             <a class="dropdown-item" href="/Seminar" style="color:#ffffff;">Seminars</a>
                             <a class="dropdown-item" href="/festival" style="color:#ffffff;">Festivals</a>
                             <a class="dropdown-item" href="/cspark" style="color:#ffffff;">Park</a>
@@ -56,12 +56,20 @@
                             @endif
 
                         @else
-                            <li class="nav-item dropdown">
+                        <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                @if(empty(Auth::user()->profile))
+                                <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
+                                @else
+                                 <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
+                                @endif
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" aria-pressed="true"  href="/profile/{id}">
+                                        <b>
+                                        Profile
+                                        </b>
+                                    </a>
                                     <a class="dropdown-item" aria-pressed="true"  href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

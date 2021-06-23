@@ -260,7 +260,7 @@ use Illuminate\Support\Str;
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">Events</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
                             <a class="dropdown-item" href="{{ route('events.index') }}" style="color:#ffffff;">Upcoming Events</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">Previous Events</a>
+                            <a class="dropdown-item" href="/previousevents" style="color:#ffffff;">Previous Events</a>
                             <a class="dropdown-item" href="/Seminar" style="color:#ffffff;">Seminars</a>
                             <a class="dropdown-item" href="/festival" style="color:#ffffff;">Festivals</a>
                             <a class="dropdown-item" href="/cspark" style="color:#ffffff;">Park</a>
@@ -342,20 +342,6 @@ use Illuminate\Support\Str;
                             <span class="overlay">
                                 <h2>Building</h2>
                                 <span>28 Photos</span>
-                            </span>
-                        </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album6.jpg" alt="">
-                            <span class="overlay">
-                                <h2>People 2</h2>
-                                <span>17 Photos</span>
-                            </span>
-                        </a>
-                        <a class="gallery-item" href="photo_album">
-                            <img src="img/gallery/album7.jpg" alt="">
-                            <span class="overlay">
-                                <h2>Beach</h2>
-                                <span>34 Photos</span>
                             </span>
                         </a>
                         @foreach ($files as $file)

@@ -51,9 +51,21 @@ Route::get('/d', function () {
          return view('demo');
     });
 
-
-
-
+Route::get('/previousevents', function () {
+        return view('previousevents');
+});
+Route::get('/techtalk', function () {
+    return view('techtalk');
+});
+Route::get('/uojcoders', function () {
+    return view('uojcoders');
+});
+Route::get('/webinar', function () {
+    return view('webinar');
+});
+Route::get('/competitions', function () {
+    return view('competitions');
+});
 Route::post('/register_now_form',[App\Http\Controllers\EventRegisterController::class, 'store30'])->name('store30');
 
 
@@ -201,7 +213,7 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::post('/upload_data', [App\Http\Controllers\FestivalController::class, 'store100'])->name('store100');
 
     Route::get('/delete_images/{id}',[App\Http\Controllers\FestivalController::class,'delete1'])->name('delete1');
-
+    Route::get('/deletepassword/{id}',[PasswordController::class,'deletepassword'])->name('deletepassword');
 });
 
 
