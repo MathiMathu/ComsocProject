@@ -68,4 +68,12 @@ class PasswordController extends Controller
         $user->save();
         return redirect()->route('index21');
     }
+
+    public function deletepassword($id)
+    {
+        $users = User::find($id);
+        $users->delete();
+
+        return redirect()->route('index21');
+    }
 }

@@ -108,7 +108,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff; ">Events</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#080624;">
                             <a class="dropdown-item" href="{{ route('events.index') }}" style="color:#ffffff;">Upcoming Events</a>
-                            <a class="dropdown-item" href="#" style="color:#ffffff;">Previous Events</a>
+                            <a class="dropdown-item" href="/previousevents" style="color:#ffffff;">Previous Events</a>
                             <a class="dropdown-item" href="/Seminar" style="color:#ffffff;">Seminars</a>
                             <a class="dropdown-item" href="/festival" style="color:#ffffff;">Festivals</a>
                             <a class="dropdown-item" href="/cspark" style="color:#ffffff;">Park</a>
