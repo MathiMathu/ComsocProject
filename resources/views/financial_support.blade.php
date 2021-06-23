@@ -104,6 +104,8 @@
                             <a class="dropdown-item" href="/festival" style="color:#ffffff;">Festivals</a>
                             <a class="dropdown-item" href="/cspark" style="color:#ffffff;">Park</a>
                             <a class="dropdown-item" href="/financial_support" style="color:#ffffff;">Financial Support</a>
+
+                            <a class="dropdown-item" href="aboutus" style="color:#ffffff;">About Us</a>
                         </div>
                     </li>
 

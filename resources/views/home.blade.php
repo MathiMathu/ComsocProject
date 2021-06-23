@@ -138,24 +138,30 @@
                             @endif
 
                         @else
+                            @if(empty(Auth::user()->approved_at))
+                            <li class="nav-item">
+                                <a href="{{ route('login') }}" class="btn" aria-pressed="true" style="color:#ffffff;">{{ __('Login') }}</a>
+                            </li>
+
+                            @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" aria-pressed="true" style="color:#ffffff;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(empty(Auth::user()->profile))
                                 <i class="fa fa-user-circle-o fa-lg" aria-hidden="true"></i>
                                 @else
-                                 <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
+                                <img src="{{asset('/storage/images/'.Auth::user()->profile)}}" width="20" height="20" class="rounded-circle">
                                 @endif
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                   <a class="dropdown-item" aria-pressed="true"  href="/profile/{id}">
+                                <a class="dropdown-item" aria-pressed="true"  href="/profile/{id}">
                                         <b>
                                         Profile
                                         </b>
                                     </a>
                                     <a class="dropdown-item" aria-pressed="true"  href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                                     <b>
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                                    <b>
                                         {{ __('Logout') }}
                                         </b>
                                     </a>
@@ -165,6 +171,8 @@
                                     </form>
                                 </div>
                             </li>
+
+                            @endif
                         @endguest
                     </li>
                 </ul>

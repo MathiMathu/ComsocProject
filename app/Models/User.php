@@ -21,7 +21,9 @@ class User extends Authenticatable
         'regNo',
         'email',
         'password',
-        
+        'is_admin',
+        'approved_at'
+
     ];
 
     /**

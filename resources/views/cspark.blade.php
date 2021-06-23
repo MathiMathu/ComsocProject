@@ -62,6 +62,10 @@
          .navbar-toggler{
              color:#03fce3;
          }
+         .error-message{
+             color: red !important;
+             font-size: 20px;
+         }
 </style>
 <body>
     <!--navigation bar-->
@@ -164,7 +168,24 @@
                         <p><h6>You can book the park for your birthday celebration or welcome party or any function</h6></p>
                     </div>
                 </div>
+                <div class="errors">
+                    @if (count($errors) > 0)
+                        <div class="alert alert-danger">
+                            <strong>Sorry !</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                     @endforeach
+                                 </ul>
+                         </div>
+                     @endif
 
+                @if(session('success'))
+                <div class="alert alert-danger error-message">
+                    {{ session('success') }}
+                </div>
+                @endif
+        </div>
 
                 <div class="row text-center">
                         <div class="col-md-12 col-md-offset-1 form-cspark text-center">

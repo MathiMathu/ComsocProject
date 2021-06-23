@@ -158,7 +158,7 @@
               </div>
               <div class="tm-portfolio-description">
                 <p class="mb-0">
-                  The latest technology news about the world's best (and sometimes worst) hardware and software. Trending news about the technology are included. 
+                  The latest technology news about the world's best (and sometimes worst) hardware and software. Trending news about the technology are included.
 
                 </p>
               </div>
@@ -198,6 +198,7 @@
 	  <br>
 	  <div class="container-fluid">
         <div class="row">
+
           <div class="col-7">
             <fieldset id="randomForm" class="tm-bg-white-transparent" style = "padding : 5px">
 				<ul>
@@ -208,12 +209,13 @@
 				<li><a href = "img/kananiyam2014.pdf">2014 Kananiyam Article</a></li>
 				<br>
 				<li><a href = "Configuration Guide.pdf">2018 Kananiyam Article</a></li>
+				<li><a href = "view_past/">2017 Kananiyam Article</a></li>
 				<br>
-				<li><a href = "Configuration Guide.pdf">2019 Kananiyam Article</a></li>
-				<br>
-				<li><a href = "Configuration Guide.pdf">2020 Kananiyam Article</a></li>
+
+
 				</ul>
             </fieldset>
+
           </div>
         </div>
 		<br>

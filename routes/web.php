@@ -20,6 +20,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\Password1Controller;
 use App\Http\Controllers\FestivalController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,10 +119,13 @@ Route::post("saveCspark",[CsparkController::class, "storeCspark"]);
 Route::get('/kananiyam', function () {
     return view('kananiyam');
 });
+
 // Route::get('/festival', function () {
 //     return view('festival');
 // });
 // Route::get('/festivalgallery'.'App\Http\Controllers\FestivalController@index');
+// Route::get('/kananiyam', [App\Http\Controllers\articlecontroller::class, 'kananiyam'])->name('kananiyam');
+
 
 Route::get('/festival', [App\Http\Controllers\FestivalController::class, 'festival'])->name('festival');
 
@@ -137,6 +141,18 @@ Route::get('/add_kananiyam', function () {
 Route::post('/add_article', 'App\Http\Controllers\articlecontroller@article');
 Route::get('/download1/{id}',[App\Http\Controllers\EventController::class,'downloadFlyer'])->name('downloadFlyer');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/approval', [App\Http\Controllers\HomeController::class,'approval'])->name('approval');
+
+    Route::middleware(['approved'])->group(function () {
+        Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+    });
+
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/users', [App\Http\Controllers\UserController::class,'index'])->name('admin.users.index');
+        Route::get('/users/{user_id}/approve', [App\Http\Controllers\UserController::class,'approve'])->name('admin.users.approve');
+    });
+});
 
 Route::group(['middleware' => ['auth', 'admin']], function(){
     Route::get('/admin',[App\Http\Controllers\AdminController::class, 'handleAdmin'])->name('admin.route');
@@ -183,7 +199,7 @@ Route::group(['middleware' => ['auth', 'admin']], function(){
         return view('add_festival_image');
     });
     Route::post('/upload_data', [App\Http\Controllers\FestivalController::class, 'store100'])->name('store100');
-    
+
     Route::get('/delete_images/{id}',[App\Http\Controllers\FestivalController::class,'delete1'])->name('delete1');
 
 });
@@ -231,8 +247,16 @@ Route::group(['middleware' => ['auth', 'editor']], function(){
     Route::patch('/update10/{id}',[App\Http\Controllers\articlecontroller::class,'update10'])->name('update10');
     Route::get('/download/{id}',[App\Http\Controllers\articlecontroller::class,'downloadAudiobook'])->name('downloadAudiobook');
 
+    Route::post('/save_past_kananiyam', [App\Http\Controllers\DocumentController::class, 'store'])->name('store');
+    Route::get('/upload_past_kananiyam', [App\Http\Controllers\DocumentController::class, 'index'])->name('index');
+
+
+Route::get('/view_festival/{id}', [App\Http\Controllers\FestivalController::class, 'gallery'])->name('gallery');
+
 });
 
-Route::get('/view_festival/{id}', [App\Http\Controllers\FestivalController::class, 'gallery'])->name('gallery');   
+
+
+
 
 ?>
