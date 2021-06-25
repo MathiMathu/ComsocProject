@@ -90,8 +90,8 @@ class MemberController extends Controller
         if($request->hasFile('image_name')) {
             $image = $request->file('image_name');
             $filename = $image->getClientOriginalName();
-            $image->move(public_path('images/services'), $filename);
             $member->image_name = $filename;
+            $request->image_name->storeAs('images',$filename,'public');
         }
 
 

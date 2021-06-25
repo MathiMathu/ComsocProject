@@ -55,7 +55,7 @@ class FileController extends Controller
         }
 
          catch (QueryException $exception) {
-            return redirect()->back()->withErrors("Cannot Upload more than 11 files ");
+            return redirect()->back()->withErrors("Cannot Upload more files ");
         }
         return redirect()->back()->withErrors('Images have been successfully added');
 
