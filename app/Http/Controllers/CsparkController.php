@@ -36,7 +36,7 @@ class CsparkController extends Controller
         ])->first();
 
         if ($website_info != null) {
-            return back()->with('success','Sorry..! Park Already Booked');
+            return back()->with('success','Sorry..!The Park is Already Booked');
         } else {
             $cspark_obj->save();
             return redirect()->back();
